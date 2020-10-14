@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import Result from "./components/Result";
+import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
       <Navbar />
       <Header />
       <Search />
-      <Result />
+      <CardList />
       <Footer />
     </div>
   );

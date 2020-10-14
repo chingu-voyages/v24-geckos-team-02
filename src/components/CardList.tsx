@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
 
-export default function Result() {
+export default function CardList() {
   return <Card />;
 }
