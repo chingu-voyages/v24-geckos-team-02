@@ -1,4 +1,4 @@
 # v24-geckos-team-02
-Bookfinder | Voyage-24 | https://chingu.io/
+BookPlus | Voyage-24 | https://chingu.io/
 
 
