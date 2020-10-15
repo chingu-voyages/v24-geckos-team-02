@@ -1,7 +1,7 @@
 import React from "react";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
-export function Card(props) {
+export default function Card(props) {
   return (
     <div className="card">
       <img
