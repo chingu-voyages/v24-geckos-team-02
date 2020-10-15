@@ -1,10 +1,11 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-export default function Search() {
+export default function Search({ handleSubmit, error }) {
   return (
     <div id="search-section">
-      <SearchBar />
+      <SearchBar handleSubmit={handleSubmit} />
+      <div>{error && error}</div>
     </div>
   );
 }
