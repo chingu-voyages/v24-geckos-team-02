@@ -19,14 +19,33 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
+  font-family: inter;
+  background-color: rgb(220, 220, 220);
 }
 
 nav .logo {
   color: #206DB1;
   font-size: 30px;
+  font-weight: 700;
   font-family: 'Concert One', cursive;
+  text-transform: uppercase;
 }
 
 nav span {
   color: #34AAE6;
+}
+
+nav .nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 32%;
+}
+
+nav .nav-links a {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+nav .nav-links a:hover {
+  border-bottom: 1px solid #206DB1;
 }
