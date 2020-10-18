@@ -10,14 +10,15 @@ import useBookSearch from "./hooks/useBookSearch";
 export default function App() {
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
-  const { books, error } = useBookSearch(query, pageNumber);
+  const { books, error, isLastPage } = useBookSearch(query, pageNumber);
   const handleSubmit = (e, searchTerm) => {
     e.preventDefault();
     setQuery(searchTerm);
+    setPageNumber(1);
   };
 
   //'books' has search results
-  console.log(books);
+  console.log(books, pageNumber, isLastPage);
 
   return (
     <div className="App">
@@ -25,7 +26,18 @@ export default function App() {
       <Header />
       <Search handleSubmit={handleSubmit} error={error} />
       <CardList />
-      <button onClick={() => setPageNumber((prevPageNo) => prevPageNo + 1)}>More</button>
+      <button
+        onClick={() => {
+          /*
+          More data is requested only if the current page isn't the last page.
+          */
+          if (!isLastPage) {
+            return setPageNumber((prevPageNo) => prevPageNo + 1);
+          }
+        }}
+      >
+        More
+      </button>
       <Footer />
     </div>
   );

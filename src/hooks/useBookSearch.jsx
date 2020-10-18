@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useBookSearch(query, pageNumber) {
+  const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
+  const [isLastPage, setIsLastPage] = useState(false);
   useEffect(() => {
     if (query === "") {
       setError("Please enter a search term");
@@ -12,16 +14,26 @@ export default function useBookSearch(query, pageNumber) {
         method: "GET",
         url: `https://www.googleapis.com/books/v1/volumes`,
         params: {
-          maxResults: 40,
+          maxResults: noOfCardsPerPage,
           q: query,
-          startIndex: (pageNumber - 1) * 40,
+          startIndex: (pageNumber - 1) * noOfCardsPerPage,
         },
       })
         .then((res) => {
+          console.log(res.data);
           setBooks((prevBooks) => {
-            return [...prevBooks, ...res.data.items];
+            if (pageNumber === 1) {
+              return res.data.items;
+            } else {
+              return [...prevBooks, ...res.data.items];
+            }
           });
-          if (res.data.totalItems === 0) {
+          if (res.data.totalItems > pageNumber * noOfCardsPerPage) {
+            setIsLastPage(false);
+          } else {
+            setIsLastPage(true);
+          }
+          if (res.data.totalItems === 0 && pageNumber === 1) {
             setError("No Items found!");
           } else {
             setError("");
@@ -33,5 +45,5 @@ export default function useBookSearch(query, pageNumber) {
     }
   }, [query, pageNumber]);
 
-  return { error, books };
+  return { error, books, isLastPage };
 }
