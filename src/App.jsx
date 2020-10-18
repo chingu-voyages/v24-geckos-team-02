@@ -5,39 +5,18 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import CardList from "./components/CardList";
 import Footer from "./components/Footer";
-import axios from "axios";
+import useBookSearch from "./hooks/useBookSearch";
 
 export default function App() {
-  const [books, setBooks] = useState([]);
-  const [error, setError] = useState("");
+  const [query, setQuery] = useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+  const { books, error } = useBookSearch(query, pageNumber);
   const handleSubmit = (e, searchTerm) => {
     e.preventDefault();
-    if (searchTerm === "") {
-      setError("Please enter a search term");
-    } else {
-      axios({
-        method: "GET",
-        url: `https://www.googleapis.com/books/v1/volumes`,
-        params: {
-          maxResults: 40,
-          q: searchTerm,
-        },
-      })
-        .then((res) => {
-          setBooks(res.data.items);
-          if (res.data.totalItems === 0) {
-            setError("No Items found!");
-          } else {
-            setError("");
-          }
-        })
-        .catch((err) => {
-          setError(err.message);
-        });
-    }
+    setQuery(searchTerm);
   };
 
-  //'books' has the search results
+  //'books' has search results
   console.log(books);
 
   return (
@@ -46,6 +25,7 @@ export default function App() {
       <Header />
       <Search handleSubmit={handleSubmit} error={error} />
       <CardList />
+      <button onClick={() => setPageNumber((prevPageNo) => prevPageNo + 1)}>More</button>
       <Footer />
     </div>
   );
