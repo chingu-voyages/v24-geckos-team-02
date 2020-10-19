@@ -9,7 +9,7 @@ export default function useBookSearch(query, pageNumber) {
 
   useEffect(() => {
     if (query === undefined) {
-      setError(""); //Display no error on first load
+      setError(""); //Display no error on first page load
     } else if (query === "") {
       setError("Please enter a search term");
     } else {
