@@ -6,10 +6,10 @@ export default function Navbar() {
     <nav>
       <div className="logo">BOOKS<span>PLUS</span></div>
       <ul className="nav-links">
-        <li><a href="#">Home</a></li>
+        {/* <li><a href="#">Home</a></li>
         <li><a href="#">Team</a></li>
         <li><a href="#">Contacts</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#">Logout</a></li> */}
       </ul>
     </nav>
   )
