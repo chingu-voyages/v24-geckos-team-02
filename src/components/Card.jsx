@@ -9,8 +9,8 @@ export default function Card(props) {
         src={props.thumbnailImageLink}
         alt="cover thumbnail"
       />
-      <h1 className="title">{props.title}</h1>
-      <h2 className="subtitle">{props.subtitle}</h2>
+      <h2 className="title">{props.title}</h2>
+      <h3 className="subtitle">{props.subtitle}</h3>
       <p className="authors">{props.authors.join(", ")}</p>
       <p className="publisher">{props.publisher}</p>
     </div>
