@@ -5,7 +5,7 @@ export default function Search({ handleSubmit, error }) {
   return (
     <div id="search-section">
       <SearchBar handleSubmit={handleSubmit} />
-      <div>{error && error}</div>
+      <div class="search-error">{error && error}</div>
     </div>
   );
 }

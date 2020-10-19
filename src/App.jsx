@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import useBookSearch from "./hooks/useBookSearch";
 
 export default function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(1);
   const { books, error, isLastPage } = useBookSearch(query, pageNumber);
   const handleSubmit = (e, searchTerm) => {
@@ -32,7 +32,7 @@ export default function App() {
           More data is requested only if the current page isn't the last page.
           */
           if (!isLastPage) {
-            return setPageNumber((prevPageNo) => prevPageNo + 1);
+            setPageNumber((prevPageNo) => prevPageNo + 1);
           }
         }}
       >

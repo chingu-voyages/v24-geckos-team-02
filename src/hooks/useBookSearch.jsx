@@ -6,8 +6,11 @@ export default function useBookSearch(query, pageNumber) {
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
   const [isLastPage, setIsLastPage] = useState(false);
+
   useEffect(() => {
-    if (query === "") {
+    if (query === undefined) {
+      setError(""); //Display no error on first load
+    } else if (query === "") {
       setError("Please enter a search term");
     } else {
       axios({
