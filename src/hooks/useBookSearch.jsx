@@ -23,7 +23,6 @@ export default function useBookSearch(query, pageNumber) {
         },
       })
         .then((res) => {
-          console.log(res.data);
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
               return res.data.items;
