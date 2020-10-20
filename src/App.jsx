@@ -10,6 +10,7 @@ import useBookSearch from "./hooks/useBookSearch";
 export default function App() {
   const [query, setQuery] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(1);
+  const [book, setBook] = useState("");
   const { books, error, isLastPage } = useBookSearch(query, pageNumber); // 'books' has search results
   const handleSubmit = (e, searchTerm) => {
     e.preventDefault();
@@ -17,12 +18,18 @@ export default function App() {
     setPageNumber(1);
   };
 
+  const handleBooksDetails = (id) => {
+    const bookClicked = books.find(book => book.id === id);
+    console.log(bookClicked);
+    setBook(bookClicked)
+  }
+
   return (
     <div className="App">
       <Navbar />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} />
-      <CardList books={books.map(googleBookToAppBook)} />
+      <CardList books={books.map(googleBookToAppBook)} handleBooksDetails={handleBooksDetails}/>
       <button
         onClick={() => {
           /*
@@ -40,13 +47,14 @@ export default function App() {
   );
 }
 
-function googleBookToAppBook({ volumeInfo }) {
+function googleBookToAppBook({ volumeInfo, id }) {
   const { title, subtitle, authors, publisher, imageLinks } = volumeInfo;
   return {
     title: title === undefined ? "" : title,
     subtitle: subtitle === undefined ? "" : subtitle,
     authors: authors === undefined ? [] : authors,
     publisher: publisher === undefined ? "" : publisher,
+    id: id,
     thumbnailImageLink:
       imageLinks === undefined ? "" : imageLinks.smallThumbnail,
   };
