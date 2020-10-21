@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -19,20 +17,6 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
-  font-family: inter;
-  background-color: rgb(220, 220, 220);
-}
-
-nav .logo {
-  color: #206DB1;
-  font-size: 30px;
-  font-weight: 700;
-  font-family: 'Concert One', cursive;
-  text-transform: uppercase;
-}
-
-nav span {
-  color: #34AAE6;
 }
 
 nav .nav-links {
