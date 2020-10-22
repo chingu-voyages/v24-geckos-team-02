@@ -21,7 +21,7 @@ export default function Modal({book, toggleModal}) {
   const readablePublishedDate = year + "/" + month + "/" + day;
 
   return(
-    <div>
+    <div className="modal-container">
       <h3>{title}</h3>
       {/* change rating by stars */}
       <span>{averageRating} / 5 ({ratingsCount} {ratingsCount > 1 ? "votes" : "vote"})</span>

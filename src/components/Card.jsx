@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Modal from "./Modal";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
-export default function Card({ book }) {
+export default function Card({ book, query }) {
   const [modal, setModal] = useState(false);
-  const {thumbnailImageLink, title, subtitle, authors, categories, publisher, id} = book
-  // const openModal = () => {
-  //   setModal(true)
-  // }
 
-  // const closeModal = () => {
-  //   setModal(false)
-  // }
+  useEffect(() => {
+    setModal(false)
+  }, [query])
+  
+  const {thumbnailImageLink, title, subtitle, authors, categories, publisher } = book
 
   const toggleModal = () => {
     setModal(prev=>!prev)

@@ -34,7 +34,7 @@ export default function App() {
       <Navbar />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} />
-      <CardList books={books.map(googleBookToAppBook)} />
+      <CardList books={books.map(googleBookToAppBook)} query={query} />
       <button
         onClick={() => {
           /*
