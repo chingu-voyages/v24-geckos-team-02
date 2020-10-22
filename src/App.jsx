@@ -69,22 +69,22 @@ function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
   const { buyLink = "", retailPrice = "" } = saleInfo;
 
   return {
-    title: title,
-    subtitle: subtitle,
-    authors: authors,
-    description: description,
-    categories: categories,
-    publishedDate: publishedDate,
-    publisher: publisher,
-    id: id,
+    title,
+    subtitle,
+    authors,
+    description,
+    categories,
+    publishedDate,
+    publisher,
+    id,
     thumbnailImageLink:
       imageLinks.smallThumbnail,
-    averageRating: averageRating,
-    ratingsCount: ratingsCount,
-    infoLink: infoLink,
-    webReaderLink: webReaderLink,
-    buyLink: buyLink,
-    retailPrice: retailPrice
+    averageRating,
+    ratingsCount,
+    infoLink,
+    webReaderLink,
+    buyLink,
+    retailPrice
   };
 }
 // function googleBookToAppBook({ volumeInfo, id }) {
