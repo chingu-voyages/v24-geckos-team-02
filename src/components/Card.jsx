@@ -4,16 +4,16 @@ import Modal from "./Modal";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({ book, query }) {
-  const [modal, setModal] = useState(false);
+  const [showModal, setshowModal] = useState(false);
 
   useEffect(() => {
-    setModal(false)
+    setshowModal(false)
   }, [query])
   
   const {thumbnailImageLink, title, subtitle, authors, categories, publisher } = book
 
   const toggleModal = () => {
-    setModal(prev=>!prev)
+    setshowModal(prev=>!prev)
   }
 
   return (
@@ -29,7 +29,8 @@ export default function Card({ book, query }) {
       <p className="authors">{categories.join(", ")}</p>
       <p className="publisher">{publisher}</p>
       <div className="book-details-btn" onClick={()=>toggleModal()}>more details</div>
-      {modal ? <Modal book={book} toggleModal={toggleModal} /> : null}
+      {/* {modal ? <Modal book={book} toggleModal={toggleModal} /> : null} */}
+      <Modal book={book} toggleModal={toggleModal} showModal={showModal}/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Modal({book, toggleModal}) {
+export default function Modal({book, toggleModal, showModal}) {
   console.log(book);
   const {
     title, 
@@ -19,9 +19,14 @@ export default function Modal({book, toggleModal}) {
   const day = date.getUTCDate();
   const year = date.getUTCFullYear();
   const readablePublishedDate = year + "/" + month + "/" + day;
-
+console.log(showModal);
   return(
-    <div className="modal-container">
+    <div className="modal-container"
+      style={{
+        display: showModal ? "block" : "none"
+        // opacity: showModal ? "1" : 0
+      }}
+    >
       <h3>{title}</h3>
       {/* change rating by stars */}
       <span>{averageRating} / 5 ({ratingsCount} {ratingsCount > 1 ? "votes" : "vote"})</span>
