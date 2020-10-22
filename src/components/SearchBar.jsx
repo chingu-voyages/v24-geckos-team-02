@@ -18,8 +18,8 @@ export default function SearchBar({ handleSubmit }) {
         <button>Search</button>
         <label>
           <input
-            value="relevant"
-            checked
+            value="relevance"
+            checked={orderBy === "relevance"}
             onChange={handleOrderByChange}
             name="orderBy"
             type="radio"
@@ -29,6 +29,7 @@ export default function SearchBar({ handleSubmit }) {
         <label>
           <input
             value="newest"
+            checked={orderBy === "newest"}
             onChange={handleOrderByChange}
             name="orderBy"
             type="radio"

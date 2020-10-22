@@ -13,7 +13,6 @@ export default function useBookSearch(query, orderBy, pageNumber) {
     } else if (query === "") {
       setError("Please enter a search term");
     } else {
-      console.log(orderBy);
       axios({
         method: "GET",
         url: `https://www.googleapis.com/books/v1/volumes`,
@@ -47,7 +46,7 @@ export default function useBookSearch(query, orderBy, pageNumber) {
           setError(err.message);
         });
     }
-  }, [query, pageNumber]);
+  }, [query, orderBy, pageNumber]);
 
   return { error, books, isLastPage };
 }

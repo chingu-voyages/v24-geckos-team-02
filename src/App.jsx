@@ -17,6 +17,7 @@ export default function App() {
     orderBy,
     pageNumber
   ); // 'books' has search results
+
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
     setQuery(searchTerm);
