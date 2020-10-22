@@ -9,11 +9,18 @@ import useBookSearch from "./hooks/useBookSearch";
 
 export default function App() {
   const [query, setQuery] = useState(undefined);
+  const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
-  const { books, error, isLastPage } = useBookSearch(query, pageNumber); // 'books' has search results
-  const handleSubmit = (e, searchTerm) => {
+
+  const { books, error, isLastPage } = useBookSearch(
+    query,
+    orderBy,
+    pageNumber
+  ); // 'books' has search results
+  const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
     setQuery(searchTerm);
+    setOrderBy(orderBy);
     setPageNumber(1);
   };
 
