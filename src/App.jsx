@@ -12,32 +12,29 @@ export default function App() {
   const [query, setQuery] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(1);
   const [book, setBook] = useState("");
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
   const { books, error, isLastPage } = useBookSearch(query, pageNumber); // 'books' has search results
   const handleSubmit = (e, searchTerm) => {
     e.preventDefault();
     setQuery(searchTerm);
     setPageNumber(1);
+    // setModal(false)
   };
 
-  const handleBooksDetails = (id) => {
-    const bookClicked = books.find(book => book.id === id);
-    console.log(bookClicked);
-    setBook(bookClicked)
-    setModal(true)
-  }
+  // const closeModal = () => {
+  //   setModal(false)
+  // }
 
-  const closeModal = () => {
-    setModal(false)
-  }
+  // const toggleModal = () => {
+  //   setModal(prev=>!prev)
+  // }
 
   return (
     <div className="App">
       <Navbar />
       <Header />
-      {modal ? <Modal book={book} closeModal={closeModal} /> : null}
       <Search handleSubmit={handleSubmit} error={error} />
-      <CardList books={books.map(googleBookToAppBook)} handleBooksDetails={handleBooksDetails} />
+      <CardList books={books.map(googleBookToAppBook)} />
       <button
         onClick={() => {
           /*
@@ -55,15 +52,51 @@ export default function App() {
   );
 }
 
-function googleBookToAppBook({ volumeInfo, id }) {
-  const { title, subtitle, authors, publisher, imageLinks } = volumeInfo;
+function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
+  const { title = "", 
+    subtitle = "", 
+    authors = [], 
+    publisher = "", 
+    imageLinks = "", 
+    categories = [] ,
+    infoLink = "",
+    description = "",
+    publishedDate = "",
+    averageRating = "none",
+    ratingsCount = "none"
+  } = volumeInfo;
+  const { webReaderLink = ""} = accessInfo;
+  const { buyLink = "", retailPrice = "" } = saleInfo;
+
   return {
-    title: title === undefined ? "" : title,
-    subtitle: subtitle === undefined ? "" : subtitle,
-    authors: authors === undefined ? [] : authors,
-    publisher: publisher === undefined ? "" : publisher,
+    title: title,
+    subtitle: subtitle,
+    authors: authors,
+    description: description,
+    categories: categories,
+    publishedDate: publishedDate,
+    publisher: publisher,
     id: id,
     thumbnailImageLink:
-      imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+      imageLinks.smallThumbnail,
+    averageRating: averageRating,
+    ratingsCount: ratingsCount,
+    infoLink: infoLink,
+    webReaderLink: webReaderLink,
+    buyLink: buyLink,
+    retailPrice: retailPrice
   };
 }
+// function googleBookToAppBook({ volumeInfo, id }) {
+//   const { title, subtitle, authors, publisher, imageLinks, categories } = volumeInfo;
+//   return {
+//     title: title === undefined ? "" : title,
+//     subtitle: subtitle === undefined ? "" : subtitle,
+//     authors: authors === undefined ? [] : authors,
+//     categories: categories === undefined ? [] : categories,
+//     publisher: publisher === undefined ? "" : publisher,
+//     id: id,
+//     thumbnailImageLink:
+//       imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+//   };
+// }

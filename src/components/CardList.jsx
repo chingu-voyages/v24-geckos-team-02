@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-export default function CardList(props) {
-  const volumes = props.books;
-  const card = (volume, index) => <Card {...volume} handleBooksDetails={props.handleBooksDetails} key={index} />;
-  return <div>{volumes.map(card)}</div>;
+export default function CardList({books}) {
+  const card = (book, index) => <Card book={book} key={index} />;
+  return <div>{books.map(card)}</div>;
 }

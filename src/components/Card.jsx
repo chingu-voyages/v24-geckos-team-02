@@ -1,24 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Modal from "./Modal";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
-export default function Card(props) {
+export default function Card({ book }) {
+  const [modal, setModal] = useState(false);
+  const {thumbnailImageLink, title, subtitle, authors, categories, publisher, id} = book
+  // const openModal = () => {
+  //   setModal(true)
+  // }
 
-  const handleClick = (id) => {
-    props.handleBooksDetails(id);
+  // const closeModal = () => {
+  //   setModal(false)
+  // }
+
+  const toggleModal = () => {
+    setModal(prev=>!prev)
   }
 
   return (
     <div className="card">
       <img
         className="cover"
-        src={props.thumbnailImageLink}
+        src={thumbnailImageLink}
         alt="cover thumbnail"
       />
-      <h2 className="title">{props.title}</h2>
-      <h3 className="subtitle">{props.subtitle}</h3>
-      <p className="authors">{props.authors.join(", ")}</p>
-      <p className="publisher">{props.publisher}</p>
-      <div className="book-details-btn" onClick={()=>handleClick(props.id)}>more details</div>
+      <h2 className="title">{title}</h2>
+      <h3 className="subtitle">{subtitle}</h3>
+      <p className="authors">{authors.join(", ")}</p>
+      <p className="authors">{categories.join(", ")}</p>
+      <p className="publisher">{publisher}</p>
+      <div className="book-details-btn" onClick={()=>toggleModal()}>more details</div>
+      {modal ? <Modal book={book} toggleModal={toggleModal} /> : null}
     </div>
   );
 }
