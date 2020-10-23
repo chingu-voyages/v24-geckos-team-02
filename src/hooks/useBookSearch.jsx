@@ -6,11 +6,12 @@ export default function useBookSearch(query, orderBy, pageNumber) {
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
   const [isLastPage, setIsLastPage] = useState(false);
+  const [queryHistory, setQueryHistory] = useState([]);
 
   useEffect(() => {
     if (query === undefined) {
       setError(""); //Display no error on first page load
-    } else if (query === "") {
+    } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
       axios({
@@ -26,7 +27,11 @@ export default function useBookSearch(query, orderBy, pageNumber) {
         .then((res) => {
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
-              return res.data.items;
+              setQueryHistory((q) => {
+                //Prevent duplicate queries being added to query history
+                return [...new Set([query, ...q])];
+              });
+              return res.data.totalItems === 0 ? [] : res.data.items;
             } else {
               return [...prevBooks, ...res.data.items];
             }
@@ -48,5 +53,5 @@ export default function useBookSearch(query, orderBy, pageNumber) {
     }
   }, [query, orderBy, pageNumber]);
 
-  return { error, books, isLastPage };
+  return { error, books, isLastPage, queryHistory };
 }
