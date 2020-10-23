@@ -10,7 +10,7 @@ import useBookSearch from "./hooks/useBookSearch";
 export default function App() {
   const [query, setQuery] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(1);
-  const { books, error, isLastPage } = useBookSearch(query, pageNumber); // 'books' has search results
+  const { books, error, isLastPage, queryHistory } = useBookSearch(query, pageNumber); // 'books' has search results
   const handleSubmit = (e, searchTerm) => {
     e.preventDefault();
     setQuery(searchTerm);
@@ -21,7 +21,7 @@ export default function App() {
     <div className="App">
       <Navbar />
       <Header />
-      <Search handleSubmit={handleSubmit} error={error} />
+      <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       <CardList books={books.map(googleBookToAppBook)} />
       <button
         onClick={() => {
@@ -47,7 +47,6 @@ function googleBookToAppBook({ volumeInfo }) {
     subtitle: subtitle === undefined ? "" : subtitle,
     authors: authors === undefined ? [] : authors,
     publisher: publisher === undefined ? "" : publisher,
-    thumbnailImageLink:
-      imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+    thumbnailImageLink: imageLinks === undefined ? "" : imageLinks.smallThumbnail,
   };
 }
