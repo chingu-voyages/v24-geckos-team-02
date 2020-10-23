@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'mixins';
 
+/*
+//*{
+  //font-family: $text-font;
+//}
 
 .App{
   .nav-bar{ //nav
@@ -16,8 +20,8 @@
 
   .header-section{ //header
    .header-app-name{ //h1
-     font-family: $header-font; //test
-     color: $logo-color; //test
+     //font-family: $logo-font; //test
+     //color: $logo-color; //test
    }
   }
 
@@ -63,77 +67,77 @@
 
 
 
-/* Extra small (xs) 320px — 480px: Mobile devices*/
-@media only screen and (min-width: 480px) { /* ... */ 
-  .App{
-    background: green; //test 
-    .nav-bar{ //nav
-      .nav-logo{ //header
-      }
-      .nav-list{ //ul
-       .nav-list-item{ //li
-         .nav-link{ //a
-         }
-       }
-     }
-    }
+// /* Extra small (xs) 320px — 480px: Mobile devices*/
+// @media (min-width: 480px) { /* ... */ 
+//   .App{
+//     background: green; //test 
+//     .nav-bar{ //nav
+//       .nav-logo{ //header
+//       }
+//       .nav-list{ //ul
+//        .nav-list-item{ //li
+//          .nav-link{ //a
+//          }
+//        }
+//      }
+//     }
   
-    .header-section{ //header
-     .header-app-name{ //h1
-       font-family: $header-font; //test//
-       color: $logo-color; //test//
-     }
-    }
+//     .header-section{ //header
+//      .header-app-name{ //h1
+//        font-family: $logo-font; //test//
+//        color: $logo-color; //test//
+//      }
+//     }
   
-    .search-section{ //div
-      .search-bar{ //div
-        .input-field{ //input
-        }
-        .search-btn{ //button
-        }
-        .search-err-msg{ //div
-        }
-      }
-    }
+//     .search-section{ //div
+//       .search-bar{ //div
+//         .input-field{ //input
+//         }
+//         .search-btn{ //button
+//         }
+//         .search-err-msg{ //div
+//         }
+//       }
+//     }
   
-    .card-list{ //div
-      .card{ //div
-        .card-img{ //img
-        }
-        .card-title{ //h1
-        }
-        .card-subtitle{ //h2
-        }
-        .card-authors{ //p
-        }
-        .card-publisher{ //p
-        }
-        .card-button{ //button
-        }
-      }
-    }
-    .footer-section{ //footer 
-      .footer-list{ //ul
-        .footer-list-item{ //li
-         .footer-link{ //a
-         }
-        }
+//     .card-list{ //div
+//       .card{ //div
+//         .card-img{ //img
+//         }
+//         .card-title{ //h1
+//         }
+//         .card-subtitle{ //h2
+//         }
+//         .card-authors{ //p
+//         }
+//         .card-publisher{ //p
+//         }
+//         .card-button{ //button
+//         }
+//       }
+//     }
+//     .footer-section{ //footer 
+//       .footer-list{ //ul
+//         .footer-list-item{ //li
+//          .footer-link{ //a
+//          }
+//         }
         
-      }
-    }
-  }
+//       }
+//     }
+//   }
 
-}
+// }
 
-/* Small (sm) 481px — 768px: iPads, Tablets*/
-@media (min-width: 640px) { /* ... */ }
+// /* Small (sm) 481px — 768px: iPads, Tablets*/
+// @media (min-width: 640px) { /* ... */ }
 
-/* Medium (md) 769px — 1024px: Small screens, laptops*/
-@media (min-width: 768px) { /* ... */ }
+// /* Medium (md) 769px — 1024px: Small screens, laptops*/
+// @media (min-width: 768px) { /* ... */ }
 
-/* Large (lg) 1025px — 1200px: Desktops, large screens*/
-@media (min-width: 1024px) { /* ... */ }
+// /* Large (lg) 1025px — 1200px: Desktops, large screens*/
+// @media (min-width: 1024px) { /* ... */ }
 
-/* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-@media (min-width: 1280px) { /* ... */ }
+// /* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
+// @media (min-width: 1280px) { /* ... */ }
 
