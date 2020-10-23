@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useBookSearch(query, orderBy, pageNumber) {
-  const noOfCardsPerPage = 5;
+  const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
   const [isLastPage, setIsLastPage] = useState(false);
