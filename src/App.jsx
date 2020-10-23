@@ -20,15 +20,17 @@ export default function App() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  });
 
   function handleScroll() {
+    // if at the bottom of the page and the current page isn't the last page
     if (
-      window.innerHeight + document.documentElement.scrollTop !==
-      document.documentElement.offsetHeight
-    )
-      return;
-    console.log("Fetch more list items!");
+      window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight &&
+      !isLastPage
+    ) {
+      setPageNumber((prevPageNo) => prevPageNo + 1);
+    }
   }
 
   return (
@@ -37,18 +39,6 @@ export default function App() {
       <Header />
       <Search handleSubmit={handleSubmit} error={error} />
       <CardList books={books.map(googleBookToAppBook)} />
-      <button
-        onClick={() => {
-          /*
-          More data is requested only if the current page isn't the last page.
-          */
-          if (!isLastPage) {
-            setPageNumber((prevPageNo) => prevPageNo + 1);
-          }
-        }}
-      >
-        More
-      </button>
       <Footer />
     </div>
   );
