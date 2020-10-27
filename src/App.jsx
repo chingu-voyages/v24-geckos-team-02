@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Search from "./components/Search";
