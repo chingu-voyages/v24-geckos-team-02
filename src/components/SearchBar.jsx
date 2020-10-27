@@ -8,7 +8,7 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
   };
   return (
     <div id="search-bar">
-      <form onSubmit={(e) => handleSubmit(e, searchTerm)} className={searchTerm === "" && "arrow-visible"}>
+      <form onSubmit={(e) => handleSubmit(e, searchTerm)} className={searchTerm === "" ? "arrow-visible" : undefined}>
         <input type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
         <datalist id="query-history">
           {queryHistory.map((query) => {
