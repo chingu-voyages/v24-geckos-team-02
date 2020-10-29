@@ -1,24 +1,46 @@
 @import 'variables';
 @import 'mixins';
 
-/*
+
 //*{
   //font-family: $text-font;
 //}
 
 .App{
-  .nav-bar{ //nav
-    .nav-logo{ //header
-    }
-    .nav-list{ //ul
-     .nav-list-item{ //li
-       .nav-link{ //a
-       }
-     }
-   }
-  }
+   
+  /*CSS Grid to contain all page items*/ 
+   height: 100vh;
+   width: 100%;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 
+   90px 
+   10% 
+   10% 
+   2fr 
+   40px; /*<<consider using mixin here>>*/
+   grid-template-areas:
+     "nav-bar"
+     "header-section"
+     "search-section"
+     "card-list"
+     "footer-section";
+
+     .nav-bar{ //nav
+     background:$complementary-color1; 
+             .nav-logo{ //header
+             }
+             .nav-list{ //ul
+              .nav-list-item{ //li
+                .nav-link{ //a
+                }
+              }
+            }
+           }   
+ 
 
   .header-section{ //header
+    background:$complementary-color2; 
    .header-app-name{ //h1
      //font-family: $logo-font; //test
      //color: $logo-color; //test
@@ -26,17 +48,23 @@
   }
 
   .search-section{ //div
-    .search-bar{ //div
+    background:$complementary-color3;
+    .search-bar{ //div 
       .input-field{ //input
       }
       .search-btn{ //button
       }
       .search-err-msg{ //div
       }
+      .search-options{
+
+      }
     }
   }
 
   .card-list{ //div
+    background:$complementary-color4; 
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky  
     .card{ //div
       .card-img{ //img
       }
@@ -54,6 +82,7 @@
   }
 
   .footer-section{ //footer 
+    background:$brand-color2; 
     .footer-list{ //ul
       .footer-list-item{ //li
        .footer-link{ //a
@@ -96,6 +125,8 @@
 //         .search-btn{ //button
 //         }
 //         .search-err-msg{ //div
+//         }
+//         .search-options{
 //         }
 //       }
 //     }

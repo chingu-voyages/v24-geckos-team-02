@@ -22,6 +22,7 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           })}
         </datalist>
         <button>Search</button>
+        <div className="search-options">
         <label>
           <input
             value="relevance"
@@ -42,6 +43,7 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           />
           Newest
         </label>
+        </div>
       </form>
     </div>
   );

@@ -6,7 +6,7 @@ export default function CardList(props) {
   const card = (volume, index) => <Card {...volume} key={index} />;
   return (
     <Fragment>
-      <div>{volumes.map(card)}</div>
+      <div className="card-list">{volumes.map(card)}</div>
       {props.isLastPage && props.books.length > 3 && (
         <div className="scroll-end-message">
           <em>No more results!</em>

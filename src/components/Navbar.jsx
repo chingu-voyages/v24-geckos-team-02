@@ -8,7 +8,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav>
+    <nav className="nav-bar">
       <img src={require("../assets/img/logo.svg")} style={styles} alt="logo" />
       <ul className="nav-links">
         {/* <li><a href="#">Home</a></li>
