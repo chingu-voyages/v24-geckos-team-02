@@ -11,10 +11,7 @@ export default function Navbar() {
     <nav>
       <img src={require("../assets/img/logo.svg")} style={styles} alt="logo" />
       <ul className="nav-links">
-        {/* <li><a href="#">Home</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Contacts</a></li>
-        <li><a href="#">Logout</a></li> */}
+        <li><a href="#">About</a></li>
       </ul>
     </nav>
   )
