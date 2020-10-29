@@ -29,8 +29,7 @@ export default function Card({ book, query }) {
       <p className="authors">{categories.join(", ")}</p>
       <p className="publisher">{publisher}</p>
       <div className="book-details-btn" onClick={()=>toggleModal()}>more details</div>
-      {/* {modal ? <Modal book={book} toggleModal={toggleModal} /> : null} */}
-      <Modal book={book} toggleModal={toggleModal} showModal={showModal}/>
+      {showModal ? <Modal book={book} toggleModal={toggleModal} /> : null}
     </div>
   );
 }
