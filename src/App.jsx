@@ -33,11 +33,7 @@ export default function App() {
 
   function handleScroll() {
     // if at the bottom of the page and the current page isn't the last page
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight &&
-      !isLastPage
-    ) {
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && !isLastPage) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
@@ -47,7 +43,7 @@ export default function App() {
       <Navbar />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
-      <CardList books={books.map(googleBookToAppBook)} />
+      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />
       <Footer />
     </div>
   );
