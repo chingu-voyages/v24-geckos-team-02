@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import "./App.scss";
+
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -25,24 +26,28 @@ export default function App() {
     setPageNumber(1);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  function handleScroll() {
+    // if at the bottom of the page and the current page isn't the last page
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight &&
+      !isLastPage
+    ) {
+      setPageNumber((prevPageNo) => prevPageNo + 1);
+    }
+  }
+
   return (
     <div className="App">
       <Navbar />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       <CardList books={books.map(googleBookToAppBook)} />
-      <button
-        onClick={() => {
-          /*
-          More data is requested only if the current page isn't the last page.
-          */
-          if (!isLastPage) {
-            setPageNumber((prevPageNo) => prevPageNo + 1);
-          }
-        }}
-      >
-        More
-      </button>
       <Footer />
     </div>
   );

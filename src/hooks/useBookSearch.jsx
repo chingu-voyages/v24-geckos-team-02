@@ -25,6 +25,11 @@ export default function useBookSearch(query, orderBy, pageNumber) {
         },
       })
         .then((res) => {
+          if (res.data.items && res.data.items.length < noOfCardsPerPage) {
+            setIsLastPage(true);
+          } else {
+            setIsLastPage(false);
+          }
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
               setQueryHistory((q) => {
@@ -33,14 +38,15 @@ export default function useBookSearch(query, orderBy, pageNumber) {
               });
               return res.data.totalItems === 0 ? [] : res.data.items;
             } else {
-              return [...prevBooks, ...res.data.items];
+              if (res.data.items) {
+                return [...prevBooks, ...res.data.items];
+              } else {
+                //If API isn't sending any books data
+                setIsLastPage(true);
+                return prevBooks;
+              }
             }
           });
-          if (res.data.totalItems > pageNumber * noOfCardsPerPage) {
-            setIsLastPage(false);
-          } else {
-            setIsLastPage(true);
-          }
           if (res.data.totalItems === 0 && pageNumber === 1) {
             setError("No Items found!");
           } else {
