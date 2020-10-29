@@ -1,14 +1,8 @@
-@font-face {
-    font-family: 'Metropolis-Black';
-    src: local('Metropolis'), url(./fonts/Metropolis/Metropolis-Black.otf) format('opentype');
-    font-family: 'Metropolis-Light';
-    src: local('Metropolis'), url(./fonts/Metropolis/Metropolis-Light.otf) format('opentype');
 
-}
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 
-$header-logo-font: Metropolis-Black, sans-serif; 
-$text-font: Metropolis-Light, sans-serif; 
-//$logo-color: red;  //test//
+$header-logo-font: 'Concert One', cursive; 
+$text-font: 'Concert One', cursive; 
 
 /*Brand Colors*/
 $brand-color1: #206db1;
