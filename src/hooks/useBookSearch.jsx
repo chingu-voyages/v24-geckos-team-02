@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(query, pageNumber) {
+export default function useBookSearch(query, orderBy, pageNumber) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
   const [isLastPage, setIsLastPage] = useState(false);
+  const [queryHistory, setQueryHistory] = useState([]);
 
   useEffect(() => {
     if (query === undefined) {
       setError(""); //Display no error on first page load
-    } else if (query === "") {
+    } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
       axios({
@@ -19,22 +20,33 @@ export default function useBookSearch(query, pageNumber) {
         params: {
           maxResults: noOfCardsPerPage,
           q: query,
+          orderBy,
           startIndex: (pageNumber - 1) * noOfCardsPerPage,
         },
       })
         .then((res) => {
+          if (res.data.items && res.data.items.length < noOfCardsPerPage) {
+            setIsLastPage(true);
+          } else {
+            setIsLastPage(false);
+          }
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
-              return res.data.items;
+              setQueryHistory((q) => {
+                //Prevent duplicate queries being added to query history
+                return [...new Set([query, ...q])];
+              });
+              return res.data.totalItems === 0 ? [] : res.data.items;
             } else {
-              return [...prevBooks, ...res.data.items];
+              if (res.data.items) {
+                return [...prevBooks, ...res.data.items];
+              } else {
+                //If API isn't sending any books data
+                setIsLastPage(true);
+                return prevBooks;
+              }
             }
           });
-          if (res.data.totalItems > pageNumber * noOfCardsPerPage) {
-            setIsLastPage(false);
-          } else {
-            setIsLastPage(true);
-          }
           if (res.data.totalItems === 0 && pageNumber === 1) {
             setError("No Items found!");
           } else {
@@ -45,7 +57,7 @@ export default function useBookSearch(query, pageNumber) {
           setError(err.message);
         });
     }
-  }, [query, pageNumber]);
+  }, [query, orderBy, pageNumber]);
 
-  return { error, books, isLastPage };
+  return { error, books, isLastPage, queryHistory };
 }
