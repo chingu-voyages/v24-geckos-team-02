@@ -11,11 +11,11 @@ import useBookSearch from "./hooks/useBookSearch";
 export default function App() {
   const [query, setQuery] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
+  const [areResultsLoading, setAreResultsLoading] = useState(false);
   const { books, error, isLastPage, queryHistory } = useBookSearch(
     query,
     pageNumber,
-    setIsLoading
+    setAreResultsLoading
   ); // 'books' has search results
 
   const handleSubmit = (e, searchTerm) => {
@@ -30,14 +30,14 @@ export default function App() {
   });
 
   function handleScroll() {
-    // if at the bottom of the page and the current page isn't the last page
+    // if at the bottom of the page && the current page isn't the last page
     if (
       window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight &&
       !isLastPage
     ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
-      setIsLoading(true);
+      setAreResultsLoading(true);
     }
   }
 
@@ -51,7 +51,7 @@ export default function App() {
         queryHistory={queryHistory}
       />
       <CardList books={books.map(googleBookToAppBook)} />
-      <div>{isLoading ? "Loading" : ""}</div>
+      <div>{areResultsLoading ? "Loading" : ""}</div>
       <Footer />
     </div>
   );
