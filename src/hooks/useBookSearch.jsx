@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
+export default function useBookSearch(
+  query,
+  orderBy,
+  pageNumber,
+  setAreResultsLoading
+) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
@@ -21,6 +26,7 @@ export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
         params: {
           maxResults: noOfCardsPerPage,
           q: query,
+          orderBy,
           startIndex: (pageNumber - 1) * noOfCardsPerPage,
         },
       })
@@ -61,7 +67,7 @@ export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
           setError(err.message);
         });
     }
-  }, [query, pageNumber, setAreResultsLoading]);
+  }, [query, orderBy, pageNumber, setAreResultsLoading]);
 
   return { error, books, isLastPage, queryHistory };
 }
