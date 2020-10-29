@@ -37,7 +37,6 @@ export default function App() {
       !isLastPage
     ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
-      setAreResultsLoading(true);
     }
   }
 

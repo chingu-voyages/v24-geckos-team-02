@@ -14,6 +14,7 @@ export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
     } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
+      setAreResultsLoading(true);
       axios({
         method: "GET",
         url: `https://www.googleapis.com/books/v1/volumes`,
@@ -56,6 +57,7 @@ export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
           }
         })
         .catch((err) => {
+          setAreResultsLoading(false);
           setError(err.message);
         });
     }
