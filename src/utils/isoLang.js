@@ -737,9 +737,12 @@ var isoLangsArr = [];
 for (let i in isoLangs) {
   isoLangsArr.push([i, isoLangs[i]]);
 }
+const formatLanguage = (language) => {
+    for (var i = 0; i < isoLangsArr.length; i++) {
+        if (language === isoLangsArr[i][0]) {
+            return isoLangsArr[i][1]['name'];
+        }
+    }
+}
 
-// console.log(isoLangsArr);
-
-export default isoLangsArr;
-
-// var langcode = lang.slice(0, 2);
+export default formatLanguage;

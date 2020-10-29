@@ -1,5 +1,6 @@
 import React from "react"
-import isoLangs from "../utils/isoLang"
+import formatLanguage from "../utils/isoLang"
+import formatDate from "../utils/formatDate"
 
 export default function Modal({book, toggleModal, showModal}) {
   console.log("modal load");
@@ -17,17 +18,11 @@ export default function Modal({book, toggleModal, showModal}) {
     pageCount,
     language
   } = book
-  const date = new Date(publishedDate)
-  const month = date.getUTCMonth() + 1;
-  const day = date.getUTCDate();
-  const year = date.getUTCFullYear();
-  const readablePublishedDate = year + "/" + month + "/" + day;
-  let formattedLanguage;
-  for (var i = 0; i < isoLangs.length; i++) {
-      if (language === isoLangs[i][0]) {
-        formattedLanguage = isoLangs[i][1]['name'];
-      }
-  }
+
+  let readablePublishedDate = formatDate(publishedDate)
+
+  let formattedLanguage = formatLanguage(language);
+
   return(
     <div className="modal-container">
       <h3>{title}</h3>
