@@ -61,7 +61,7 @@ export default function useBookSearch(query, pageNumber, setAreResultsLoading) {
           setError(err.message);
         });
     }
-  }, [query, pageNumber]);
+  }, [query, pageNumber, setAreResultsLoading]);
 
   return { error, books, isLastPage, queryHistory };
 }
