@@ -30,11 +30,12 @@ export default function App() {
   });
 
   function handleScroll() {
-    // if at the bottom of the page && the current page isn't the last page
+    // if at the bottom of the page && the current page isn't the last page && results aren't loading
     if (
       window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight &&
-      !isLastPage
+      !isLastPage &&
+      !areResultsLoading
     ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
