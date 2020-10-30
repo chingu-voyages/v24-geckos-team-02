@@ -1,2 +1,4 @@
 # v24-geckos-team-02
-Add-project-description-here | Voyage-24 | https://chingu.io/
+Books Plus | Voyage-24 | https://chingu.io/
+
+Netlify | booksplus-beta | https://booksplus-beta.netlify.app/
