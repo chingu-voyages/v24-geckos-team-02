@@ -46,7 +46,11 @@ export default function App() {
     <div className="App">
       <Navbar />
       <Header />
-      <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+      <Search
+        handleSubmit={handleSubmit}
+        error={error}
+        queryHistory={queryHistory}
+      />
       <CardList books={books.map(googleBookToAppBook)} />
       <Footer />
     </div>
@@ -60,6 +64,8 @@ function googleBookToAppBook({ volumeInfo }) {
     subtitle: subtitle === undefined ? "" : subtitle,
     authors: authors === undefined ? [] : authors,
     publisher: publisher === undefined ? "" : publisher,
-    thumbnailImageLink: imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+    smallThumbnailLink:
+      imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+    thumbnailLink: imageLinks === undefined ? "" : imageLinks.thumbnail,
   };
 }
