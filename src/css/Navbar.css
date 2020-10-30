@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  min-height: 10vh;
+  align-items: center;
+}
+
+nav .nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 32%;
+}
+
+nav .nav-links a {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+nav .nav-links a:hover {
+  border-bottom: 1px solid #206DB1;
+}
