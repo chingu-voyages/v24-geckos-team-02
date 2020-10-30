@@ -4,8 +4,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 150px;
+    height: 100px;
     margin-top: 20px;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
 }
 
 .footer a {
