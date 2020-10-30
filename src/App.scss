@@ -14,25 +14,46 @@
    display: grid;
    grid-template-columns: 1fr;
    grid-template-rows: 
-   90px 
-   10% 
+   100px 
+ //  10% 
    10% 
    2fr 
    40px; /*<<consider using mixin here>>*/
    grid-template-areas:
      "nav-bar"
-     "header-section"
+    // "header-section"
      "search-section"
      "card-list"
      "footer-section";
 
      .nav-bar{ //nav
      background:$complementary-color1; 
+
+     /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/ 
+     display: grid;
+     grid-template-columns: 1fr 3fr;
+
              .nav-logo{ //header
+              background:orange; 
+              
+              /*keep logo in the middle of its container nav-logo*/
+              display: flex;
+              justify-content: center;
+
+
              }
              .nav-list{ //ul
-              .nav-list-item{ //li
+               background: grey; 
+               text-align: right;
+              .nav-list-items{ //li
+                
+                /*keeps nav-links item/s aligned to the right inside nav-list*/
+                display: flex; 
+                justify-content: flex-end; 
+
                 .nav-link{ //a
+                  padding: 10px;
+                  margin-right: 10px; 
                 }
               }
             }
