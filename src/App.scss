@@ -46,7 +46,7 @@
                background: grey; 
                text-align: right;
               .nav-list-items{ //li
-                
+
                 /*keeps nav-links item/s aligned to the right inside nav-list*/
                 display: flex; 
                 justify-content: flex-end; 
@@ -104,14 +104,17 @@
 
   .footer-section{ //footer 
     background:$brand-color2; 
-    .footer-list{ //ul
-      .footer-list-item{ //li
+    
+    /*aligns footer-link in the middle of footer-section*/
+    display: flex;
+    justify-content: center;
+
        .footer-link{ //a
+        background: green; 
+        margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically) 
        }
-      }
-      
-    }
   }
+      
 
 }
 
