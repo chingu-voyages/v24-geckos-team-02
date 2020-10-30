@@ -2,8 +2,7 @@ import React from "react"
 import formatLanguage from "../utils/isoLang"
 import formatDate from "../utils/formatDate"
 
-export default function Modal({book, toggleModal, showModal}) {
-  console.log("modal load");
+export default function Modal({book, toggleModal}) {
   const {
     title, 
     averageRating, 

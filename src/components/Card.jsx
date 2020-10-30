@@ -7,6 +7,7 @@ export default function Card({ book, query }) {
   const [showModal, setshowModal] = useState(false);
 
   useEffect(() => {
+    console.log(query);
     setshowModal(false)
   }, [query])
   
@@ -28,7 +29,7 @@ export default function Card({ book, query }) {
       <p className="authors">{authors.join(", ")}</p>
       <p className="authors">{categories.join(", ")}</p>
       <p className="publisher">{publisher}</p>
-      <button className="book-details-btn" onClick={()=>toggleModal()}>more details</button>
+      <button className="book-details-btn" onClick={()=>toggleModal()}>{showModal ? "close" : "more details"}</button>
       {showModal ? <Modal book={book} toggleModal={toggleModal} /> : null}
     </div>
   );

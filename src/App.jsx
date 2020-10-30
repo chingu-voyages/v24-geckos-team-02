@@ -45,7 +45,7 @@ export default function App() {
       <Navbar />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
-      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />
+      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
       <Footer />
     </div>
   );
