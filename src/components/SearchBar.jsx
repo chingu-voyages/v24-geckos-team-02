@@ -4,6 +4,7 @@ import "./SearchBar.css";
 export default function SearchBar({ handleSubmit, queryHistory }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [orderBy, setOrderBy] = useState("relevance");
+  const [selectBy, setSelectBy] = useState("relevance")
 
   const handleSearchTerm = (e) => {
     setSearchTerm(e.target.value);
@@ -12,9 +13,19 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
     setOrderBy(e.target.value);
   };
 
+  // Update: Diemention
+
+  const handleSelectBy = (e) => {
+
+    const { name, value } = e.target
+    console.log({ selectBy })
+    console.log(name, value)
+    setSelectBy(value)
+  }
+
   return (
     <div id="search-bar">
-      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? "arrow-visible" : undefined}>
+      <form onSubmit={(e) => handleSubmit(e, searchTerm, selectBy)} className={searchTerm === "" ? "arrow-visible" : undefined}>
         <input type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
         <datalist id="query-history">
           {queryHistory.map((query) => {
@@ -42,6 +53,11 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           />
           Newest
         </label>
+        <select name="selectBy" value={selectBy} onChange={handleSelectBy}>
+          <option value="relevance" >Most Relevant</option>
+          <option value="newest" >Newest</option>
+        </select>
+        <h3>Results are by: {selectBy}</h3>
       </form>
     </div>
   );
