@@ -3,23 +3,14 @@ import "./SearchBar.css";
 
 export default function SearchBar({ handleSubmit, queryHistory }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [orderBy, setOrderBy] = useState("relevance");
   const [selectBy, setSelectBy] = useState("relevance")
 
   const handleSearchTerm = (e) => {
     setSearchTerm(e.target.value);
   };
-  const handleOrderByChange = (e) => {
-    setOrderBy(e.target.value);
-  };
-
-  // Update: Diemention
 
   const handleSelectBy = (e) => {
-
     const { name, value } = e.target
-    console.log({ selectBy })
-    console.log(name, value)
     setSelectBy(value)
   }
 
@@ -33,26 +24,6 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           })}
         </datalist>
         <button>Search</button>
-        <label>
-          <input
-            value="relevance"
-            checked={orderBy === "relevance"}
-            onChange={handleOrderByChange}
-            name="orderBy"
-            type="radio"
-          />
-          Most relevant
-        </label>
-        <label>
-          <input
-            value="newest"
-            checked={orderBy === "newest"}
-            onChange={handleOrderByChange}
-            name="orderBy"
-            type="radio"
-          />
-          Newest
-        </label>
         <select name="selectBy" value={selectBy} onChange={handleSelectBy}>
           <option value="relevance" >Most Relevant</option>
           <option value="newest" >Newest</option>
