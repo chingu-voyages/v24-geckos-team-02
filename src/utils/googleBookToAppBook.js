@@ -11,9 +11,10 @@ function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
     averageRating = "none",
     ratingsCount = "none",
     pageCount = "",
-    language = ""
+    language = "",
+    previewLink = ""
   } = volumeInfo;
-  const { webReaderLink = ""} = accessInfo;
+  // const { webReaderLink = ""} = accessInfo;
   const { buyLink = "", retailPrice = "" } = saleInfo;
 
   return {
@@ -32,8 +33,9 @@ function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
     pageCount,
     language,
     infoLink,
-    webReaderLink,
+    // webReaderLink,
     buyLink,
+    previewLink,
     retailPrice
   };
 }

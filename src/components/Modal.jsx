@@ -10,7 +10,7 @@ export default function Modal({book, toggleModal}) {
     categories, 
     publishedDate, 
     description, 
-    webReaderLink, 
+    previewLink, 
     infoLink, 
     buyLink, 
     retailPrice,
@@ -22,8 +22,16 @@ export default function Modal({book, toggleModal}) {
 
   let formattedLanguage = formatLanguage(language);
 
+  const style = {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "white"
+  }
+
   return(
-    <div className="modal-container">
+    <div className="modal-container" style={style}>
       <h3>{title}</h3>
       {/* change rating by stars? */}
       <span>{averageRating} / 5 ({ratingsCount} {ratingsCount > 1 ? "votes" : "vote"})</span>
@@ -31,7 +39,7 @@ export default function Modal({book, toggleModal}) {
       <p>Published date: {readablePublishedDate}</p>
       <p>{description}</p>
       <p>{pageCount} pages, language: {formattedLanguage}</p>
-      <p><a href={webReaderLink} target="blank" >preview</a></p>
+      <p><a href={previewLink} target="blank" >preview</a></p>
       <p><a href={infoLink} target="blank" >info</a></p>
       <p><a href={buyLink} target="blank" >buy for {retailPrice.amount}{retailPrice.currencyCode}</a></p>
       
