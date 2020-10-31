@@ -1,11 +1,8 @@
 .footer {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    min-height: 10vh;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100px;
-    margin-top: 20px;
     position: fixed;
     bottom: 0px;
     width: 100vw;
