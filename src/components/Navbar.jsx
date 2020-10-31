@@ -4,7 +4,7 @@ import '../css/Navbar.css'
 
 export default function Navbar() {
   const styles = {
-    height: 80,
+    height: 70,
     padding: 10
   }
 
