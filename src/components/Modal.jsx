@@ -15,7 +15,8 @@ export default function Modal({book, toggleModal}) {
     buyLink, 
     retailPrice,
     pageCount,
-    language
+    language,
+    thumbnailImageLink
   } = book
 
   let readablePublishedDate = formatDate(publishedDate)
@@ -33,6 +34,11 @@ export default function Modal({book, toggleModal}) {
   return(
     <div className="modal-container" style={style}>
       <h3>{title}</h3>
+      <img
+        className="cover"
+        src={thumbnailImageLink}
+        alt="cover thumbnail"
+      />
       {/* change rating by stars? */}
       <span>{averageRating} / 5 ({ratingsCount} {ratingsCount > 1 ? "votes" : "vote"})</span>
       <p>{categories}</p>
