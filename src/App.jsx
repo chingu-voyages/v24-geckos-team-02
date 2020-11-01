@@ -12,12 +12,9 @@ export default function App() {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
+  const [accessToken, setAccessToken] = useState("");
 
-  const { books, error, isLastPage, queryHistory } = useBookSearch(
-    query,
-    orderBy,
-    pageNumber
-  ); // 'books' has search results
+  const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber); // 'books' has search results
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
@@ -40,7 +37,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar setAccessToken={setAccessToken} />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />

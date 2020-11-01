@@ -1,29 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import Authentication from "./Authentication";
 import logo from "../assets/img/logo.svg";
 import "../css/Navbar.css";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
 
-export default function Navbar() {
-  const [name, setName] = useState("");
-
+export default function Navbar({ setAccessToken }) {
   const styles = {
     height: 70,
     padding: 10,
-  };
-
-  const loginFailure = (response) => {
-    console.log(response);
-    document.alert("Login failed");
-  };
-
-  const loginSuccess = (response) => {
-    console.log(response);
-    setName(response.profileObj.name);
-  };
-
-  const logoutSuccess = (response) => {
-    console.log("logged out");
-    setName("");
   };
 
   return (
@@ -36,22 +19,7 @@ export default function Navbar() {
           </a>
         </li>
         <li>
-          {!name ? (
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Login"
-              onSuccess={loginSuccess}
-              onFailure={loginFailure}
-              cookiePolicy={"single_host_origin"}
-            />
-          ) : (
-            <div style={{ display: "flex" }}>
-              <p>{name}</p>
-              <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess}>
-                Logout
-              </GoogleLogout>
-            </div>
-          )}
+          <Authentication setAccessToken={setAccessToken} />
         </li>
       </ul>
     </nav>
