@@ -1,20 +1,18 @@
 import React from "react";
+import logo from '../assets/img/logo.svg'
 import '../css/Navbar.css'
 
 export default function Navbar() {
   const styles = {
-    height: 100,
+    height: 70,
     padding: 10
   }
 
   return (
     <nav>
-      <img src={require("../assets/img/logo.svg")} style={styles} alt="logo" />
+      <img src={logo} style={styles} alt="logo" />
       <ul className="nav-links">
-        {/* <li><a href="#">Home</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Contacts</a></li>
-        <li><a href="#">Logout</a></li> */}
+        <li><a target='_blank' href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors">About</a></li>
       </ul>
     </nav>
   )
