@@ -16,7 +16,7 @@
    grid-template-rows: 
    100px 
  //  10% 
-   10% 
+   15% 
    2fr 
    40px; /*<<consider using mixin here>>*/
    grid-template-areas:
@@ -68,36 +68,85 @@
    }
   }
 
-  .search-section{ //div
+  #search-section{ //div
     background:$complementary-color3;
+    
+    /*Aligns search-bar & search-options inside a single column grid*/
+     display: grid;
+     height: 100%; 
+     grid-template-columns: 1fr;
+     grid-template-rows: 2fr 1fr;
+     grid-template-areas:
+      "search-bar"
+      "search-options";
+
     .search-bar{ //div 
+      background-color: indigo;
+      margin: auto; 
       .input-field{ //input
+  
       }
       .search-btn{ //button
+       font-size: larger;
+       margin: 0 10px; 
       }
-      .search-err-msg{ //div
-      }
-      .search-options{
-
+      // .search-err-msg{ //div
+      // }
+    }
+    .search-options{
+      background-color: blue; 
+      margin: 0 auto; 
+      label{
+     
       }
     }
   }
 
   .card-list{ //div
     background:$complementary-color4; 
-    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky  
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky 
     .card{ //div
-      .card-img{ //img
+      background: lightseagreen;
+       display: grid; 
+       max-width: 430px; //restrict each card to a max-width of 430px; 
+       margin: 20px; //applies a margin of 20px to each card for <480px viewport 
+       
+
+       /*divides card into two sections with the image on the left & card details on the right*/
+       grid-template-areas:
+       "card-left card-right" ;
+       
+       
+      .card-left{
+        grid-area: card-left; //identifer for the left side of card & its img item
+        margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
+    
+          .card-img{ //img
+            background: greenyellow;
+          }
       }
-      .card-title{ //h1
-      }
-      .card-subtitle{ //h2
-      }
-      .card-authors{ //p
-      }
-      .card-publisher{ //p
-      }
-      .card-button{ //button
+
+      .card-right{
+        grid-area: card-right; //identifier for the right side of card & its items 
+        display: grid; 
+        margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
+
+          .card-title{ //h1
+            background: cyan;
+          }
+          .card-subtitle{ //h2
+            background: grey;
+          }
+          .card-authors{ //p
+            background: orange;
+          }
+          .card-publisher{ //p
+            background: lightcoral
+          }
+          .card-btn{ //button
+            background: purple;
+            margin: auto; 
+          }
       }
     }
   }

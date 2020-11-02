@@ -13,15 +13,19 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
   };
 
   return (
-    <div id="search-bar">
-      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? "arrow-visible" : undefined}>
-        <input type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
+
+      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? "arrow-visible" : undefined} id="search-section">
+        
+        <div className="search-bar">
+        <input className="input-field" type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
         <datalist id="query-history">
           {queryHistory.map((query) => {
             return searchTerm !== query ? <option value={query} key={query}></option> : false;
           })}
         </datalist>
-        <button>Search</button>
+        <button className="search-btn">Search </button>
+        </div>
+
         <div className="search-options">
         <label>
           <input
@@ -44,7 +48,8 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           Newest
         </label>
         </div>
+
       </form>
-    </div>
+
   );
 }
