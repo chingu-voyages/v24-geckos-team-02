@@ -34,10 +34,9 @@ export default function App() {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
-
   return (
     <div className="App">
-      <Navbar setAccessToken={setAccessToken} />
+      <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />

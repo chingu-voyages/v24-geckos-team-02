@@ -3,7 +3,7 @@ import Authentication from "./Authentication";
 import logo from "../assets/img/logo.svg";
 import "../css/Navbar.css";
 
-export default function Navbar({ setAccessToken }) {
+export default function Navbar(props) {
   const styles = {
     height: 70,
     padding: 10,
@@ -19,7 +19,7 @@ export default function Navbar({ setAccessToken }) {
           </a>
         </li>
         <li>
-          <Authentication setAccessToken={setAccessToken} />
+          <Authentication {...props} />
         </li>
       </ul>
     </nav>

@@ -1,7 +1,7 @@
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import React, { useState, Fragment } from "react";
 
-const Authentication = ({ setAccessToken }) => {
+const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   const [name, setName] = useState("");
   const loginFailure = (response) => {
     console.log(response);
@@ -20,9 +20,16 @@ const Authentication = ({ setAccessToken }) => {
     setAccessToken({ value: "", expiresAt: "" });
   };
 
+  const now = new Date();
+
   return (
     <Fragment>
-      {!name ? (
+      {name && accessTokenExpiresAt > now.getTime() ? (
+        <div style={{ display: "flex" }}>
+          <p>{name}</p>
+          <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
+        </div>
+      ) : (
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Login"
@@ -33,11 +40,6 @@ const Authentication = ({ setAccessToken }) => {
             " "
           )}
         />
-      ) : (
-        <div style={{ display: "flex" }}>
-          <p>{name}</p>
-          <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
-        </div>
       )}
     </Fragment>
   );
