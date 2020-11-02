@@ -1,5 +1,6 @@
-import { findByLabelText } from "@testing-library/react";
+//import { findByLabelText } from "@testing-library/react";
 import React from "react";
+import logo from '../assets/img/logo.svg'
 import "../css/Navbar.css";
 
 export default function Navbar() {
@@ -11,20 +12,11 @@ export default function Navbar() {
   return (
     <nav className="nav-bar">
       <div className="nav-logo">
-        <img
-          src={require("../assets/img/logo.svg")}
-          style={styles}
-          alt="logo"
-        />
+      <img src={logo} style={styles} alt="logo" />
       </div>
       <div className="nav-list">
         <ul className="nav-list-items">
-          {/* <li><a href="#">Home</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Contacts</a></li>*/}
-          <li className="nav-link">
-            <a href="#">Link</a>
-          </li>
+            <li className="nav-link"><a target='_blank' href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors">About</a></li>
         </ul>
       </div>
     </nav>

@@ -18,14 +18,14 @@
  //  10% 
    15% 
    2fr 
-   40px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
+   55px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
    grid-template-areas:
      "nav-bar"
     // "header-section"
      "search-section"
      "card-list"
      "footer-section";
-
+    
      .nav-bar{ //nav
      background:$complementary-color1; 
 
@@ -54,7 +54,7 @@
                 .nav-link{ //a
                   background: brown; 
                   padding: 10px;
-                  margin-right: 60px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+                  margin-right: 40px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
                   font-size: 20px;
                 }
               }
@@ -97,9 +97,12 @@
     }
     .search-options{
       background-color: blue; 
-      margin: 0 auto; 
+      margin: -10px auto; //brings search options closer to search bar 
+      input[type="radio"] {
+        margin-right: 5px;
+      }
       label{
-     
+       margin: 0 5px; //adds space between options
       }
     }
   }
@@ -157,13 +160,23 @@
     background:$brand-color2; 
     
     /*aligns footer-link in the middle of footer-section*/
-    display: flex;
-    justify-content: center;
-
-       .footer-link{ //a
-        background: green; 
-        margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically) 
-       }
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    margin: auto; 
+    //justify-content: center;
+      .footer-social{
+        margin: auto; 
+        text-align: center;
+        .footer-link{ //a
+          background: green; 
+          margin: 0 5px; 
+          //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\ 
+        } 
+      }
+      .footer-note{
+        background: greenyellow; 
+      }
   }
       
 
