@@ -4,7 +4,7 @@ import React, { useState, Fragment } from "react";
 const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   const [name, setName] = useState("");
   const loginFailure = (response) => {
-    console.log(response);
+    console.log("Login failed: ", response);
     alert(`Login failed: ${response.error}`);
   };
 
@@ -21,10 +21,14 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   };
 
   const now = new Date();
+  if (name && accessTokenExpiresAt && accessTokenExpiresAt < now.getTime()) {
+    setName("");
+    setAccessToken({ value: "", expiresAt: "" });
+  }
 
   return (
     <Fragment>
-      {name && accessTokenExpiresAt > now.getTime() ? (
+      {name ? (
         <div style={{ display: "flex" }}>
           <p>{name}</p>
           <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
