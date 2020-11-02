@@ -18,7 +18,7 @@
  //  10% 
    15% 
    2fr 
-   40px; /*<<consider using mixin here>>*/
+   40px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
    grid-template-areas:
      "nav-bar"
     // "header-section"
@@ -52,8 +52,9 @@
                 justify-content: flex-end; 
 
                 .nav-link{ //a
+                  background: brown; 
                   padding: 10px;
-                  margin-right: 10px; 
+                  margin-right: 60px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
                 }
               }
             }
