@@ -16,7 +16,8 @@ export default function Modal({ book, toggleModal }) {
 		retailPrice,
 		pageCount,
 		language,
-		thumbnailImageLink,
+    thumbnailImageLink,
+    saleability
 	} = book;
 
 	let readablePublishedDate = formatDate(publishedDate);
@@ -30,7 +31,6 @@ export default function Modal({ book, toggleModal }) {
 		transform: "translate(-50%, -50%)",
 		backgroundColor: "white",
 	};
-	console.log(retailPrice.amount);
 
 	return (
 		<div className="modal-container" style={style}>
@@ -41,6 +41,7 @@ export default function Modal({ book, toggleModal }) {
 				{averageRating} / 5 ({ratingsCount}{" "}
 				{ratingsCount > 1 ? "votes" : "vote"})
 			</span>
+      {saleability === "FREE" ? <p>FREE BOOK</p> : null}
 			<p>{categories}</p>
 			<p>Published date: {readablePublishedDate}</p>
 			<p>{description}</p>

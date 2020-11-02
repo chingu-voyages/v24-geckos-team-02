@@ -15,7 +15,7 @@ function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
     previewLink = ""
   } = volumeInfo;
   // const { webReaderLink = ""} = accessInfo;
-  const { buyLink = "", retailPrice = "" } = saleInfo;
+  const { buyLink = "", retailPrice = "", saleability } = saleInfo;
 
   return {
     title,
@@ -36,6 +36,7 @@ function googleBookToAppBook({ volumeInfo, id, accessInfo, saleInfo }) {
     // webReaderLink,
     buyLink,
     previewLink,
+    saleability,
     retailPrice
   };
 }
