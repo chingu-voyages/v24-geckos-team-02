@@ -57,7 +57,8 @@ export default function App() {
   );
 }
 
-function googleBookToAppBook({ volumeInfo }) {
+function googleBookToAppBook(googleBook) {
+  const { volumeInfo } = googleBook;
   const { title, subtitle, authors, publisher, imageLinks } = volumeInfo;
   return {
     title: title === undefined ? "" : title,
@@ -67,5 +68,6 @@ function googleBookToAppBook({ volumeInfo }) {
     smallThumbnailLink:
       imageLinks === undefined ? "" : imageLinks.smallThumbnail,
     thumbnailLink: imageLinks === undefined ? "" : imageLinks.thumbnail,
+    volumeId: googleBook.id,
   };
 }
