@@ -12,7 +12,7 @@ export default function App() {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
-  const [accessToken, setAccessToken] = useState("");
+  const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
 
   const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber); // 'books' has search results
 

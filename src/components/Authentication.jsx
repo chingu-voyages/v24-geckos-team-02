@@ -5,20 +5,21 @@ const Authentication = ({ setAccessToken }) => {
   const [name, setName] = useState("");
   const loginFailure = (response) => {
     console.log(response);
-    document.alert("Login failed");
+    alert(`Login failed: ${response.error}`);
   };
 
   const loginSuccess = (response) => {
     console.log(response);
     setName(response.profileObj.name);
-    setAccessToken(response.tokenObj.access_token);
+    setAccessToken({ value: response.tokenObj.access_token, expiresAt: response.tokenObj.expires_at });
   };
 
   const logoutSuccess = (response) => {
     console.log("logged out");
     setName("");
-    setAccessToken("");
+    setAccessToken({ value: "", expiresAt: "" });
   };
+
   return (
     <Fragment>
       {!name ? (
@@ -35,9 +36,7 @@ const Authentication = ({ setAccessToken }) => {
       ) : (
         <div style={{ display: "flex" }}>
           <p>{name}</p>
-          <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess}>
-            Logout
-          </GoogleLogout>
+          <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
         </div>
       )}
     </Fragment>
