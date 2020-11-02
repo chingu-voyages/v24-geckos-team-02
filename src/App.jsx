@@ -12,11 +12,12 @@ export default function App() {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
-
+  const [areResultsLoading, setAreResultsLoading] = useState(false);
   const { books, error, isLastPage, queryHistory } = useBookSearch(
     query,
     orderBy,
-    pageNumber
+    pageNumber,
+    setAreResultsLoading
   ); // 'books' has search results
 
   const handleSubmit = (e, searchTerm, orderBy) => {
@@ -32,8 +33,13 @@ export default function App() {
   });
 
   function handleScroll() {
-    // if at the bottom of the page and the current page isn't the last page
-    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && !isLastPage) {
+    // if at the bottom of the page && the current page isn't the last page && results aren't loading
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight &&
+      !isLastPage &&
+      !areResultsLoading
+    ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
@@ -44,6 +50,7 @@ export default function App() {
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />
+      <div>{areResultsLoading ? "Loading" : ""}</div>
       <Footer />
     </div>
   );
@@ -56,6 +63,7 @@ function googleBookToAppBook({ volumeInfo }) {
     subtitle: subtitle === undefined ? "" : subtitle,
     authors: authors === undefined ? [] : authors,
     publisher: publisher === undefined ? "" : publisher,
-    thumbnailImageLink: imageLinks === undefined ? "" : imageLinks.smallThumbnail,
+    thumbnailImageLink:
+      imageLinks === undefined ? "" : imageLinks.smallThumbnail,
   };
 }
