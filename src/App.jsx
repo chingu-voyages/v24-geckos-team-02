@@ -48,12 +48,8 @@ export default function App() {
     <div className="App">
       <Navbar />
       <Header />
-      <Search
-        handleSubmit={handleSubmit}
-        error={error}
-        queryHistory={queryHistory}
-      />
-      <CardList books={books.map(googleBookToAppBook)} />
+      <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />
       <div>{areResultsLoading ? "Loading" : ""}</div>
       <Footer />
     </div>

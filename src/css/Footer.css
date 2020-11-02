@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    min-height: 10vh;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #34AAE6;
+}
+
+.footer .social > * {
+    margin-right: 30px;
+}
+
+.social {
+  margin-bottom: 10px;
+}
+
+.bg-dark {
+   background: #333;
+   color: #fff;
+}
