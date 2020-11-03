@@ -1,12 +1,12 @@
-import React from "react"
-import logo from '../assets/img/logo.svg'
-import '../css/Footer.css'
+import React from "react";
+//import logo from "../assets/img/logo.svg";
+import "../css/Footer.css";
 
 export default function Footer() {
-  const styles = {
-    height: 70,
-    padding: 10
-  }
+  // const styles = {
+  //   height: 70,
+  //   padding: 10,
+  // };
 
   return (
     <footer className="footer-section">
