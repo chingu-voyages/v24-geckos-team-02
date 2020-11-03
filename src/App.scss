@@ -3,6 +3,18 @@
 
 * {
   font-family: $text-font;
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  margin: 0;
+  //padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
@@ -12,11 +24,11 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:
-    100px
+    90px
     //  10%
     15%
     2fr
-    40px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
+    45px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
   grid-template-areas:
     "nav-bar"
     //"header-section"
@@ -26,7 +38,7 @@
 
   .nav-bar {
     //nav
-    //background:$complementary-color1;
+    background:$complementary-color1;
 
     /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
     display: grid;
@@ -34,31 +46,35 @@
 
     .nav-logo {
       //header
-      //background:orange;
+      background:orange; 
 
-      /*keep logo in the middle of its container nav-logo*/
+      /*keeps logo in the middle of its container nav-logo*/
       display: flex;
       justify-content: center;
+
     }
     .nav-list {
       //ul
-      //   background: grey;
+      background: grey;
       text-align: right;
-      .nav-list-items {
-        //li
-
-        /*keeps nav-links item/s aligned to the right inside nav-list*/
+      
+        /*keeps nav links item/s aligned to the right inside nav-list*/
         display: flex;
+        align-items: center; 
         justify-content: flex-end;
 
-        .nav-link {
+
+        .nav-link { //use this class within .nav-list to automatically insert new link next to existing link  
           //a
-          // background: brown;
-          padding: 10px;
-          margin-right: 10px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
-          font-size: 20px;
+          background: brown;
+          color: $hyperlinks-color1;
+          display: inline; //keep nav links next to each other horizontally 
+
+          //padding: 10px;
+          margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+          font-size: 20px; //<<>>
         }
-      }
+  
     }
   }
 
@@ -175,34 +191,37 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
+
     //margin: auto;
     //justify-content: center;
     .footer-social {
       //background: grey;
 
-      text-align: center; //keeps social media icons/links centered by default 
+      text-align: center; //keeps social media icons/links centered by default
+      
+      margin-top: 5px; //<<>> matches margin space set on .footer-note
 
-      .footer-link { 
+      .footer-link {
         //a
         //background: green;
 
-        color: $text-color1; 
+        color: $text-color1;
 
         font-size: 10px; //<<>>
-        margin: 0 5px; //<<>>
-        
-        //margin: auto; 
+        margin: 0 5px; //<<>> adds 5px margin between icons 
+
+        //margin: auto;
       }
     }
+
     .footer-note {
       //p
       //background: greenyellow;
-      color: $text-color1; 
+      color: $text-color1;
       text-align: center;
 
       font-size: 10px; //<<>>
-     
+      margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
     }
   }
 }
