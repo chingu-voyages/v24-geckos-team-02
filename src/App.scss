@@ -21,20 +21,20 @@
    55px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
    grid-template-areas:
      "nav-bar"
-    // "header-section"
+     //"header-section"
      "search-section"
      "card-list"
      "footer-section";
     
      .nav-bar{ //nav
-     background:$complementary-color1; 
+     //background:$complementary-color1; 
 
      /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/ 
      display: grid;
      grid-template-columns: 1fr 3fr;
 
              .nav-logo{ //header
-              background:orange; 
+              //background:orange; 
               
               /*keep logo in the middle of its container nav-logo*/
               display: flex;
@@ -43,7 +43,7 @@
 
              }
              .nav-list{ //ul
-               background: grey; 
+            //   background: grey; 
                text-align: right;
               .nav-list-items{ //li
 
@@ -52,9 +52,9 @@
                 justify-content: flex-end; 
 
                 .nav-link{ //a
-                  background: brown; 
+                 // background: brown; 
                   padding: 10px;
-                  margin-right: 40px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+                  margin-right: 10px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
                   font-size: 20px;
                 }
               }
@@ -63,7 +63,7 @@
  
 
   .header-section{ //header
-    background:$complementary-color2; 
+    //background:$complementary-color2; 
    .header-app-name{ //h1
      //font-family: $logo-font; //test
      //color: $logo-color; //test
@@ -84,12 +84,13 @@
 
     .search-bar{ //div 
       background-color: indigo;
+      //height: 50px;
       margin: auto; 
       .input-field{ //input
   
       }
       .search-btn{ //button
-       font-size: larger;
+       //font-size: larger;
        margin: 0 10px; 
       }
       // .search-err-msg{ //div

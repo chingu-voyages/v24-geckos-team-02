@@ -1,8 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); //text-font pairing alternative
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@700&display=swap');
 
 $header-logo-font: 'Concert One', cursive; 
-$text-font: 'Concert One', cursive; 
+//$text-font: 'Montserrat', sans-serif;//text-font pairing alternative 
+$text-font: 'Work Sans', sans-serif;
 
 /*Brand Colors*/
 $brand-color1: #206db1;
