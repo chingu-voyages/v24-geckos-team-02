@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(query, orderBy, pageNumber) {
+export default function useBookSearch(
+  query,
+  orderBy,
+  pageNumber,
+  setAreResultsLoading
+) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
@@ -14,6 +19,7 @@ export default function useBookSearch(query, orderBy, pageNumber) {
     } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
+      setAreResultsLoading(true);
       axios({
         method: "GET",
         url: `https://www.googleapis.com/books/v1/volumes`,
@@ -25,11 +31,14 @@ export default function useBookSearch(query, orderBy, pageNumber) {
         },
       })
         .then((res) => {
+          setAreResultsLoading(false);
+
           if (res.data.items && res.data.items.length < noOfCardsPerPage) {
             setIsLastPage(true);
           } else {
             setIsLastPage(false);
           }
+
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
               setQueryHistory((q) => {
@@ -54,10 +63,11 @@ export default function useBookSearch(query, orderBy, pageNumber) {
           }
         })
         .catch((err) => {
+          setAreResultsLoading(false);
           setError(err.message);
         });
     }
-  }, [query, orderBy, pageNumber]);
+  }, [query, orderBy, pageNumber, setAreResultsLoading]);
 
   return { error, books, isLastPage, queryHistory };
 }

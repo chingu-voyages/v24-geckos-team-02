@@ -13,12 +13,10 @@ export default function App() {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
+  const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
+  const [areResultsLoading, setAreResultsLoading] = useState(false);
 
-  const { books, error, isLastPage, queryHistory } = useBookSearch(
-    query,
-    orderBy,
-    pageNumber
-  ); // 'books' has search results
+  const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber, setAreResultsLoading); // 'books' has search results
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
@@ -34,18 +32,23 @@ export default function App() {
   });
 
   function handleScroll() {
-    // if at the bottom of the page and the current page isn't the last page
-    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && !isLastPage) {
+    // if at the bottom of the page && the current page isn't the last page && results aren't loading
+    if (
+      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
+      !isLastPage &&
+      !areResultsLoading
+    ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
-
   return (
     <div className="App">
-      <Navbar />
+      <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
       <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+      {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
+      <div>{areResultsLoading ? "Loading" : ""}</div>
       <Footer />
     </div>
   );
