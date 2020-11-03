@@ -33,12 +33,16 @@ $success-color: #206db1; //to be used on light-background-color only
 /*Disabled/Grey Colors*/
 $disabled-color: #595959; //to be used on light-background-color only to represent disabled state 
 
-/*Interaction (Button) Colors */
+/*Interaction Colors */
+$interactive-color1: #7c9303;//to be used on for input elements 
+
 $hyperlinks-color1: #7c9303; //to be used on light-background-color
 $hyperlinks-color2: #c0e147; //to be used on dark-background-color 
+
 $btn-color-default: #7c9303; 
 $btn-color-lighter1: #8dae14; //only use for btn effects, e.g. hover effect
-$btn-color-lighter2: #7c9303; //only use for btn effects, e.g. hover effect 
+$btn-color-lighter2: #9ebf26; //only use for btn effects, e.g. hover effect 
 $btn-color-lighter3: #afd036; //only use for btn effects, e.g. hover effect 
 $btn-color-lighter4: #c0e147; //only use for btn effects, e.g. hover effect 
+
 $btn-text-color: #FFFFFF;

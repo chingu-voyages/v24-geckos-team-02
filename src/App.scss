@@ -4,12 +4,79 @@
 * {
   font-family: $text-font;
 
+  /*Global Styles for <li> list items*/
   li {
     list-style-type: none;
   }
 
+  /*Global Styles for <a> hyperlinks*/
   a {
     text-decoration: none;
+  }
+  a:link {
+    color: $hyperlinks-color1;
+    background-color: transparent;
+  }
+  a:hover {
+    color: $success-color !important;
+  }
+  a:visited {
+    color: $hyperlinks-color1;
+  }
+
+  /*Global Styles for <button> buttons*/
+  outline: none; //this removes unnecessary border around buttons after it's clicked
+  button {
+    background-color: $btn-color-default;
+    color: $btn-text-color;
+    border: 2px solid $success-color;
+    border-radius: 8px;
+  }
+
+  button:hover {
+    background-color: $btn-color-lighter3;
+    color: $success-color;
+  }
+
+  /*Global Styles for <input> field type=text*/
+  input[type="text"] {
+    padding: 10px;
+    border-color: $complementary-color3;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    color: $text-color2;
+  }
+
+  /*Global Styles for <input> elements type=radio*/
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  //overlay the radio button input style using :after
+  input[type="radio"]:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+  input[type="radio"]:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: $success-color;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
   }
 
   margin: 0;
@@ -24,7 +91,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:
-    90px
+    95px
     //  10%
     15%
     2fr
@@ -38,59 +105,75 @@
 
   .nav-bar {
     //nav
-    background:$complementary-color1;
+    //background: $complementary-color1;
 
     /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 2fr 3fr;
+
+    /*adds a thin border separation between navbar & search box*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
 
     .nav-logo {
       //header
-      background:orange; 
+      //background:orange;
 
       /*keeps logo in the middle of its container nav-logo*/
       display: flex;
       justify-content: center;
-
     }
     .nav-list {
       //ul
-      background: grey;
+      //background: grey;
       text-align: right;
-      
-        /*keeps nav links item/s aligned to the right inside nav-list*/
-        display: flex;
+
+      /*keeps nav links item/s aligned to the right inside nav-list*/
+      display: flex;
+      align-items: center;
         align-items: center; 
-        justify-content: flex-end;
+      align-items: center;
+        align-items: center; 
+      align-items: center;
+      align-items: center;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 30px; //<<adds a 30px margin to .nav-list container & fill middle gap/visual issue
 
-
-        .nav-link { //use this class within .nav-list to automatically insert new link next to existing link  
-          //a
-          background: brown;
-          color: $hyperlinks-color1;
+      .nav-link {
+        //use this class within .nav-list to automatically insert new link next to existing link
+        //a
+        //background: brown;
+        //color: $hyperlinks-color1;
+        display: inline; //keep nav links next to each other horizontally
+        display: inline; //keep nav links next to each other horizontally
+        display: inline; //keep nav links next to each other horizontally
           display: inline; //keep nav links next to each other horizontally 
+        display: inline; //keep nav links next to each other horizontally
+          display: inline; //keep nav links next to each other horizontally 
+        display: inline; //keep nav links next to each other horizontally
 
-          //padding: 10px;
-          margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
-          font-size: 20px; //<<>>
-        }
-  
+        //padding: 10px;
+        margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+        font-size: 20px; //<<>>
+      }
     }
   }
 
-  .header-section {
-    //header
-    //background:$complementary-color2;
-    .header-app-name {
-      //h1
-      //font-family: $logo-font; //test
-      //color: $logo-color; //test
-    }
-  }
+  // .header-section {
+  //   //header
+  //   //background:$complementary-color2;
+  //   .header-app-name {
+  //     //h1
+  //     //font-family: $logo-font; //test
+  //     //color: $logo-color; //test
+  //   }
+  // }
 
   #search-section {
     //div
-    background: $complementary-color3;
+    //background: $complementary-color3;
 
     /*Aligns search-bar & search-options inside a single column grid*/
     display: grid;
@@ -103,28 +186,33 @@
 
     .search-bar {
       //div
-      background-color: indigo;
+      //background-color: indigo;
       //height: 50px;
+
+      min-width: 280px; //fixed min-width of 280px for search bar to prevent misalignment of search bar items
+      padding-top: 5px;
       margin: auto;
+      
       .input-field {
         //input
       }
       .search-btn {
         //button
         //font-size: larger;
-        margin: 0 10px;
+        margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
+        padding: 10px; //sets a padding of 10px to match search input field's padding
       }
       // .search-err-msg{ //div
       // }
     }
     .search-options {
-      background-color: blue;
-      margin: -10px auto; //brings search options closer to search bar
-      input[type="radio"] {
-        margin-right: 5px;
-      }
+      //background-color: blue;
+      margin: 0 auto; //brings search options closer to search bar
+      //margin-bottom: -30px; 
       label {
+        //background: indianred;
         margin: 0 5px; //adds space between options
+        color: $text-color2;
       }
     }
   }
@@ -176,7 +264,7 @@
         }
         .card-btn {
           //button
-          background: purple;
+          //background: purple;
           margin: auto;
         }
       }
@@ -198,7 +286,7 @@
       //background: grey;
 
       text-align: center; //keeps social media icons/links centered by default
-      
+
       margin-top: 5px; //<<>> matches margin space set on .footer-note
 
       .footer-link {
@@ -208,9 +296,12 @@
         color: $text-color1;
 
         font-size: 10px; //<<>>
-        margin: 0 5px; //<<>> adds 5px margin between icons 
+        margin: 0 5px; //<<>> adds 5px margin between icons
 
         //margin: auto;
+      }
+      .footer-link:hover {
+        color: $hyperlinks-color2 !important;
       }
     }
 
