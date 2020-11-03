@@ -1,194 +1,216 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
-
-*{
+* {
   font-family: $text-font;
 }
 
-.App{
-   
-  /*CSS Grid to contain all page items*/ 
-   height: 100vh;
-   width: 100%;
-   display: grid;
-   grid-template-columns: 1fr;
-   grid-template-rows: 
-   100px 
- //  10% 
-   15% 
-   2fr 
-   55px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
-   grid-template-areas:
-     "nav-bar"
-     //"header-section"
-     "search-section"
-     "card-list"
-     "footer-section";
-    
-     .nav-bar{ //nav
-     //background:$complementary-color1; 
+.App {
+  /*CSS Grid to contain all page items*/
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    100px
+    //  10%
+    15%
+    2fr
+    40px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
+  grid-template-areas:
+    "nav-bar"
+    //"header-section"
+    "search-section"
+    "card-list"
+    "footer-section";
 
-     /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/ 
-     display: grid;
-     grid-template-columns: 1fr 3fr;
+  .nav-bar {
+    //nav
+    //background:$complementary-color1;
 
-             .nav-logo{ //header
-              //background:orange; 
-              
-              /*keep logo in the middle of its container nav-logo*/
-              display: flex;
-              justify-content: center;
+    /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 
+    .nav-logo {
+      //header
+      //background:orange;
 
-             }
-             .nav-list{ //ul
-            //   background: grey; 
-               text-align: right;
-              .nav-list-items{ //li
+      /*keep logo in the middle of its container nav-logo*/
+      display: flex;
+      justify-content: center;
+    }
+    .nav-list {
+      //ul
+      //   background: grey;
+      text-align: right;
+      .nav-list-items {
+        //li
 
-                /*keeps nav-links item/s aligned to the right inside nav-list*/
-                display: flex; 
-                justify-content: flex-end; 
+        /*keeps nav-links item/s aligned to the right inside nav-list*/
+        display: flex;
+        justify-content: flex-end;
 
-                .nav-link{ //a
-                 // background: brown; 
-                  padding: 10px;
-                  margin-right: 10px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
-                  font-size: 20px;
-                }
-              }
-            }
-           }   
- 
-
-  .header-section{ //header
-    //background:$complementary-color2; 
-   .header-app-name{ //h1
-     //font-family: $logo-font; //test
-     //color: $logo-color; //test
-   }
+        .nav-link {
+          //a
+          // background: brown;
+          padding: 10px;
+          margin-right: 10px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+          font-size: 20px;
+        }
+      }
+    }
   }
 
-  #search-section{ //div
-    background:$complementary-color3;
-    
+  .header-section {
+    //header
+    //background:$complementary-color2;
+    .header-app-name {
+      //h1
+      //font-family: $logo-font; //test
+      //color: $logo-color; //test
+    }
+  }
+
+  #search-section {
+    //div
+    background: $complementary-color3;
+
     /*Aligns search-bar & search-options inside a single column grid*/
-     display: grid;
-     height: 100%; 
-     grid-template-columns: 1fr;
-     grid-template-rows: 2fr 1fr;
-     grid-template-areas:
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
       "search-bar"
       "search-options";
 
-    .search-bar{ //div 
+    .search-bar {
+      //div
       background-color: indigo;
       //height: 50px;
-      margin: auto; 
-      .input-field{ //input
-  
+      margin: auto;
+      .input-field {
+        //input
       }
-      .search-btn{ //button
-       //font-size: larger;
-       margin: 0 10px; 
+      .search-btn {
+        //button
+        //font-size: larger;
+        margin: 0 10px;
       }
       // .search-err-msg{ //div
       // }
     }
-    .search-options{
-      background-color: blue; 
-      margin: -10px auto; //brings search options closer to search bar 
+    .search-options {
+      background-color: blue;
+      margin: -10px auto; //brings search options closer to search bar
       input[type="radio"] {
         margin-right: 5px;
       }
-      label{
-       margin: 0 5px; //adds space between options
+      label {
+        margin: 0 5px; //adds space between options
       }
     }
   }
 
-  .card-list{ //div
-    background:$complementary-color4; 
-    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky 
-    .card{ //div
+  .card-list {
+    //div
+    background: $complementary-color4;
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
+    .card {
+      //div
       background: lightseagreen;
-       display: grid; 
-       max-width: 430px; //restrict each card to a max-width of 430px; 
-       margin: 20px; //applies a margin of 20px to each card for <480px viewport 
-       
+      display: grid;
+      max-width: 430px; //restrict each card to a max-width of 430px;
+      margin: 20px; //applies a margin of 20px to each card for <480px viewport
 
-       /*divides card into two sections with the image on the left & card details on the right*/
-       grid-template-areas:
-       "card-left card-right" ;
-       
-       
-      .card-left{
+      /*divides card into two sections with the image on the left & card details on the right*/
+      grid-template-areas: "card-left card-right";
+
+      .card-left {
         grid-area: card-left; //identifer for the left side of card & its img item
         margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
-    
-          .card-img{ //img
-            background: greenyellow;
-          }
+
+        .card-img {
+          //img
+          background: greenyellow;
+        }
       }
 
-      .card-right{
-        grid-area: card-right; //identifier for the right side of card & its items 
-        display: grid; 
+      .card-right {
+        grid-area: card-right; //identifier for the right side of card & its items
+        display: grid;
         margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
 
-          .card-title{ //h1
-            background: cyan;
-          }
-          .card-subtitle{ //h2
-            background: grey;
-          }
-          .card-authors{ //p
-            background: orange;
-          }
-          .card-publisher{ //p
-            background: lightcoral
-          }
-          .card-btn{ //button
-            background: purple;
-            margin: auto; 
-          }
+        .card-title {
+          //h1
+          background: cyan;
+        }
+        .card-subtitle {
+          //h2
+          background: grey;
+        }
+        .card-authors {
+          //p
+          background: orange;
+        }
+        .card-publisher {
+          //p
+          background: lightcoral;
+        }
+        .card-btn {
+          //button
+          background: purple;
+          margin: auto;
+        }
       }
     }
   }
 
-  .footer-section{ //footer 
-    background:$brand-color2; 
-    
-    /*aligns footer-link in the middle of footer-section*/
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    margin: auto; 
-    //justify-content: center;
-      .footer-social{
-        margin: auto; 
-        text-align: center;
-        .footer-link{ //a
-          background: green; 
-          margin: 0 5px; 
-          //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\ 
-        } 
-      }
-      .footer-note{
-        background: greenyellow; 
-      }
-  }
-      
+  .footer-section {
+    //footer
+    background: $dark-background-color;
 
+    /*aligns footer items in the middle of footer-section*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    //margin: auto;
+    //justify-content: center;
+    .footer-social {
+      //background: grey;
+
+      text-align: center; //keeps social media icons/links centered by default 
+
+      .footer-link { 
+        //a
+        //background: green;
+
+        color: $text-color1; 
+
+        font-size: 10px; //<<>>
+        margin: 0 5px; //<<>>
+        
+        //margin: auto; 
+      }
+    }
+    .footer-note {
+      //p
+      //background: greenyellow;
+      color: $text-color1; 
+      text-align: center;
+
+      font-size: 10px; //<<>>
+     
+    }
+  }
 }
 
-
-
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
-// @media (min-width: 480px) { /* ... */ 
+// @media (min-width: 480px) { /* ... */
 //   .App{
-//     background: green; //test 
+//     background: green; //test
 //     .nav-bar{ //nav
 //       .nav-logo{ //header
 //       }
@@ -199,14 +221,14 @@
 //        }
 //      }
 //     }
-  
+
 //     .header-section{ //header
 //      .header-app-name{ //h1
 //        font-family: $logo-font; //test//
 //        color: $logo-color; //test//
 //      }
 //     }
-  
+
 //     .search-section{ //div
 //       .search-bar{ //div
 //         .input-field{ //input
@@ -219,7 +241,7 @@
 //         }
 //       }
 //     }
-  
+
 //     .card-list{ //div
 //       .card{ //div
 //         .card-img{ //img
@@ -236,13 +258,13 @@
 //         }
 //       }
 //     }
-//     .footer-section{ //footer 
+//     .footer-section{ //footer
 //       .footer-list{ //ul
 //         .footer-list-item{ //li
 //          .footer-link{ //a
 //          }
 //         }
-        
+
 //       }
 //     }
 //   }
@@ -258,6 +280,26 @@
 // /* Large (lg) 1025px — 1200px: Desktops, large screens*/
 // @media (min-width: 1024px) { /* ... */ }
 
-// /* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-// @media (min-width: 1280px) { /* ... */ }
+/* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
+@media (min-width: 1280px) {
+  // .footer-section {
+  //   //footer
+  //   background: $brand-color2;
 
+  //   margin: auto;
+  //   //justify-content: center;
+  //   .footer-social {
+  //     margin: auto;
+  //     text-align: center;
+  //     .footer-link {
+  //       //a
+  //       background: green;
+  //       margin: 0 5px;
+  //       //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\
+  //     }
+  //   }
+  //   .footer-note {
+  //     background: greenyellow;
+  //   }
+  // }
+}
