@@ -7,7 +7,7 @@ import Search from "./components/Search";
 import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 import useBookSearch from "./hooks/useBookSearch";
-import googleBookToAppBook from "./utils/googleBookToAppBook"
+import googleBookToAppBook from "./utils/googleBookToAppBook";
 
 export default function App() {
   const [query, setQuery] = useState(undefined);
@@ -16,7 +16,12 @@ export default function App() {
   const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
   const [areResultsLoading, setAreResultsLoading] = useState(false);
 
-  const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber, setAreResultsLoading); // 'books' has search results
+  const { books, error, isLastPage, queryHistory } = useBookSearch(
+    query,
+    orderBy,
+    pageNumber,
+    setAreResultsLoading
+  ); // 'books' has search results
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
@@ -32,27 +37,37 @@ export default function App() {
   });
 
   function handleScroll() {
-    // if at the bottom of the page && the current page isn't the last page && results aren't loading
+    // if beyond three-quarters of the way down the page && the current page isn't the last page && results aren't loading
     if (
-      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
+      window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight * 0.75 &&
       !isLastPage &&
       !areResultsLoading
     ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
+
   return (
     <div className="App">
-      <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
+      <Navbar
+        setAccessToken={setAccessToken}
+        accessTokenExpiresAt={accessToken.expiresAt}
+      />
       <Header />
-      <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+      <Search
+        handleSubmit={handleSubmit}
+        error={error}
+        queryHistory={queryHistory}
+      />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
-      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
+      <CardList
+        books={books.map(googleBookToAppBook)}
+        isLastPage={isLastPage}
+        query={query}
+      />
       <div>{areResultsLoading ? "Loading" : ""}</div>
       <Footer />
     </div>
   );
 }
-
-
-
