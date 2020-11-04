@@ -30,6 +30,7 @@ export default function Modal({ book, toggleModal }) {
 		left: "50%",
 		transform: "translate(-50%, -50%)",
 		backgroundColor: "white",
+		zIndex: 200 
 	};
 
 	return (

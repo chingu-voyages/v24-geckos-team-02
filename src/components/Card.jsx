@@ -29,7 +29,7 @@ export default function Card({ book, query }) {
   return (
 <>
 <div className="modal-overlay" style={style} onClick={toggleModal}></div>
-    <div className="card" style={{zIndex: "100"}}>
+    <div className="card">
       <div className="card-left">
         <img
           className="card-image"
