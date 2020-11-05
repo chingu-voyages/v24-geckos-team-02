@@ -49,7 +49,7 @@ export default function App() {
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
       {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
-      {areResultsLoading === true && <div>Loading...</div>}
+      {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
       <Footer />
     </div>
   );

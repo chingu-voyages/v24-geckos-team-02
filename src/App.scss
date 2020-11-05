@@ -378,6 +378,23 @@
   }
 }
 
+/*Styles for loading message*/
+.loading-msg{
+  text-align: center;
+  color: $complementary-color2;
+  margin: auto; 
+  background-color: $light-background-color;
+  
+}
+// let errorMsgStyle = {
+//   position: "relative",
+//   marginTop: "5px",
+//   padding: "2px",
+//   textAlign: "center",
+//   backgroundColor: "white",
+//   color: "#B30000",
+// };
+
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
 // @media (min-width: 480px) { /* ... */ }
 
