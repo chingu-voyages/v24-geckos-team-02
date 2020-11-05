@@ -17,6 +17,7 @@ nav {
   justify-content: space-around;
   min-height: 10vh;
   align-items: center;
+  background-color: rgb(238, 236, 236);
 }
 
 nav .nav-links {
