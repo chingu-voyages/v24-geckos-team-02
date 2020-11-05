@@ -86,6 +86,7 @@
 
 .App {
   /*CSS Grid to contain all page items*/
+  //margin: 0; 
   height: 100vh;
   width: 100%;
   display: grid;
@@ -214,16 +215,19 @@
     //div
     //background: $complementary-color4;
     overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
-    display: grid; 
-    grid-template-columns: repeat(1, 1fr);
+     display: grid; 
+     grid-template-columns: repeat(auto-fill, 380px);
+     justify-content: center;
 
     .card {
       //div
       //background: lightseagreen;
       display: grid;
+      max-height: 300px;
       max-width: 380px; //set each card to a width of 430px to maintain consistency
       //height: 220px; //set each card to a fixed height of 220px to maintain consitency 
-      margin: 20px auto; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
+      margin: 20px 10px; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
+      margin-bottom: 10px; 
       /*divides card into two sections with the image on the left & card details on the right*/
       grid-template-areas: "card-left card-right";
       padding: 10px; 
@@ -362,74 +366,19 @@
 }
 
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
-// @media (min-width: 480px) { /* ... */
-//   .App{
-//     background: green; //test
-//     .nav-bar{ //nav
-//       .nav-logo{ //header
-//       }
-//       .nav-list{ //ul
-//        .nav-list-item{ //li
-//          .nav-link{ //a
-//          }
-//        }
-//      }
-//     }
-
-//     .header-section{ //header
-//      .header-app-name{ //h1
-//        font-family: $logo-font; //test//
-//        color: $logo-color; //test//
-//      }
-//     }
-
-//     .search-section{ //div
-//       .search-bar{ //div
-//         .input-field{ //input
-//         }
-//         .search-btn{ //button
-//         }
-//         .search-err-msg{ //div
-//         }
-//         .search-options{
-//         }
-//       }
-//     }
-
-//     .card-list{ //div
-//       .card{ //div
-//         .card-img{ //img
-//         }
-//         .card-title{ //h1
-//         }
-//         .card-subtitle{ //h2
-//         }
-//         .card-authors{ //p
-//         }
-//         .card-publisher{ //p
-//         }
-//         .card-button{ //button
-//         }
-//       }
-//     }
-//     .footer-section{ //footer
-//       .footer-list{ //ul
-//         .footer-list-item{ //li
-//          .footer-link{ //a
-//          }
-//         }
-
-//       }
-//     }
-//   }
-
-// }
+// @media (min-width: 480px) { /* ... */ }
 
 // /* Small (sm) 481px — 768px: iPads, Tablets*/
 // @media (min-width: 640px) { /* ... */ }
 
 // /* Medium (md) 769px — 1024px: Small screens, laptops*/
-// @media (min-width: 768px) { /* ... */ }
+//  @media (min-width: 700px) { 
+//   .card-list {
+ 
+//     grid-template-columns: repeat(2, 1fr);
+ 
+//    }
+//  }
 
 // /* Large (lg) 1025px — 1200px: Desktops, large screens*/
 // @media (min-width: 1024px) { /* ... */ }
