@@ -45,7 +45,7 @@ export default function Modal({ book, toggleModal }) {
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
 			<p>Category: {categories}</p>
 			<p>Published date: {readablePublishedDate}</p>
-			<p>{description}</p>
+			<p id="modal-description">{description}</p>
 			<p>
 				{pageCount} pages, Language: {formattedLanguage}
 			</p>
