@@ -22,6 +22,9 @@ export default function Footer() {
         <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw">
           <i className="fab fa-youtube fa-2x"></i>
         </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/chingu-voyages/v24-geckos-team-02">
+          <i className="fab fa-github fa-2x"></i>
+        </a>
       </div>
       <p>Copyright &copy; 2020 - BooksPlus</p>
     </footer>
