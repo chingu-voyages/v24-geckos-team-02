@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+// Header from "./components/Header";
 import Search from "./components/Search";
 import CardList from "./components/CardList";
 import Footer from "./components/Footer";
@@ -48,7 +48,8 @@ export default function App() {
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
-      <div>{areResultsLoading ? "Loading" : ""}</div>
+      {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
+      {areResultsLoading === true && <div>Loading...</div>}
       <Footer />
     </div>
   );
