@@ -260,20 +260,25 @@
 
         .card-title {
           //h1
-           background: cyan;
+          background: cyan;
           font-size: 20px; //<<>>
 
           /*handles text overflow for long titles & limit title information to 3 lines to prevent display issues within card*/
-          overflow: hidden; 
+          overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3; 
-          
+          -webkit-line-clamp: 3;
         }
         .card-subtitle {
           //h2
-          //background: grey;
+          background: grey;
           font-size: 15px; //<<>>
+
+          /*handles text overflow for long subtitles & limit title information to 2 lines to prevent display issues within card*/
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
         }
         .card-authors {
           //p
