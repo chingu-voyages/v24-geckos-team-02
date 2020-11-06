@@ -122,7 +122,8 @@
 
       /*keeps logo in the middle of its container nav-logo*/
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      margin-left: 30px;
     }
     .nav-list {
       //ul
@@ -402,23 +403,6 @@
   color: $complementary-color2;
   margin: auto;
 }
-
-// @media (max-width: 350px) {
-//   /* ... */.card-list{
-//     .card{
-//       background-color: red;
-//       display: flex !important;
-//       flex-direction: column;
-//       align-items: center;
-//       min-height: 300px !important;
-//       .card-right{
-//         display: grid;
-//         justify-items: center;
-//       }
-
-//     }
-//   }
-// }
 
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
 // @media (min-width: 480px) { /* ... */ }
