@@ -92,7 +92,7 @@
   grid-template-columns: 1fr;
   grid-template-rows:
     1fr
-    1.25fr
+    1fr
     7fr
     0.5fr;
   grid-template-areas:
@@ -151,9 +151,9 @@
 
   #search-section {
     //div
-    //background: $dark-background-color;
+    //background: lightblue;
 
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -182,8 +182,8 @@
     }
     .search-options {
       //background-color: blue;
-      //min-height: 21px !important; 
-      margin: 5px; 
+      //min-height: 21px !important;
+      margin: 5px;
       label {
         //background: indianred;
         margin: 0 5px; //adds space between options

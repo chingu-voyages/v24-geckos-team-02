@@ -12,13 +12,15 @@ let errorMsgStyle = {
 
 export default function Search({ handleSubmit, error, queryHistory }) {
   return (
-    <div className="search-section">
+    //<div className="search-section">
+    <>
       <SearchBar handleSubmit={handleSubmit} queryHistory={queryHistory} />
       {error !== "" && 
         <div className="search-error" style={errorMsgStyle}>
           {error && error}
         </div>
       }
-    </div>
+    {/* //</div> */}
+    </>
   );
 }
