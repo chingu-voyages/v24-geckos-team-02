@@ -14,28 +14,28 @@
     text-decoration: none;
   }
   a:link {
-    color: $hyperlinks-color1;
+    color: $btn-color-new-default;
     background-color: transparent;
   }
   a:hover {
-    color: $success-color !important;
+    color: $btn-color-new-lighter1 !important;
   }
   a:visited {
-    color: $hyperlinks-color1;
+    color: $btn-color-new-default;
   }
 
   /*Global Styles for <button> buttons*/
   outline: none; //this removes unnecessary border around buttons after it's clicked
   button {
-    background-color: $btn-color-default;
+    background-color: $btn-color-new-default;
     color: $btn-text-color;
-    border: 2px solid $success-color;
+    border: 1px solid $btn-color-new-lighter1;
     border-radius: 8px;
   }
 
   button:hover {
-    background-color: $btn-color-lighter3;
-    color: $success-color;
+    background-color: $btn-color-new-lighter1;
+    color: $btn-text-color;
   }
 
   /*Global Styles for <input> field type=text*/
@@ -299,7 +299,7 @@
           //button
           //background: purple;
           //margin: auto;
-          padding: 4px;
+          padding: 6px;
         }
       }
     }
@@ -384,9 +384,9 @@
     text-align: center;
     padding: 5px 0;
   }
-  button {
-    margin-top: 10px;
-  }
+  // button {
+  //   margin-top: 10px;
+  // }
 }
 
 /*Styles for loading message*/
