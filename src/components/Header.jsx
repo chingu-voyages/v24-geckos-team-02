@@ -14,7 +14,7 @@ export default function Header() {
   }
 
   return (
-    <header>
+    <header className="header-section">
       <div style={styleBooks}>
         BOOKS<span style={stylePlus}>PLUS</span>
       </div>

@@ -44,7 +44,7 @@ export default function App() {
   return (
     <div className="App">
       <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
-      <Header />
+      {/* <Header /> */}
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>

@@ -1,76 +1,339 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
-/*
-//*{
-  //font-family: $text-font;
-//}
+* {
+  font-family: $text-font;
 
-.App{
-  .nav-bar{ //nav
-    .nav-logo{ //header
-    }
-    .nav-list{ //ul
-     .nav-list-item{ //li
-       .nav-link{ //a
-       }
-     }
-   }
+  /*Global Styles for <li> list items*/
+  li {
+    list-style-type: none;
   }
 
-  .header-section{ //header
-   .header-app-name{ //h1
-     //font-family: $logo-font; //test
-     //color: $logo-color; //test
-   }
+  /*Global Styles for <a> hyperlinks*/
+  a {
+    text-decoration: none;
+  }
+  a:link {
+    color: $hyperlinks-color1;
+    background-color: transparent;
+  }
+  a:hover {
+    color: $success-color !important;
+  }
+  a:visited {
+    color: $hyperlinks-color1;
   }
 
-  .search-section{ //div
-    .search-bar{ //div
-      .input-field{ //input
-      }
-      .search-btn{ //button
-      }
-      .search-err-msg{ //div
-      }
-    }
+  /*Global Styles for <button> buttons*/
+  outline: none; //this removes unnecessary border around buttons after it's clicked
+  button {
+    background-color: $btn-color-default;
+    color: $btn-text-color;
+    border: 2px solid $success-color;
+    border-radius: 8px;
   }
 
-  .card-list{ //div
-    .card{ //div
-      .card-img{ //img
-      }
-      .card-title{ //h1
-      }
-      .card-subtitle{ //h2
-      }
-      .card-authors{ //p
-      }
-      .card-publisher{ //p
-      }
-      .card-button{ //button
-      }
-    }
+  button:hover {
+    background-color: $btn-color-lighter3;
+    color: $success-color;
   }
 
-  .footer-section{ //footer 
-    .footer-list{ //ul
-      .footer-list-item{ //li
-       .footer-link{ //a
-       }
-      }
-      
-    }
+  /*Global Styles for <input> field type=text*/
+  input[type="text"] {
+    padding: 10px;
+    border-color: $complementary-color3;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    color: $text-color2;
   }
 
+  /*Global Styles for <input> elements type=radio*/
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  //overlay the radio button input style using :after
+  input[type="radio"]:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+  input[type="radio"]:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: $success-color;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+  margin: 0;
+  //padding: 0;
+  box-sizing: border-box;
 }
 
+.App {
+  /*CSS Grid to contain all page items*/
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    95px
+    //  10%
+    15%
+    2fr
+    45px; /*<<consider using mixin here if space need be re-adjused for other viewports>>*/
+  grid-template-areas:
+    "nav-bar"
+    //"header-section"
+    "search-section"
+    "card-list"
+    "footer-section";
 
+  .nav-bar {
+    //nav
+    //background: $complementary-color1;
+
+    /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+
+    /*adds a thin border separation between navbar & search box*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
+
+    .nav-logo {
+      //header
+      //background:orange;
+
+      /*keeps logo in the middle of its container nav-logo*/
+      display: flex;
+      justify-content: center;
+    }
+    .nav-list {
+      //ul
+      //background: grey;
+      text-align: right;
+
+      /*keeps nav links item/s aligned to the right inside nav-list*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 30px; //<<adds a 30px margin to .nav-list container & fill middle gap/visual issue
+
+      .nav-link {
+        //use this class within .nav-list to automatically insert new link next to existing link
+        //a
+        //background: brown;
+        //color: $hyperlinks-color1;
+        display: inline; //keep nav links next to each other horizontally
+   
+        //padding: 10px;
+        margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+        font-size: 20px; //<<>>
+      }
+    }
+  }
+
+  // .header-section {
+  //   //header
+  //   //background:$complementary-color2;
+  //   .header-app-name {
+  //     //h1
+  //     //font-family: $logo-font; //test
+  //     //color: $logo-color; //test
+  //   }
+  // }
+
+  #search-section {
+    //div
+    //background: $dark-background-color;
+  
+
+    /*Aligns search-bar & search-options inside a single column grid*/
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      "search-bar"
+      "search-options";
+
+      border-bottom-style: solid;
+      border-bottom-color: $complementary-color2;
+      border-width: thin;
+
+    .search-bar {
+      //div
+      //background-color: indigo;
+      //height: 50px;
+
+      min-width: 280px; //fixed min-width of 280px for search bar to prevent misalignment of search bar items
+      padding-top: 5px;
+      margin: auto;
+      
+      .input-field {
+        //input
+      }
+      .search-btn {
+        //button
+        //font-size: larger;
+        margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
+        padding: 10px; //sets a padding of 10px to match search input field's padding
+      }
+      // .search-err-msg{ //div
+      // }
+    }
+    .search-options {
+      //background-color: blue;
+      margin: 0 auto; //brings search options closer to search bar
+      //margin-bottom: -30px; 
+      label {
+        //background: indianred;
+        margin: 0 5px; //adds space between options
+        color: $text-color2;
+      }
+    }
+  }
+
+  .card-list {
+    //div
+    //background: $complementary-color4;
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr);
+
+    .card {
+      //div
+      //background: lightseagreen;
+      display: grid;
+      max-width: 380px; //set each card to a width of 430px to maintain consistency
+      //height: 220px; //set each card to a fixed height of 220px to maintain consitency 
+      margin: 20px auto; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
+      /*divides card into two sections with the image on the left & card details on the right*/
+      grid-template-areas: "card-left card-right";
+      padding: 10px; 
+      border-bottom-style: solid;
+      border-bottom-color: $success-color;
+      border-width: thin;
+      
+
+      .card-left {
+        //background: palevioletred;
+        grid-area: card-left; //identifer for the left side of card & its img item
+        margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
+
+        .card-img {
+          //img
+          //background: greenyellow;
+        }
+      }
+
+      .card-right {
+        //background: powderblue;
+        grid-area: card-right; //identifier for the right side of card & its items
+        display: grid;
+        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px 
+        color: $text-color2;
+
+        .card-title {
+          //h1
+          //background: cyan;  
+          font-size: 20px; //<<>>
+     
+        }
+        .card-subtitle {
+          //h2
+          //background: grey;
+          font-size: 15px; //<<>>
+        }
+        .card-authors {
+          //p
+          //background: orange;
+          font-size: 10px; //<<>>
+        }
+        .card-publisher {
+          //p
+          //background: lightcoral;
+          font-size: 10px; //<<>>
+        }
+        .card-btn {
+          //button
+          //background: purple;
+          margin: auto;
+        }
+      }
+    }
+  }
+
+  .footer-section {
+    //footer
+    //background: $dark-background-color;
+
+    /*aligns footer items in the middle of footer-section*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    border-top-style: solid;
+    border-top-color: $complementary-color2;
+    border-width: thin;
+
+    //margin: auto;
+    //justify-content: center;
+    .footer-social {
+      //background: grey;
+
+      text-align: center; //keeps social media icons/links centered by default
+
+      margin-top: 5px; //<<>> matches margin space set on .footer-note
+
+      .footer-link {
+        //a
+        //background: green;
+
+       // color: $text-color1;
+
+        font-size: 10px; //<<>>
+        margin: 0 5px; //<<>> adds 5px margin between icons
+
+        //margin: auto;
+      }
+      .footer-link:hover {
+        //color: $hyperlinks-color2 !important;
+      }
+    }
+
+    .footer-note {
+      //p
+      //background: greenyellow;
+      color: $text-color2;
+      text-align: center;
+
+      font-size: 10px; //<<>>
+      margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
+    }
+  }
+}
 
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
-// @media (min-width: 480px) { /* ... */ 
+// @media (min-width: 480px) { /* ... */
 //   .App{
-//     background: green; //test 
+//     background: green; //test
 //     .nav-bar{ //nav
 //       .nav-logo{ //header
 //       }
@@ -81,14 +344,14 @@
 //        }
 //      }
 //     }
-  
+
 //     .header-section{ //header
 //      .header-app-name{ //h1
 //        font-family: $logo-font; //test//
 //        color: $logo-color; //test//
 //      }
 //     }
-  
+
 //     .search-section{ //div
 //       .search-bar{ //div
 //         .input-field{ //input
@@ -97,9 +360,11 @@
 //         }
 //         .search-err-msg{ //div
 //         }
+//         .search-options{
+//         }
 //       }
 //     }
-  
+
 //     .card-list{ //div
 //       .card{ //div
 //         .card-img{ //img
@@ -116,13 +381,13 @@
 //         }
 //       }
 //     }
-//     .footer-section{ //footer 
+//     .footer-section{ //footer
 //       .footer-list{ //ul
 //         .footer-list-item{ //li
 //          .footer-link{ //a
 //          }
 //         }
-        
+
 //       }
 //     }
 //   }
@@ -138,6 +403,26 @@
 // /* Large (lg) 1025px — 1200px: Desktops, large screens*/
 // @media (min-width: 1024px) { /* ... */ }
 
-// /* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-// @media (min-width: 1280px) { /* ... */ }
+/* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
+@media (min-width: 1280px) {
+  // .footer-section {
+  //   //footer
+  //   background: $brand-color2;
 
+  //   margin: auto;
+  //   //justify-content: center;
+  //   .footer-social {
+  //     margin: auto;
+  //     text-align: center;
+  //     .footer-link {
+  //       //a
+  //       background: green;
+  //       margin: 0 5px;
+  //       //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\
+  //     }
+  //   }
+  //   .footer-note {
+  //     background: greenyellow;
+  //   }
+  // }
+}
