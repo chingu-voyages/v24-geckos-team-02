@@ -304,6 +304,13 @@
       }
     }
   }
+  
+  /*Styles for No more results! message*/ 
+  .scroll-end-message{
+    text-align: center;
+    color: $complementary-color2;
+    margin: auto;
+  }
 
   .footer-section {
     //footer
@@ -394,7 +401,6 @@
   text-align: center;
   color: $complementary-color2;
   margin: auto;
-  background-color: $light-background-color;
 }
 
 // @media (max-width: 350px) {
