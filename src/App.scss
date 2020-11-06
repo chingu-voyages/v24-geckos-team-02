@@ -92,7 +92,7 @@
   grid-template-columns: 1fr;
   grid-template-rows:
     1fr
-    1fr
+    0.9fr
     7fr
     0.5fr;
   grid-template-areas:
@@ -155,7 +155,8 @@
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-self: center;
+    align-items: center; 
 
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
@@ -164,7 +165,6 @@
     .search-bar {
       //div
       //background-color: indigo;
-      //height: 50px;
 
       padding-top: 5px; //<<>>
 
