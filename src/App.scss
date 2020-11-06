@@ -153,14 +153,9 @@
     //div
     //background: $dark-background-color;
 
-    /*Aligns search-bar & search-options inside a single column grid*/
-    display: grid;
-    height: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
-    grid-template-areas:
-      "search-bar"
-      "search-options";
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
 
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
@@ -171,9 +166,7 @@
       //background-color: indigo;
       //height: 50px;
 
-      min-width: 280px; //fixed min-width of 280px for search bar to prevent misalignment of search bar items
-      padding-top: 5px;
-      margin: auto;
+      padding-top: 5px; //<<>>
 
       .input-field {
         //input
@@ -189,8 +182,8 @@
     }
     .search-options {
       //background-color: blue;
-      margin: 0 auto; //brings search options closer to search bar
-      //margin-bottom: -30px;
+      //min-height: 21px !important; 
+      margin: 5px; 
       label {
         //background: indianred;
         margin: 0 5px; //adds space between options
