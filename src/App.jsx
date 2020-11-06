@@ -25,16 +25,18 @@ export default function App() {
     setPageNumber(1);
     // setModal(false)
   };
-
+  
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const cardListElement = document.getElementById("cardList"); 
+    cardListElement.addEventListener("scroll", handleScroll);
+    return () => cardListElement.removeEventListener("scroll", handleScroll);
   });
 
   function handleScroll() {
+    const cardListElement = document.getElementById("cardList");
     // if at the bottom of the page && the current page isn't the last page && results aren't loading
     if (
-      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
+      cardListElement.clientHeight + cardListElement.scrollTop === cardListElement.scrollHeight &&
       !isLastPage &&
       !areResultsLoading
     ) {
