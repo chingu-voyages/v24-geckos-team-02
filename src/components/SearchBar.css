@@ -1,7 +1,0 @@
-input::-webkit-calendar-picker-indicator {
-    opacity: 0%;
-}
-
-.arrow-visible input::-webkit-calendar-picker-indicator {
-    opacity: 6%;
-}

@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
-import Card from "./Card";
+import Card from "../Card/Card";
+
+import "./CardList.scss"
 
 export default function CardList({books, query, isLastPage}) {
   const card = (book, index) => <Card book={book} key={index} query={query} />;

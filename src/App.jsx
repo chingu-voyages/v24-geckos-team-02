@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Search from "./components/Search";
-import CardList from "./components/CardList";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
+import CardList from "./components/CardList/CardList";
+import Footer from "./components/Footer/Footer";
 import useBookSearch from "./hooks/useBookSearch";
 import googleBookToAppBook from "./utils/googleBookToAppBook"
 

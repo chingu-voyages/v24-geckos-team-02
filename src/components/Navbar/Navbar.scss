@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+.nav-bar {
+    //nav
+    //background: $complementary-color1;
+
+    /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+
+    /*adds a thin border separation between navbar & search box*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
+
+    .nav-logo {
+      //header
+      //background:orange;
+
+      /*keeps logo in the middle of its container nav-logo*/
+      display: flex;
+      justify-content: center;
+    }
+    .nav-list {
+      //ul
+      //background: grey;
+      text-align: right;
+
+      /*keeps nav links item/s aligned to the right inside nav-list*/
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 30px; //<<adds a 30px margin to .nav-list container & fill middle gap/visual issue
+
+      .nav-link {
+        //use this class within .nav-list to automatically insert new link next to existing link
+        //a
+        //background: brown;
+        //color: $hyperlinks-color1;
+        display: inline; //keep nav links next to each other horizontally
+   
+        //padding: 10px;
+        margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+        font-size: 20px; //<<>>
+      }
+    }
+  }

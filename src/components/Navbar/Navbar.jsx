@@ -1,10 +1,10 @@
 //import { findByLabelText } from "@testing-library/react";
 import React from "react";
 
-import Authentication from "./Authentication";
-import logo from "../assets/img/logo.svg";
+import Authentication from "../Authentication/Authentication";
+import logo from "../../assets/img/logo.svg";
 
-import "../css/Navbar.css";
+import "./Navbar.scss";
 
 export default function Navbar(props) {
   const styles = {

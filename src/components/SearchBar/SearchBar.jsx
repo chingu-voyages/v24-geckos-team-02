@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SearchBar.css";
+import "./SearchBar.scss";
 
 export default function SearchBar({ handleSubmit, queryHistory }) {
   const [searchTerm, setSearchTerm] = useState("");

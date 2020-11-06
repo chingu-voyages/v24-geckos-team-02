@@ -1,0 +1,60 @@
+@import "../../styles/variables";
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 0%;
+}
+
+.arrow-visible input::-webkit-calendar-picker-indicator {
+    opacity: 6%;
+}
+
+  #search-section {
+    //div
+    //background: $dark-background-color;
+  
+
+    /*Aligns search-bar & search-options inside a single column grid*/
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      "search-bar"
+      "search-options";
+
+      border-bottom-style: solid;
+      border-bottom-color: $complementary-color2;
+      border-width: thin;
+
+    .search-bar {
+      //div
+      //background-color: indigo;
+      //height: 50px;
+
+      min-width: 280px; //fixed min-width of 280px for search bar to prevent misalignment of search bar items
+      padding-top: 5px;
+      margin: auto;
+      
+      .input-field {
+        //input
+      }
+      .search-btn {
+        //button
+        //font-size: larger;
+        margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
+        padding: 10px; //sets a padding of 10px to match search input field's padding
+      }
+      // .search-err-msg{ //div
+      // }
+    }
+    .search-options {
+      //background-color: blue;
+      margin: 0 auto; //brings search options closer to search bar
+      //margin-bottom: -30px; 
+      label {
+        //background: indianred;
+        margin: 0 5px; //adds space between options
+        color: $text-color2;
+      }
+    }
+  }

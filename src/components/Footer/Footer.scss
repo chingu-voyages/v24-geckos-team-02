@@ -1,0 +1,50 @@
+  @import "../../styles/variables";
+
+  .footer-section {
+    //footer
+    //background: $dark-background-color;
+
+    /*aligns footer items in the middle of footer-section*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    border-top-style: solid;
+    border-top-color: $complementary-color2;
+    border-width: thin;
+
+    //margin: auto;
+    //justify-content: center;
+    .footer-social {
+      //background: grey;
+
+      text-align: center; //keeps social media icons/links centered by default
+
+      margin-top: 5px; //<<>> matches margin space set on .footer-note
+
+      .footer-link {
+        //a
+        //background: green;
+
+       // color: $text-color1;
+
+        font-size: 10px; //<<>>
+        margin: 0 5px; //<<>> adds 5px margin between icons
+
+        //margin: auto;
+      }
+      .footer-link:hover {
+        //color: $hyperlinks-color2 !important;
+      }
+    }
+
+    .footer-note {
+      //p
+      //background: greenyellow;
+      color: $text-color2;
+      text-align: center;
+
+      font-size: 10px; //<<>>
+      margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
+    }
+  }

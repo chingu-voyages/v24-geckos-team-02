@@ -1,0 +1,71 @@
+  @import "../../styles/variables";
+
+  .card-list {
+    //div
+    //background: $complementary-color4;
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr);
+
+    .card {
+      //div
+      //background: lightseagreen;
+      display: grid;
+      max-width: 380px; //set each card to a width of 430px to maintain consistency
+      //height: 220px; //set each card to a fixed height of 220px to maintain consitency 
+      margin: 20px auto; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
+      /*divides card into two sections with the image on the left & card details on the right*/
+      grid-template-areas: "card-left card-right";
+      padding: 10px; 
+      border-bottom-style: solid;
+      border-bottom-color: $success-color;
+      border-width: thin;
+      
+
+      .card-left {
+        //background: palevioletred;
+        grid-area: card-left; //identifer for the left side of card & its img item
+        margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
+
+        .card-img {
+          //img
+          //background: greenyellow;
+        }
+      }
+
+      .card-right {
+        //background: powderblue;
+        grid-area: card-right; //identifier for the right side of card & its items
+        display: grid;
+        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px 
+        color: $text-color2;
+
+        .card-title {
+          //h1
+          //background: cyan;  
+          font-size: 20px; //<<>>
+     
+        }
+        .card-subtitle {
+          //h2
+          //background: grey;
+          font-size: 15px; //<<>>
+        }
+        .card-authors {
+          //p
+          //background: orange;
+          font-size: 10px; //<<>>
+        }
+        .card-publisher {
+          //p
+          //background: lightcoral;
+          font-size: 10px; //<<>>
+        }
+        .card-btn {
+          //button
+          //background: purple;
+          margin: auto;
+        }
+      }
+    }
+  }

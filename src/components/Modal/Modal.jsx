@@ -1,6 +1,6 @@
 import React from "react";
-import formatLanguage from "../utils/isoLang";
-import formatDate from "../utils/formatDate";
+import formatLanguage from "../../utils/isoLang";
+import formatDate from "../../utils/formatDate";
 
 export default function Modal({ book, toggleModal }) {
 	const {
