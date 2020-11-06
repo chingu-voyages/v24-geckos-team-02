@@ -86,7 +86,7 @@
 
 .App {
   /*CSS Grid to contain all page items*/
-  //margin: 0; 
+  //margin: 0;
   height: 100vh;
   width: 100%;
   display: grid;
@@ -142,7 +142,7 @@
         //background: brown;
         //color: $hyperlinks-color1;
         display: inline; //keep nav links next to each other horizontally
-   
+
         //padding: 10px;
         margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
         font-size: 20px; //<<>>
@@ -163,7 +163,6 @@
   #search-section {
     //div
     //background: $dark-background-color;
-  
 
     /*Aligns search-bar & search-options inside a single column grid*/
     display: grid;
@@ -174,9 +173,9 @@
       "search-bar"
       "search-options";
 
-      border-bottom-style: solid;
-      border-bottom-color: $complementary-color2;
-      border-width: thin;
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
 
     .search-bar {
       //div
@@ -186,7 +185,7 @@
       min-width: 280px; //fixed min-width of 280px for search bar to prevent misalignment of search bar items
       padding-top: 5px;
       margin: auto;
-      
+
       .input-field {
         //input
       }
@@ -202,7 +201,7 @@
     .search-options {
       //background-color: blue;
       margin: 0 auto; //brings search options closer to search bar
-      //margin-bottom: -30px; 
+      //margin-bottom: -30px;
       label {
         //background: indianred;
         margin: 0 5px; //adds space between options
@@ -215,9 +214,9 @@
     //div
     //background: $complementary-color4;
     overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
-     display: grid; 
-     grid-template-columns: repeat(auto-fill, 380px);
-     justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 380px);
+    justify-content: center;
 
     .card {
       //div
@@ -225,16 +224,15 @@
       display: grid;
       max-height: 300px;
       max-width: 380px; //set each card to a width of 430px to maintain consistency
-      //height: 220px; //set each card to a fixed height of 220px to maintain consitency 
+      //height: 220px; //set each card to a fixed height of 220px to maintain consitency
       margin: 20px 10px; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
-      margin-bottom: 10px; 
+      margin-bottom: 10px;
       /*divides card into two sections with the image on the left & card details on the right*/
       grid-template-areas: "card-left card-right";
-      padding: 10px; 
+      padding: 10px;
       border-bottom-style: solid;
       border-bottom-color: $success-color;
       border-width: thin;
-      
 
       .card-left {
         //background: palevioletred;
@@ -251,21 +249,26 @@
         //background: powderblue;
         grid-area: card-right; //identifier for the right side of card & its items
         //display: grid;
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px 
+        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px
         color: $text-color2;
-        
-        display: flex; 
+
+        display: flex;
         flex-direction: column;
         //justify-content: flex-start;
         justify-content: space-around;
         align-items: start;
-       
 
         .card-title {
           //h1
-         // background: cyan;  
+           background: cyan;
           font-size: 20px; //<<>>
-     
+
+          /*handles text overflow for long titles & limit title information to 3 lines to prevent display issues within card*/
+          overflow: hidden; 
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3; 
+          
         }
         .card-subtitle {
           //h2
@@ -274,7 +277,7 @@
         }
         .card-authors {
           //p
-         // background: orange;
+          // background: orange;
           font-size: 10px; //<<>>
         }
         .card-publisher {
@@ -287,7 +290,6 @@
           //background: purple;
           //margin: auto;
           padding: 4px;
-          
         }
       }
     }
@@ -319,7 +321,7 @@
         //a
         //background: green;
 
-       // color: $text-color1;
+        // color: $text-color1;
 
         font-size: 10px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
@@ -344,56 +346,63 @@
 }
 
 /*Additional Styles for modal container*/
-.modal-container{
-  display: flex; 
+.modal-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
   font-size: smaller;
-  padding: 15px 10px; 
+  padding: 15px 10px;
   border-radius: 8px;
   max-height: calc(100vh - 210px);
   overflow-y: auto;
 
-  h3{
-    color: $text-color2; 
+  h3 {
+    color: $text-color2;
     text-align: center;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
   }
-  span{
-    color: $text-color2; 
-    display: block; 
-    padding-top: 10px; 
-    
+  span {
+    color: $text-color2;
+    display: block;
+    padding-top: 10px;
   }
-  #modal-description{
-    font-size: 12px; 
+  #modal-description {
+    font-size: 12px;
   }
-  p{
-    color: $text-color2;  
+  p {
+    color: $text-color2;
     text-align: center;
-    padding: 5px 0; 
+    padding: 5px 0;
   }
-  button{
-    margin-top: 10px; 
+  button {
+    margin-top: 10px;
   }
 }
 
 /*Styles for loading message*/
-.loading-msg{
+.loading-msg {
   text-align: center;
   color: $complementary-color2;
-  margin: auto; 
+  margin: auto;
   background-color: $light-background-color;
-  
 }
-// let errorMsgStyle = {
-//   position: "relative",
-//   marginTop: "5px",
-//   padding: "2px",
-//   textAlign: "center",
-//   backgroundColor: "white",
-//   color: "#B30000",
-// };
+
+// @media (max-width: 350px) {
+//   /* ... */.card-list{
+//     .card{
+//       background-color: red;
+//       display: flex !important;
+//       flex-direction: column;
+//       align-items: center;
+//       min-height: 300px !important;
+//       .card-right{
+//         display: grid;
+//         justify-items: center;
+//       }
+
+//     }
+//   }
+// }
 
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
 // @media (min-width: 480px) { /* ... */ }
@@ -402,11 +411,11 @@
 // @media (min-width: 640px) { /* ... */ }
 
 // /* Medium (md) 769px — 1024px: Small screens, laptops*/
-//  @media (min-width: 700px) { 
+//  @media (min-width: 700px) {
 //   .card-list {
- 
+
 //     grid-template-columns: repeat(2, 1fr);
- 
+
 //    }
 //  }
 
@@ -415,24 +424,24 @@
 
 /* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
 //@media (min-width: 1280px) {
-  // .footer-section {
-  //   //footer
-  //   background: $brand-color2;
+// .footer-section {
+//   //footer
+//   background: $brand-color2;
 
-  //   margin: auto;
-  //   //justify-content: center;
-  //   .footer-social {
-  //     margin: auto;
-  //     text-align: center;
-  //     .footer-link {
-  //       //a
-  //       background: green;
-  //       margin: 0 5px;
-  //       //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\
-  //     }
-  //   }
-  //   .footer-note {
-  //     background: greenyellow;
-  //   }
-  // }
+//   margin: auto;
+//   //justify-content: center;
+//   .footer-social {
+//     margin: auto;
+//     text-align: center;
+//     .footer-link {
+//       //a
+//       background: green;
+//       margin: 0 5px;
+//       //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\
+//     }
+//   }
+//   .footer-note {
+//     background: greenyellow;
+//   }
+// }
 //}
