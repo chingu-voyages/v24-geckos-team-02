@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.nav-bar {
+.navBar {
     //nav
     //background: $complementary-color1;
 
@@ -13,7 +13,7 @@
     border-bottom-color: $complementary-color2;
     border-width: thin;
 
-    .nav-logo {
+    .navLogo {
       //header
       //background:orange;
 
@@ -21,7 +21,7 @@
       display: flex;
       justify-content: center;
     }
-    .nav-list {
+    .navList {
       //ul
       //background: grey;
       text-align: right;
@@ -32,7 +32,7 @@
       justify-content: flex-end;
       margin-right: 30px; //<<adds a 30px margin to .nav-list container & fill middle gap/visual issue
 
-      .nav-link {
+      .navLink {
         //use this class within .nav-list to automatically insert new link next to existing link
         //a
         //background: brown;

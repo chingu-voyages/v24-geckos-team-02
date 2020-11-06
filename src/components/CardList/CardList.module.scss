@@ -1,0 +1,9 @@
+  @import "../../styles/variables";
+
+  .cardList {
+    //div
+    //background: $complementary-color4;
+    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr);
+  }

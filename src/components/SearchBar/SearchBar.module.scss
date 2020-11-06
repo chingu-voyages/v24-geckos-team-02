@@ -4,11 +4,11 @@ input::-webkit-calendar-picker-indicator {
     opacity: 0%;
 }
 
-.arrow-visible input::-webkit-calendar-picker-indicator {
+.arrowVisible input::-webkit-calendar-picker-indicator {
     opacity: 6%;
 }
 
-  #search-section {
+  #searchSection {
     //div
     //background: $dark-background-color;
   
@@ -26,7 +26,7 @@ input::-webkit-calendar-picker-indicator {
       border-bottom-color: $complementary-color2;
       border-width: thin;
 
-    .search-bar {
+    .searchBar {
       //div
       //background-color: indigo;
       //height: 50px;
@@ -35,10 +35,10 @@ input::-webkit-calendar-picker-indicator {
       padding-top: 5px;
       margin: auto;
       
-      .input-field {
+      .inputField {
         //input
       }
-      .search-btn {
+      .searchBtn {
         //button
         //font-size: larger;
         margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
@@ -47,7 +47,7 @@ input::-webkit-calendar-picker-indicator {
       // .search-err-msg{ //div
       // }
     }
-    .search-options {
+    .searchOptions {
       //background-color: blue;
       margin: 0 auto; //brings search options closer to search bar
       //margin-bottom: -30px; 

@@ -1,12 +1,5 @@
-  @import "../../styles/variables";
-
-  .card-list {
-    //div
-    //background: $complementary-color4;
-    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
-    display: grid; 
-    grid-template-columns: repeat(1, 1fr);
-
+    @import "../../styles/variables";
+    
     .card {
       //div
       //background: lightseagreen;
@@ -22,50 +15,49 @@
       border-width: thin;
       
 
-      .card-left {
+      .cardLeft {
         //background: palevioletred;
         grid-area: card-left; //identifer for the left side of card & its img item
         margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
 
-        .card-img {
+        .cardImg {
           //img
           //background: greenyellow;
         }
       }
 
-      .card-right {
+      .cardRight {
         //background: powderblue;
         grid-area: card-right; //identifier for the right side of card & its items
         display: grid;
         margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px 
         color: $text-color2;
 
-        .card-title {
+        .cardTitle {
           //h1
           //background: cyan;  
           font-size: 20px; //<<>>
      
         }
-        .card-subtitle {
+        .cardSubtitle {
           //h2
           //background: grey;
           font-size: 15px; //<<>>
         }
-        .card-authors {
+        .cardAuthors {
           //p
           //background: orange;
           font-size: 10px; //<<>>
         }
-        .card-publisher {
+        .cardPublisher {
           //p
           //background: lightcoral;
           font-size: 10px; //<<>>
         }
-        .card-btn {
+        .cardBtn {
           //button
           //background: purple;
           margin: auto;
         }
       }
     }
-  }

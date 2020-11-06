@@ -1,6 +1,6 @@
   @import "../../styles/variables";
 
-  .footer-section {
+  .footerSection {
     //footer
     //background: $dark-background-color;
 
@@ -15,14 +15,14 @@
 
     //margin: auto;
     //justify-content: center;
-    .footer-social {
+    .footerSocial {
       //background: grey;
 
       text-align: center; //keeps social media icons/links centered by default
 
       margin-top: 5px; //<<>> matches margin space set on .footer-note
 
-      .footer-link {
+      .footerLink {
         //a
         //background: green;
 
@@ -33,12 +33,12 @@
 
         //margin: auto;
       }
-      .footer-link:hover {
+      .footerLink:hover {
         //color: $hyperlinks-color2 !important;
       }
     }
 
-    .footer-note {
+    .footerNote {
       //p
       //background: greenyellow;
       color: $text-color2;

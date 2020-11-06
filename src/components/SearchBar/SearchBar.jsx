@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SearchBar.scss";
+import styles from "./SearchBar.module.scss";
 
 export default function SearchBar({ handleSubmit, queryHistory }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,19 +14,19 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
 
   return (
 
-      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? "arrow-visible" : undefined} id="search-section">
+      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? styles.arrowVisible : undefined} id={styles.searchSection}>
         
-        <div className="search-bar">
-        <input className="input-field" type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
-        <datalist id="query-history">
+        <div className={styles.searchBar}>
+        <input className={styles.inputField} type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
+        <datalist id={styles.queryHistory}>
           {queryHistory.map((query) => {
             return searchTerm !== query ? <option value={query} key={query}></option> : false;
           })}
         </datalist>
-        <button className="search-btn">Search </button>
+        <button className={styles.searchBtn}>Search </button>
         </div>
 
-        <div className="search-options">
+        <div className={styles.searchOptions}>
         <label>
           <input
             value="relevance"

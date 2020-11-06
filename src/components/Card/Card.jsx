@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import Modal from "../Modal/Modal";
 
+import styles from "./Card.module.scss"
+
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({ book, query }) {
   const [showModal, setshowModal] = useState(false);
@@ -28,22 +30,22 @@ export default function Card({ book, query }) {
 
   return (
 <>
-<div className="modal-overlay" style={style} onClick={toggleModal}></div>
-    <div className="card">
-      <div className="card-left">
+<div className={styles.modaloverlay} style={style} onClick={toggleModal}></div>
+    <div className={styles.card}>
+      <div className={styles.cardLeft}>
         <img
-          className="card-image"
+          className={styles.cardImage}
           src={thumbnailImageLink}
           alt="cover thumbnail"
         />
       </div>
-      <div className="card-right">
-        <h2 className="card-title">{title}</h2>
-        <h3 className="card-subtitle">{subtitle}</h3>
-        <p className="card-authors">By: {authors.join(", ")}</p>
-        <p className="card-authors">{categories.join(", ")}</p>
-        <p className="card-publisher">Published by: {publisher}</p>
-        <button className="card-btn" onClick={()=>toggleModal()}>{showModal ? "close" : "more details"}</button>
+      <div className={styles.cardRight}>
+        <h2 className={styles.cardTitle}>{title}</h2>
+        <h3 className={styles.cardSubtitle}>{subtitle}</h3>
+        <p className={styles.cardAuthors}>By: {authors.join(", ")}</p>
+        <p className={styles.cardAuthors}>{categories.join(", ")}</p>
+        <p className={styles.cardPublisher}>Published by: {publisher}</p>
+        <button className={styles.cardBtn} onClick={()=>toggleModal()}>{showModal ? "close" : "more details"}</button>
       </div>
     </div>
       {showModal ? <Modal book={book} toggleModal={toggleModal} /> : null}

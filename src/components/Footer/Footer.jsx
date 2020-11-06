@@ -1,6 +1,6 @@
 import React from "react";
 //import logo from "../assets/img/logo.svg";
-import "./Footer.scss";
+import styles from "./Footer.module.scss";
 
 export default function Footer() {
   // const styles = {
@@ -9,13 +9,13 @@ export default function Footer() {
   // };
 
   return (
-    <footer className="footer-section">
+    <footer className={styles.footerSection}>
       {/* <img src={logo} style={styles} alt="logo" /> */}
-      <div className="footer-social">
-        <a target='_blank' className="footer-link" href="https://twitter.com/ChinguCollabs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter fa-2x"></i></a>
-        <a target='_blank' className="footer-link" href="https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw"><i class="fab fa-youtube fa-2x"></i></a>
+      <div className={styles.footerSocial}>
+        <a target='_blank' className={styles.footerLink} href="https://twitter.com/ChinguCollabs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i className="fab fa-twitter fa-2x"></i></a>
+        <a target='_blank' className={styles.footerLink} href="https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw"><i className="fab fa-youtube fa-2x"></i></a>
       </div>
-      <p className="footer-note">Copyright &copy; 2020 - BooksPlus</p>
+      <p className={styles.footerNote}>Copyright &copy; 2020 - BooksPlus</p>
 
       {/* <div class="footer-section">
         <a target='_blank' href="https://twitter.com/ChinguCollabs?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter fa-2x"></i></a>
