@@ -274,7 +274,7 @@
           background: grey;
           font-size: 15px; //<<>>
 
-          /*handles text overflow for long subtitles & limit title information to 2 lines to prevent display issues within card*/
+          /*handles text overflow for long subtitles & limit subtitle information to 2 lines to prevent display issues within card*/
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -284,6 +284,12 @@
           //p
           // background: orange;
           font-size: 10px; //<<>>
+
+            /*handles text overflow for long list of author names too long & limit author information to 2 lines to prevent display issues within card*/
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
         }
         .card-publisher {
           //p
