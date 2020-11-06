@@ -80,7 +80,6 @@
   }
 
   margin: 0;
-  //padding: 0;
   box-sizing: border-box;
 }
 
@@ -92,10 +91,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows:
-  1fr 
-  1.25fr 
-  7fr 
-  0.5fr;
+    1fr
+    1.25fr
+    7fr
+    0.5fr;
   grid-template-areas:
     "nav-bar"
     //"header-section"
@@ -134,7 +133,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 30px; //<<adds a 30px margin to .nav-list container & fill middle gap/visual issue
+      margin-right: 30px; //<<>>adds a 30px margin to .nav-list container & fill middle gap/visual issue
 
       .nav-link {
         //use this class within .nav-list to automatically insert new link next to existing link
@@ -144,21 +143,11 @@
         display: inline; //keep nav links next to each other horizontally
 
         //padding: 10px;
-        margin-right: 20px; /*<<consider using mixin here to readjust margin-right in different viewports>>*/
+        margin-right: 20px; //<<>>/
         font-size: 20px; //<<>>
       }
     }
   }
-
-  // .header-section {
-  //   //header
-  //   //background:$complementary-color2;
-  //   .header-app-name {
-  //     //h1
-  //     //font-family: $logo-font; //test
-  //     //color: $logo-color; //test
-  //   }
-  // }
 
   #search-section {
     //div
@@ -223,9 +212,8 @@
       //background: lightseagreen;
       display: grid;
       max-height: 300px;
-      max-width: 380px; //set each card to a width of 430px to maintain consistency
-      //height: 220px; //set each card to a fixed height of 220px to maintain consitency
-      margin: 20px 10px; //applies a margin of 20px to each card for <480px viewport & centers in the middle of its container
+      max-width: 380px; //set a width of 430px to each card maintain consistency
+      margin: 20px 10px;
       margin-bottom: 10px;
       /*divides card into two sections with the image on the left & card details on the right*/
       grid-template-areas: "card-left card-right";
@@ -237,7 +225,7 @@
       .card-left {
         //background: palevioletred;
         grid-area: card-left; //identifer for the left side of card & its img item
-        margin: 5px 15px; //applies a constent margin (left/right) to card items inside card-right in <480px
+        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
 
         .card-img {
           //img
@@ -248,13 +236,11 @@
       .card-right {
         //background: powderblue;
         grid-area: card-right; //identifier for the right side of card & its items
-        //display: grid;
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right in <480px
+        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
         color: $text-color2;
 
         display: flex;
         flex-direction: column;
-        //justify-content: flex-start;
         justify-content: space-around;
         align-items: start;
 
@@ -285,11 +271,11 @@
           // background: orange;
           font-size: 10px; //<<>>
 
-            /*handles text overflow for long list of author names too long & limit author information to 2 lines to prevent display issues within card*/
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
+          /*handles text overflow for long list of author names too long & limit author information to 2 lines to prevent display issues within card*/
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
         }
         .card-publisher {
           //p
@@ -297,17 +283,15 @@
           font-size: 10px; //<<>>
         }
         .card-btn {
-          //button
           //background: purple;
-          //margin: auto;
           padding: 6px;
         }
       }
     }
   }
-  
-  /*Styles for No more results! message*/ 
-  .scroll-end-message{
+
+  /*Styles for No more results! message*/
+  .scroll-end-message {
     text-align: center;
     color: $complementary-color2;
     margin: auto;
@@ -326,8 +310,6 @@
     border-top-color: $complementary-color2;
     border-width: thin;
 
-    //margin: auto;
-    //justify-content: center;
     .footer-social {
       //background: grey;
 
@@ -338,13 +320,8 @@
       .footer-link {
         //a
         //background: green;
-
-        // color: $text-color1;
-
         font-size: 10px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
-
-        //margin: auto;
       }
       .footer-link:hover {
         //color: $hyperlinks-color2 !important;
@@ -392,9 +369,6 @@
     text-align: center;
     padding: 5px 0;
   }
-  // button {
-  //   margin-top: 10px;
-  // }
 }
 
 /*Styles for loading message*/
@@ -411,37 +385,10 @@
 // @media (min-width: 640px) { /* ... */ }
 
 // /* Medium (md) 769px — 1024px: Small screens, laptops*/
-//  @media (min-width: 700px) {
-//   .card-list {
-
-//     grid-template-columns: repeat(2, 1fr);
-
-//    }
-//  }
+//  @media (min-width: 700px) {  //  }
 
 // /* Large (lg) 1025px — 1200px: Desktops, large screens*/
 // @media (min-width: 1024px) { /* ... */ }
 
 /* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-//@media (min-width: 1280px) {
-// .footer-section {
-//   //footer
-//   background: $brand-color2;
-
-//   margin: auto;
-//   //justify-content: center;
-//   .footer-social {
-//     margin: auto;
-//     text-align: center;
-//     .footer-link {
-//       //a
-//       background: green;
-//       margin: 0 5px;
-//       //margin: auto; //keeps footer-link in the middle of its own container (both horizontally & vertically)\
-//     }
-//   }
-//   .footer-note {
-//     background: greenyellow;
-//   }
-// }
-//}
+//@media (min-width: 1280px) { // }
