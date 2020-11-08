@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "./Modal";
+import { useSnackbar } from "react-simple-snackbar";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({ book, query, accessToken, buttonType, removeFavorite }) {
   const [showModal, setshowModal] = useState(false);
+  const [snackbar] = useSnackbar();
   const { thumbnailImageLink, title, subtitle, authors, categories, publisher, id } = book;
 
   useEffect(() => {
@@ -14,8 +16,6 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
   const toggleModal = () => {
     setshowModal((prev) => !prev);
   };
-
-  // POST https://books.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume?volumeId=1EiJAwAAQBAJ&key=[YOUR_API_KEY] HTTP/1.1
 
   const handleAddFavorite = (id) => {
     if (accessToken.value) {
@@ -27,11 +27,11 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
           Authorization: `Bearer ${accessToken.value}`,
         },
       }).then((res) => {
-        console.log(res);
+        snackbar("Added to favorites!");
       });
+    } else {
+      snackbar("You need to login first to add favorites");
     }
-
-    console.log(id);
   };
 
   const handleRemoveFavorite = (id) => {
@@ -44,8 +44,8 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
           Authorization: `Bearer ${accessToken.value}`,
         },
       }).then((res) => {
-        console.log(res);
         removeFavorite(id);
+        snackbar("Removed from favorites!");
       });
     }
   };
