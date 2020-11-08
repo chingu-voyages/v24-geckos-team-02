@@ -16,10 +16,10 @@ export default function App() {
       <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
       <Switch>
         <Route exact path="/">
-          <Home accessToken={accessToken} />
+          <Home accessToken={accessToken} buttonType="favorite" />
         </Route>
         <Route path="/favorites">
-          <Favorites accessToken={accessToken} />
+          <Favorites accessToken={accessToken} buttonType="unfavorite" />
         </Route>
       </Switch>
       <Footer />

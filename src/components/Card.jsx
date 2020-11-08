@@ -3,7 +3,7 @@ import axios from "axios";
 import Modal from "./Modal";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
-export default function Card({ book, query, accessToken }) {
+export default function Card({ book, query, accessToken, buttonType, removeFavorite }) {
   const [showModal, setshowModal] = useState(false);
   const { thumbnailImageLink, title, subtitle, authors, categories, publisher, id } = book;
 
@@ -26,10 +26,28 @@ export default function Card({ book, query, accessToken }) {
         headers: {
           Authorization: `Bearer ${accessToken.value}`,
         },
-      }).then((res) => console.log(res));
+      }).then((res) => {
+        console.log(res);
+      });
     }
 
     console.log(id);
+  };
+
+  const handleRemoveFavorite = (id) => {
+    if (accessToken.value) {
+      axios({
+        method: "POST",
+        url: "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/removeVolume",
+        params: { key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY, volumeId: id },
+        headers: {
+          Authorization: `Bearer ${accessToken.value}`,
+        },
+      }).then((res) => {
+        console.log(res);
+        removeFavorite(id);
+      });
+    }
   };
 
   const style = {
@@ -59,11 +77,19 @@ export default function Card({ book, query, accessToken }) {
             <button className="card-btn" onClick={() => toggleModal()}>
               {showModal ? "close" : "more details"}
             </button>
-            <button className="card-btn" onClick={() => handleAddFavorite(id)}>
-              <span role="img" aria-label="favorite">
-                ❤️
-              </span>
-            </button>
+            {buttonType === "favorite" ? (
+              <button className="card-btn" onClick={() => handleAddFavorite(id)}>
+                <span role="img" aria-label="favorite">
+                  ❤️
+                </span>
+              </button>
+            ) : (
+              <button className="card-btn" onClick={() => handleRemoveFavorite(id)}>
+                <span role="img" aria-label="unfavorite">
+                  🗑️
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>

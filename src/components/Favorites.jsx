@@ -5,6 +5,9 @@ import googleBookToAppBook from "../utils/googleBookToAppBook";
 
 export default function Favorites({ accessToken }) {
   const [books, setBooks] = useState([]);
+  const removeFavorite = (id) => {
+    setBooks((books) => books.filter((book) => book.id !== id));
+  };
   useEffect(() => {
     if (accessToken.value) {
       axios({
@@ -27,7 +30,13 @@ export default function Favorites({ accessToken }) {
     <div>
       <h1>Favorites</h1>
       {accessToken.value ? (
-        <CardList books={books.map(googleBookToAppBook)} isLastPage={false} query={``} />
+        <CardList
+          books={books.map(googleBookToAppBook)}
+          isLastPage={false}
+          query={``}
+          removeFavorite={removeFavorite}
+          accessToken={accessToken}
+        />
       ) : (
         <div className="scroll-end-message">Please login to see your favorites</div>
       )}
