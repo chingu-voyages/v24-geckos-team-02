@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Navbar from "./Navbar";
 // Header from "./components/Header";
 import Search from "./Search";
 import CardList from "./CardList";
-import Footer from "./Footer";
 import useBookSearch from "../hooks/useBookSearch";
 import googleBookToAppBook from "../utils/googleBookToAppBook";
 
@@ -11,7 +10,6 @@ export default function Home() {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
-  const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
   const [areResultsLoading, setAreResultsLoading] = useState(false);
 
   const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber, setAreResultsLoading); // 'books' has search results
@@ -38,14 +36,12 @@ export default function Home() {
     }
   }
   return (
-    <div className="App">
-      <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
+    <Fragment>
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query} />
       {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
       {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
-      <Footer />
-    </div>
+    </Fragment>
   );
 }
