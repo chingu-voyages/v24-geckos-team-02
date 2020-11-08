@@ -6,7 +6,7 @@ import CardList from "./CardList";
 import useBookSearch from "../hooks/useBookSearch";
 import googleBookToAppBook from "../utils/googleBookToAppBook";
 
-export default function Home() {
+export default function Home({ accessToken }) {
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
@@ -39,7 +39,7 @@ export default function Home() {
     <Fragment>
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
-      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query} />
+      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query} accessToken={accessToken} />
       {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
       {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
     </Fragment>

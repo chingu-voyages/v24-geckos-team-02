@@ -28,7 +28,6 @@ export default function useBookSearch(query, orderBy, pageNumber, setAreResultsL
       })
         .then((res) => {
           setAreResultsLoading(false);
-
           if (res.data.items && res.data.items.length < noOfCardsPerPage) {
             setIsLastPage(true);
           } else {

@@ -16,7 +16,7 @@ export default function App() {
       <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home accessToken={accessToken} />
         </Route>
         <Route path="/favorites">
           <Favorites accessToken={accessToken} />
