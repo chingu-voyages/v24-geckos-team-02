@@ -39,7 +39,13 @@ export default function Home({ accessToken }) {
     <Fragment>
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
-      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query} accessToken={accessToken} />
+      <CardList
+        books={books.map(googleBookToAppBook)}
+        isLastPage={isLastPage}
+        query={query}
+        accessToken={accessToken}
+        buttonType="favorite"
+      />
       {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
       {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
     </Fragment>

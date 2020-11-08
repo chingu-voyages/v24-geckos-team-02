@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SnackbarProvider from "react-simple-snackbar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Route, Switch } from "react-router-dom";
@@ -12,17 +13,19 @@ export default function App() {
     console.log("accessToken", accessToken.value);
   }
   return (
-    <div className="App">
-      <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
-      <Switch>
-        <Route exact path="/">
-          <Home accessToken={accessToken} buttonType="favorite" />
-        </Route>
-        <Route path="/favorites">
-          <Favorites accessToken={accessToken} buttonType="unfavorite" />
-        </Route>
-      </Switch>
-      <Footer />
-    </div>
+    <SnackbarProvider>
+      <div className="App">
+        <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
+        <Switch>
+          <Route exact path="/">
+            <Home accessToken={accessToken} buttonType="favorite" />
+          </Route>
+          <Route path="/favorites">
+            <Favorites accessToken={accessToken} buttonType="unfavorite" />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </SnackbarProvider>
   );
 }

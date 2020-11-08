@@ -12,7 +12,8 @@
     "react-dom": "^16.13.1",
     "react-google-login": "^5.1.22",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.4"
+    "react-scripts": "3.4.4",
+    "react-simple-snackbar": "^1.1.10"
   },
   "scripts": {
     "start": "react-scripts start",
