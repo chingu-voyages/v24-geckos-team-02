@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import CardList from "./CardList";
+import googleBookToAppBook from "../utils/googleBookToAppBook";
 
-export default function Favorites() {
+export default function Favorites({ accessToken }) {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: "https://books.googleapis.com/books/v1/mylibrary/bookshelves/0/volumes",
+      headers: {
+        Authorization: `Bearer ${accessToken.value}`,
+      },
+      params: {
+        key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+      },
+    }).then((res) => {
+      console.log(res);
+      setBooks(res.data.items);
+    });
+  }, [accessToken]);
   return (
-    <div className="App">
-      <div>Favorites</div>
+    <div>
+      <h1>Favorites</h1>
+      <CardList books={books.map(googleBookToAppBook)} isLastPage={false} query={``} />
     </div>
   );
 }

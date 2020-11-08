@@ -40,9 +40,7 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
           onSuccess={loginSuccess}
           onFailure={loginFailure}
           cookiePolicy={"single_host_origin"}
-          scope={["profile", "https://www.googleapis.com/auth/books", "https://www.googleapis.com/auth/userinfo.profile", "openid"].join(
-            " "
-          )}
+          scope="https://www.googleapis.com/auth/books"
         />
       )}
     </Fragment>
@@ -50,3 +48,6 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
 };
 
 export default Authentication;
+/**scope={["profile", "https://www.googleapis.com/auth/books", "https://www.googleapis.com/auth/userinfo.profile", "openid"].join(
+            " "
+          ) */

@@ -8,6 +8,9 @@ import "./App.scss";
 
 export default function App() {
   const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
+  if (accessToken) {
+    console.log("accessToken", accessToken.value);
+  }
   return (
     <div className="App">
       <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
@@ -16,7 +19,7 @@ export default function App() {
           <Home />
         </Route>
         <Route path="/favorites">
-          <Favorites />
+          <Favorites accessToken={accessToken} />
         </Route>
       </Switch>
       <Footer />
