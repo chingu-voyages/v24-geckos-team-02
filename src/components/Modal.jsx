@@ -6,7 +6,7 @@ export default function Modal({ book, toggleModal }) {
 	const {
 		title,
 		averageRating,
-		ratingsCount,
+		// ratingsCount,
 		categories,
 		publishedDate,
 		description,
@@ -19,6 +19,8 @@ export default function Modal({ book, toggleModal }) {
     thumbnailImageLink,
     saleability
 	} = book;
+
+	let { ratingsCount } = book
 
 	let readablePublishedDate = formatDate(publishedDate);
 
@@ -33,18 +35,25 @@ export default function Modal({ book, toggleModal }) {
 		zIndex: 200 
 	};
 
+	if(ratingsCount === "none") {
+		ratingsCount = "no votes"
+	} else if(ratingsCount > 1) {
+		ratingsCount = `${ratingsCount} votes` 
+	} else {
+		ratingsCount = `${ratingsCount} vote` 
+	}
+
 	return (
 		<div className="modal-container" style={style}>
 			<h3>{title}</h3>
-			<img className="cover" src={thumbnailImageLink} alt="cover thumbnail" />
+			{thumbnailImageLink !== undefined ? <img className="cover" src={thumbnailImageLink} alt="cover thumbnail" /> : null}
 			{/* change rating by stars? */}
 			<span>
-				{averageRating} / 5 ({ratingsCount}{" "}
-				{ratingsCount > 1 ? "votes" : "vote"})
+				{averageRating} / 5 ({ratingsCount})
 			</span>
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
-			<p>Category: {categories}</p>
-			<p>Published date: {readablePublishedDate}</p>
+			{categories.length !== 0 ? <p>Category: {categories}</p> : null}
+			{publishedDate !== "" ? <p>Published date: {readablePublishedDate}</p> : null}
 			<p id="modal-description">{description}</p>
 			<p>
 				{pageCount} pages, Language: {formattedLanguage}

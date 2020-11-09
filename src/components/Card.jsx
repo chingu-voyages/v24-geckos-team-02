@@ -32,8 +32,6 @@ export default function Card({ book, query }) {
     display: showModal ? "block" : "none",
   };
 
-  console.log(title, publisher);
-
   return (
     <>
       <div className="modal-overlay" style={style} onClick={toggleModal}></div>
