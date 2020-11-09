@@ -30,6 +30,7 @@ export default function Modal({ book, toggleModal }) {
 		left: "50%",
 		transform: "translate(-50%, -50%)",
 		backgroundColor: "white",
+		zIndex: 200 
 	};
 
 	return (
@@ -42,11 +43,11 @@ export default function Modal({ book, toggleModal }) {
 				{ratingsCount > 1 ? "votes" : "vote"})
 			</span>
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
-			<p>{categories}</p>
+			<p>Category: {categories}</p>
 			<p>Published date: {readablePublishedDate}</p>
-			<p>{description}</p>
+			<p id="modal-description">{description}</p>
 			<p>
-				{pageCount} pages, language: {formattedLanguage}
+				{pageCount} pages, Language: {formattedLanguage}
 			</p>
 			<p>
 				<a href={previewLink} target="blank">

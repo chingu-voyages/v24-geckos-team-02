@@ -27,22 +27,30 @@ export default function Card({ book, query }) {
   }
 
   return (
-    <>
-    <div className="modal-overlay" style={style} onClick={toggleModal}></div>
-    <div className="card" style={{zIndex: "100"}}>
-      <img
-        className="cover"
-        src={thumbnailImageLink}
-        alt="cover thumbnail"
-      />
-      <h2 className="title">{title}</h2>
-      <h3 className="subtitle">{subtitle}</h3>
-      <p className="authors">{authors.join(", ")}</p>
-      <p className="authors">{categories.join(", ")}</p>
-      <p className="publisher">{publisher}</p>
-      <button className="book-details-btn" onClick={()=>toggleModal()}>{showModal ? "close" : "more details"}</button>
-      {showModal ? <Modal book={book} toggleModal={toggleModal} /> : null}
+<>
+<div className="modal-overlay" style={style} onClick={toggleModal}></div>
+    <div className="card">
+      <div className="card-left">
+        <img
+          className="card-image"
+          src={thumbnailImageLink}
+          alt="cover thumbnail"
+        />
+      </div>
+      <div className="card-right">
+        <h2 className="card-title">{title}</h2>
+        <h3 className="card-subtitle">{subtitle}</h3>
+        <p className="card-authors">By: {authors.join(", ")}</p>
+        {/* <p className="card-authors">{categories.join(", ")}</p> */}
+        <p className="card-publisher">Published by: {publisher}</p>
+        <button className="card-btn" onClick={()=>toggleModal()}>{showModal ? "close" : "more details"}</button>
+      </div>
     </div>
-    </>
+      {showModal ? <Modal book={book} toggleModal={toggleModal} /> : null}
+ 
+
+</>
   );
 }
+
+

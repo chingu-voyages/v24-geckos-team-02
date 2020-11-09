@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+// Header from "./components/Header";
 import Search from "./components/Search";
 import CardList from "./components/CardList";
 import Footer from "./components/Footer";
@@ -25,16 +25,18 @@ export default function App() {
     setPageNumber(1);
     // setModal(false)
   };
-
+  
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const cardListElement = document.getElementById("cardList"); 
+    cardListElement.addEventListener("scroll", handleScroll);
+    return () => cardListElement.removeEventListener("scroll", handleScroll);
   });
 
   function handleScroll() {
+    const cardListElement = document.getElementById("cardList");
     // if at the bottom of the page && the current page isn't the last page && results aren't loading
     if (
-      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
+      cardListElement.clientHeight + cardListElement.scrollTop === cardListElement.scrollHeight &&
       !isLastPage &&
       !areResultsLoading
     ) {
@@ -44,11 +46,11 @@ export default function App() {
   return (
     <div className="App">
       <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
-      <Header />
       <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
       {/* <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage}/> */}
       <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} query={query}/>
-      <div>{areResultsLoading ? "Loading" : ""}</div>
+      {/* <div>{areResultsLoading ? "Loading" : ""}</div> */}
+      {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
       <Footer />
     </div>
   );
