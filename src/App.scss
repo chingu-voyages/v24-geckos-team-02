@@ -2,8 +2,6 @@
 @import "mixins";
 
 * {
-  font-family: $text-font;
-
   /*Global Styles for <li> list items*/
   li {
     list-style-type: none;
@@ -84,6 +82,8 @@
 }
 
 .App {
+  font-family: $text-font;
+
   /*CSS Grid to contain all page items*/
   //margin: 0;
   height: 100vh;
@@ -155,7 +155,7 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    align-items: center; 
+    align-items: center;
 
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
@@ -219,7 +219,16 @@
         grid-area: card-left; //identifer for the left side of card & its img item
         margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
 
-        .card-img {
+        // to align "no image available":
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(242, 242, 242);
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 200;
+
+        .card-image {
           //img
           //background: greenyellow;
         }
