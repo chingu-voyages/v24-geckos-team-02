@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "./Modal";
-import { useSnackbar } from "react-simple-snackbar";
+import { useSnackbar } from "notistack";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({ book, query, accessToken, buttonType, removeFavorite }) {
   const [showModal, setshowModal] = useState(false);
-  const [snackbar] = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const { thumbnailImageLink, title, subtitle, authors, categories, publisher, id } = book;
 
   useEffect(() => {
@@ -27,10 +27,10 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
           Authorization: `Bearer ${accessToken.value}`,
         },
       }).then((res) => {
-        snackbar("Added to favorites!");
+        enqueueSnackbar("Added to favorites!", { variant: "success" });
       });
     } else {
-      snackbar("You need to login first to add favorites");
+      enqueueSnackbar("Please login first before adding favorites", { variant: "error" });
     }
   };
 
@@ -45,7 +45,7 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
         },
       }).then((res) => {
         removeFavorite(id);
-        snackbar("Removed from favorites!");
+        enqueueSnackbar("Removed from favorites!");
       });
     }
   };

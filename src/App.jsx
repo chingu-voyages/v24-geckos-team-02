@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SnackbarProvider from "react-simple-snackbar";
+import { SnackbarProvider } from "notistack";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Route, Switch } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function App() {
     console.log("accessToken", accessToken.value);
   }
   return (
-    <SnackbarProvider>
+    <SnackbarProvider maxSnack={2}>
       <div className="App">
         <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
         <Switch>
