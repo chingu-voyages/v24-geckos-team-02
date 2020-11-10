@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useBookSearch from "./hooks/useBookSearch";
 import { SnackbarProvider } from "notistack";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Search from "./components/Search";
+import CardList from "./components/CardList";
+import googleBookToAppBook from "./utils/googleBookToAppBook";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
 import Favorites from "./components/Favorites";
 import "./App.scss";
 
@@ -24,16 +26,36 @@ export default function App() {
     setPageNumber(1);
     // setModal(false)
   };
+
+  useEffect(() => {
+    const cardListElement = document.getElementById("cardList");
+    cardListElement.addEventListener("scroll", handleScroll);
+    return () => cardListElement.removeEventListener("scroll", handleScroll);
+  });
+
+  function handleScroll() {
+    const cardListElement = document.getElementById("cardList");
+    // if at the bottom of the page && the current page isn't the last page && results aren't loading
+    if (cardListElement.clientHeight + cardListElement.scrollTop === cardListElement.scrollHeight && !isLastPage && !areResultsLoading) {
+      setPageNumber((prevPageNo) => prevPageNo + 1);
+    }
+  }
+
   return (
     <SnackbarProvider maxSnack={2}>
       <div className="App">
         <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
         <Switch>
           <Route exact path="/">
-            <Home
-              {...{ accessToken, query, books, error, isLastPage, queryHistory, areResultsLoading, handleSubmit, setPageNumber }}
+            <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+            <CardList
+              books={books.map(googleBookToAppBook)}
+              isLastPage={isLastPage}
+              query={query}
+              accessToken={accessToken}
               buttonType="favorite"
             />
+            {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
           </Route>
           <Route path="/favorites">
             <Favorites accessToken={accessToken} buttonType="unfavorite" />
