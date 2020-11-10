@@ -78,13 +78,13 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
               {showModal ? "close" : "more details"}
             </button>
             {buttonType === "favorite" ? (
-              <button className="card-btn" onClick={() => handleAddFavorite(id)}>
+              <button title="Add to favorites" className="card-btn" onClick={() => handleAddFavorite(id)}>
                 <span role="img" aria-label="favorite">
                   ❤️
                 </span>
               </button>
             ) : (
-              <button className="card-btn" onClick={() => handleRemoveFavorite(id)}>
+              <button title="Remove from favorites" className="card-btn" onClick={() => handleRemoveFavorite(id)}>
                 <span role="img" aria-label="unfavorite">
                   🗑️
                 </span>
