@@ -21,7 +21,7 @@ export default function Navbar(props) {
       {/* <div className="nav-list"> */}
       <ul className="nav-list">
         <Link to="/">
-          <li className="nav-link">Home</li>
+          <li className="nav-link">Search</li>
         </Link>
         <Link to="/favorites">
           <li className="nav-link">Favorites</li>
