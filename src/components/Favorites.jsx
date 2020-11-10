@@ -21,7 +21,7 @@ export default function Favorites({ accessToken }) {
         },
       }).then((res) => {
         console.log(res);
-        setBooks(res.data.items);
+        setBooks(res.data.items ? res.data.items : []);
       });
     }
   }, [accessToken]);
@@ -29,7 +29,9 @@ export default function Favorites({ accessToken }) {
   return (
     <div>
       <h1>Favorites</h1>
-      {accessToken.value ? (
+      {accessToken.value && books.length === 0 ? (
+        <div className="scroll-end-message">Your favorite list is empty</div>
+      ) : accessToken.value ? (
         <CardList
           books={books.map(googleBookToAppBook)}
           isLastPage={false}
