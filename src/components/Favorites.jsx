@@ -5,11 +5,13 @@ import googleBookToAppBook from "../utils/googleBookToAppBook";
 
 export default function Favorites({ accessToken }) {
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const removeFavorite = (id) => {
     setBooks((books) => books.filter((book) => book.id !== id));
   };
   useEffect(() => {
     if (accessToken.value) {
+      setIsLoading(true);
       axios({
         method: "GET",
         url: "https://books.googleapis.com/books/v1/mylibrary/bookshelves/0/volumes",
@@ -20,6 +22,7 @@ export default function Favorites({ accessToken }) {
           key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
         },
       }).then((res) => {
+        setIsLoading(false);
         console.log(res);
         setBooks(res.data.items ? res.data.items : []);
       });
@@ -29,7 +32,9 @@ export default function Favorites({ accessToken }) {
   return (
     <div>
       <h1>Favorites</h1>
-      {accessToken.value && books.length === 0 ? (
+      {isLoading ? (
+        <div className="scroll-end-message">Loading favorites...</div>
+      ) : accessToken.value && books.length === 0 ? (
         <div className="scroll-end-message">Your favorite list is empty</div>
       ) : accessToken.value ? (
         <CardList
