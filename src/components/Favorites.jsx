@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardList from "./CardList";
 import googleBookToAppBook from "../utils/googleBookToAppBook";
+import { useSnackbar } from "notistack";
 
 export default function Favorites({ accessToken }) {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
+
   const removeFavorite = (id) => {
     setBooks((books) => books.filter((book) => book.id !== id));
   };
@@ -21,16 +24,21 @@ export default function Favorites({ accessToken }) {
         params: {
           key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
         },
-      }).then((res) => {
-        setIsLoading(false);
-        console.log(res);
-        setBooks(res.data.items ? res.data.items : []);
-      });
+      })
+        .then((res) => {
+          setIsLoading(false);
+          console.log(res);
+          setBooks(res.data.items ? res.data.items : []);
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          enqueueSnackbar(err.message);
+        });
     }
-  }, [accessToken]);
+  }, [accessToken, enqueueSnackbar]);
 
   return (
-    <div>
+    <div className="favorites">
       <h1>Favorites</h1>
       {isLoading ? (
         <div className="scroll-end-message">Loading favorites...</div>
