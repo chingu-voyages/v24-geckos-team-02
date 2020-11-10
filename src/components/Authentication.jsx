@@ -37,8 +37,8 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div style={{ display: "flex" }}>
-          <p>{name}</p>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <p style={{ paddingRight: "8px" }}>{name}</p>
           <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
         </div>
       ) : (
