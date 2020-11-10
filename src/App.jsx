@@ -55,7 +55,7 @@ export default function App() {
         <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
         <Switch>
           <Route exact path="/">
-            <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
+            <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} query={query} />
             <CardList
               books={books.map(googleBookToAppBook)}
               isLastPage={isLastPage}
