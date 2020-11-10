@@ -17,7 +17,8 @@ export default function Favorites({ accessToken }) {
       setIsLoading(true);
       axios({
         method: "GET",
-        url: "https://books.googleapis.com/books/v1/mylibrary/bookshelves/0/volumes",
+        url:
+          "https://books.googleapis.com/books/v1/mylibrary/bookshelves/0/volumes",
         headers: {
           Authorization: `Bearer ${accessToken.value}`,
         },
@@ -27,7 +28,6 @@ export default function Favorites({ accessToken }) {
       })
         .then((res) => {
           setIsLoading(false);
-          console.log(res);
           setBooks(res.data.items ? res.data.items : []);
         })
         .catch((err) => {
@@ -53,7 +53,9 @@ export default function Favorites({ accessToken }) {
           accessToken={accessToken}
         />
       ) : (
-        <div className="scroll-end-message">Please login to see your favorites</div>
+        <div className="scroll-end-message">
+          Please login to see your favorites
+        </div>
       )}
     </div>
   );

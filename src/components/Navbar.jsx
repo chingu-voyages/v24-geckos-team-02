@@ -27,7 +27,10 @@ export default function Navbar(props) {
           <li className="nav-link">Favorites</li>
         </Link>
         <li className="nav-link">
-          <a target="_blank" href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors">
+          <a
+            target="_blank"
+            href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors"
+          >
             About
           </a>
         </li>

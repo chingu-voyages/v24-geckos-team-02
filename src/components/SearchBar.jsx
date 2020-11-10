@@ -15,14 +15,23 @@ export default function SearchBar({ handleSubmit, queryHistory, query }) {
   return (
     <form
       onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)}
-      className={searchTerm === "" ? "arrow-visible" : undefined}
       id="search-section"
     >
       <div className="search-bar">
-        <input className="input-field" type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
+        <input
+          className="input-field"
+          type="text"
+          list="query-history"
+          onChange={handleSearchTerm}
+          value={searchTerm}
+        />
         <datalist id="query-history">
           {queryHistory.map((query) => {
-            return searchTerm !== query ? <option value={query} key={query}></option> : false;
+            return searchTerm !== query ? (
+              <option value={query} key={query}></option>
+            ) : (
+              false
+            );
           })}
         </datalist>
         <button className="search-btn">Search </button>
@@ -30,11 +39,23 @@ export default function SearchBar({ handleSubmit, queryHistory, query }) {
 
       <div className="search-options">
         <label>
-          <input value="relevance" checked={orderBy === "relevance"} onChange={handleOrderByChange} name="orderBy" type="radio" />
+          <input
+            value="relevance"
+            checked={orderBy === "relevance"}
+            onChange={handleOrderByChange}
+            name="orderBy"
+            type="radio"
+          />
           Most relevant
         </label>
         <label>
-          <input value="newest" checked={orderBy === "newest"} onChange={handleOrderByChange} name="orderBy" type="radio" />
+          <input
+            value="newest"
+            checked={orderBy === "newest"}
+            onChange={handleOrderByChange}
+            name="orderBy"
+            type="radio"
+          />
           Newest
         </label>
       </div>

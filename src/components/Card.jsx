@@ -4,10 +4,24 @@ import Modal from "./Modal";
 import { useSnackbar } from "notistack";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
-export default function Card({ book, query, accessToken, buttonType, removeFavorite }) {
+export default function Card({
+  book,
+  query,
+  accessToken,
+  buttonType,
+  removeFavorite,
+}) {
   const [showModal, setshowModal] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-  const { thumbnailImageLink, title, subtitle, authors, categories, publisher, id } = book;
+  const {
+    thumbnailImageLink,
+    title,
+    subtitle,
+    authors,
+    categories,
+    publisher,
+    id,
+  } = book;
 
   useEffect(() => {
     setshowModal(false);
@@ -17,14 +31,19 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
     setshowModal((prev) => !prev);
   };
 
-  const shortTitle = () => (title.length < 35 ? title : `${title.substring(0, 33)}...`);
+  const shortTitle = () =>
+    title.length < 35 ? title : `${title.substring(0, 33)}...`;
 
   const handleAddFavorite = (id) => {
     if (accessToken.value) {
       axios({
         method: "POST",
-        url: "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume",
-        params: { key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY, volumeId: id },
+        url:
+          "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume",
+        params: {
+          key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+          volumeId: id,
+        },
         headers: {
           Authorization: `Bearer ${accessToken.value}`,
         },
@@ -39,7 +58,9 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
         );
       });
     } else {
-      enqueueSnackbar("Please login first before adding favorites", { variant: "error" });
+      enqueueSnackbar("Please login first before adding favorites", {
+        variant: "error",
+      });
     }
   };
 
@@ -47,8 +68,12 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
     if (accessToken.value) {
       axios({
         method: "POST",
-        url: "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/removeVolume",
-        params: { key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY, volumeId: id },
+        url:
+          "https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/removeVolume",
+        params: {
+          key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
+          volumeId: id,
+        },
         headers: {
           Authorization: `Bearer ${accessToken.value}`,
         },
@@ -80,7 +105,11 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
       <div className="modal-overlay" style={style} onClick={toggleModal}></div>
       <div className="card">
         <div className="card-left">
-          <img className="card-image" src={thumbnailImageLink} alt="cover thumbnail" />
+          <img
+            className="card-image"
+            src={thumbnailImageLink}
+            alt="cover thumbnail"
+          />
         </div>
         <div className="card-right">
           <h2 className="card-title">{title}</h2>
@@ -88,18 +117,32 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
           <p className="card-authors">By: {authors.join(", ")}</p>
           {/* <p className="card-authors">{categories.join(", ")}</p> */}
           <p className="card-publisher">Published by: {publisher}</p>
-          <div style={{ display: "flex", justifyContent: "space-around", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              width: "100%",
+            }}
+          >
             <button className="card-btn" onClick={() => toggleModal()}>
               {showModal ? "close" : "more details"}
             </button>
             {buttonType === "favorite" ? (
-              <button title="Add to favorites" className="card-btn" onClick={() => handleAddFavorite(id)}>
+              <button
+                title="Add to favorites"
+                className="card-btn"
+                onClick={() => handleAddFavorite(id)}
+              >
                 <span role="img" aria-label="favorite">
                   ❤️
                 </span>
               </button>
             ) : (
-              <button title="Remove from favorites" className="card-btn" onClick={() => handleRemoveFavorite(id)}>
+              <button
+                title="Remove from favorites"
+                className="card-btn"
+                onClick={() => handleRemoveFavorite(id)}
+              >
                 <span role="img" aria-label="unfavorite">
                   🗑️
                 </span>

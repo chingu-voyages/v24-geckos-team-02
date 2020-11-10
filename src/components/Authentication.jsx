@@ -7,19 +7,27 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   const { enqueueSnackbar } = useSnackbar();
   const loginFailure = (response) => {
     if (response.error === "idpiframe_initialization_failed") {
-      enqueueSnackbar("You need to have cookies enabled for login!", { variant: "error" });
+      enqueueSnackbar("You need to have 3rd party cookies enabled for login!", {
+        variant: "error",
+      });
     } else if (response.error === "popup_closed_by_user") {
-      enqueueSnackbar("Login failed because the popup was closed!", { variant: "error" });
+      enqueueSnackbar("Login failed because the popup was closed!", {
+        variant: "error",
+      });
     } else {
       enqueueSnackbar(`Login failed: ${response.error}`, { variant: "error" });
     }
   };
 
   const loginSuccess = (response) => {
-    console.log(response);
     setName(response.profileObj.name);
-    setAccessToken({ value: response.tokenObj.access_token, expiresAt: response.tokenObj.expires_at });
-    enqueueSnackbar(`Logged in as ${response.profileObj.name}`, { variant: "success" });
+    setAccessToken({
+      value: response.tokenObj.access_token,
+      expiresAt: response.tokenObj.expires_at,
+    });
+    enqueueSnackbar(`Logged in as ${response.profileObj.name}`, {
+      variant: "success",
+    });
   };
 
   const logoutSuccess = (response) => {
@@ -37,9 +45,19 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <p style={{ paddingRight: "8px" }}>{name}</p>
-          <GoogleLogout clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} buttonText="Logout" onLogoutSuccess={logoutSuccess} />
+          <GoogleLogout
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="Logout"
+            onLogoutSuccess={logoutSuccess}
+          />
         </div>
       ) : (
         <GoogleLogin

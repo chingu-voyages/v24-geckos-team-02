@@ -17,7 +17,12 @@ export default function App() {
   const [pageNumber, setPageNumber] = useState(1);
   const [areResultsLoading, setAreResultsLoading] = useState(false);
 
-  const { books, error, isLastPage, queryHistory } = useBookSearch(query, orderBy, pageNumber, setAreResultsLoading); // 'books' has search results
+  const { books, error, isLastPage, queryHistory } = useBookSearch(
+    query,
+    orderBy,
+    pageNumber,
+    setAreResultsLoading
+  ); // 'books' has search results
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
@@ -41,7 +46,8 @@ export default function App() {
     if (
       typeof cardListElement != "undefined" &&
       cardListElement != null &&
-      cardListElement.clientHeight + cardListElement.scrollTop === cardListElement.scrollHeight &&
+      cardListElement.clientHeight + cardListElement.scrollTop ===
+        cardListElement.scrollHeight &&
       !isLastPage &&
       !areResultsLoading
     ) {
@@ -52,10 +58,18 @@ export default function App() {
   return (
     <SnackbarProvider maxSnack={2}>
       <div className="App">
-        <Navbar setAccessToken={setAccessToken} accessTokenExpiresAt={accessToken.expiresAt} />
+        <Navbar
+          setAccessToken={setAccessToken}
+          accessTokenExpiresAt={accessToken.expiresAt}
+        />
         <Switch>
           <Route exact path="/">
-            <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} query={query} />
+            <Search
+              handleSubmit={handleSubmit}
+              error={error}
+              queryHistory={queryHistory}
+              query={query}
+            />
             <CardList
               books={books.map(googleBookToAppBook)}
               isLastPage={isLastPage}
@@ -63,7 +77,9 @@ export default function App() {
               accessToken={accessToken}
               buttonType="favorite"
             />
-            {areResultsLoading === true && <div className="loading-msg">Loading...</div>}
+            {areResultsLoading === true && (
+              <div className="loading-msg">Loading...</div>
+            )}
           </Route>
           <Route path="/favorites">
             <Favorites accessToken={accessToken} buttonType="unfavorite" />

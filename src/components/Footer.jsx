@@ -19,7 +19,11 @@ export default function Footer() {
         >
           <i className="fab fa-twitter fa-2x"></i>
         </a>
-        <a target="_blank" className="footer-link" href="https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw">
+        <a
+          target="_blank"
+          className="footer-link"
+          href="https://www.youtube.com/channel/UCS7zmJXbe7FgTC3sHlUf4jw"
+        >
           <i className="fab fa-youtube fa-2x"></i>
         </a>
       </div>
