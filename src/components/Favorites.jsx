@@ -43,7 +43,7 @@ export default function Favorites({ accessToken }) {
       {isLoading ? (
         <div className="scroll-end-message">Loading favorites...</div>
       ) : accessToken.value && books.length === 0 ? (
-        <div className="scroll-end-message">Your favorite list is empty</div>
+        <div className="scroll-end-message">Your favorites list is empty</div>
       ) : accessToken.value ? (
         <CardList
           books={books.map(googleBookToAppBook)}

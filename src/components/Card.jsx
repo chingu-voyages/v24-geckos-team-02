@@ -17,6 +17,8 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
     setshowModal((prev) => !prev);
   };
 
+  const shortTitle = () => (title.length < 35 ? title : `${title.substring(0, 33)}...`);
+
   const handleAddFavorite = (id) => {
     if (accessToken.value) {
       axios({
@@ -27,7 +29,14 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
           Authorization: `Bearer ${accessToken.value}`,
         },
       }).then((res) => {
-        enqueueSnackbar("Added to favorites!", { variant: "success" });
+        enqueueSnackbar(
+          <div>
+            Added to favorites!
+            <br />
+            <em>{shortTitle()}</em>
+          </div>,
+          { variant: "success" }
+        );
       });
     } else {
       enqueueSnackbar("Please login first before adding favorites", { variant: "error" });
@@ -45,7 +54,13 @@ export default function Card({ book, query, accessToken, buttonType, removeFavor
         },
       }).then((res) => {
         removeFavorite(id);
-        enqueueSnackbar("Removed from favorites!");
+        enqueueSnackbar(
+          <div>
+            Removed from favorites!
+            <br />
+            <em>{shortTitle()}</em>
+          </div>
+        );
       });
     }
   };
