@@ -414,7 +414,7 @@
         background-color: $light-background-color;
         
         border-style: solid;
-        border-color: $success-color;
+        border-color: $complementary-color2;
         border-width: thin;
 
         li{
@@ -422,11 +422,12 @@
           margin: 20px;  
           text-align: right;
 
-          margin-left: 0px;
-          padding-right: 20px; 
-          border-right-style: solid;
-          border-right-color: $success-color;
-          border-right-width: thin;
+          padding: 10px; 
+          border-style: solid;
+          border-color: $success-color;
+          border-width: thin;
+          border-radius: 5px;
+
         }
         a {
           font-size: 20px;
