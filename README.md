@@ -11,6 +11,7 @@ BooksPlus is an App that customizes features using the Google Books Api that sea
 ## Table of Contents
 
 - [Setup](#setup)
+- [Contributors](#contributors)
 - [License](#license)
 
 ## Setup
@@ -33,6 +34,14 @@ npm start
 ```bash
 http://localhost:3000/
 ```
+
+## Contributors
+- snrelghgub
+- willnwhite
+- Guitarhub786
+- ArunJose
+- mokokom
+- jdmedlock
 
 ## License
 
