@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-export default function SearchBar({ handleSubmit, queryHistory }) {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function SearchBar({ handleSubmit, queryHistory, query }) {
+  const [searchTerm, setSearchTerm] = useState(query !== "" ? query : "");
   const [orderBy, setOrderBy] = useState("relevance");
 
   const handleSearchTerm = (e) => {
@@ -13,20 +13,31 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
   };
 
   return (
-
-      <form onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)} className={searchTerm === "" ? "arrow-visible" : undefined} id="search-section">
-        
-        <div className="search-bar">
-        <input className="input-field" type="text" list="query-history" onChange={handleSearchTerm} value={searchTerm} />
+    <form
+      onSubmit={(e) => handleSubmit(e, searchTerm, orderBy)}
+      id="search-section"
+    >
+      <div className="search-bar">
+        <input
+          className="input-field"
+          type="text"
+          list="query-history"
+          onChange={handleSearchTerm}
+          value={searchTerm}
+        />
         <datalist id="query-history">
           {queryHistory.map((query) => {
-            return searchTerm !== query ? <option value={query} key={query}></option> : false;
+            return searchTerm !== query ? (
+              <option value={query} key={query}></option>
+            ) : (
+              false
+            );
           })}
         </datalist>
         <button className="search-btn">Search </button>
-        </div>
+      </div>
 
-        <div className="search-options">
+      <div className="search-options">
         <label>
           <input
             value="relevance"
@@ -47,9 +58,7 @@ export default function SearchBar({ handleSubmit, queryHistory }) {
           />
           Newest
         </label>
-        </div>
-
-      </form>
-
+      </div>
+    </form>
   );
 }
