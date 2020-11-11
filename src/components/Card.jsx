@@ -44,8 +44,8 @@ export default function Card({ book, query }) {
               src={formatURL(thumbnailImageLink)}
               alt="cover thumbnail"
             />
-          ) : (
-            <p>Image not available</p>
+          ) : (  
+            <div className="empty-image"></div>
           )}
         </div>
         <div className="card-right">

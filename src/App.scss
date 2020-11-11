@@ -223,7 +223,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgb(242, 242, 242);
+        background-color: rgb(255, 255, 255);
         text-align: center;
         font-family: sans-serif;
         font-weight: 200;
@@ -231,6 +231,14 @@
         .card-image {
           //img
           //background: greenyellow;
+        }
+
+        .empty-image {
+          width: 128px;
+          background-color: $brand-color2;
+          border-left: $brand-color1 solid 10px;
+          height: 100%;
+          opacity: 0.3;
         }
       }
 
