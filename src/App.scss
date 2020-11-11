@@ -174,9 +174,9 @@
 
       padding-top: 5px; //<<>>
 
-      .input-field {
-        //input
-      }
+      // .input-field {
+      //   //input
+      // }
       .search-btn {
         //button
         //font-size: larger;
@@ -226,10 +226,10 @@
         grid-area: card-left; //identifer for the left side of card & its img item
         margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
 
-        .card-img {
-          //img
-          //background: greenyellow;
-        }
+        // .card-img {
+        //   //img
+        //   //background: greenyellow;
+        // }
       }
 
       .card-right {
@@ -322,9 +322,9 @@
         font-size: 10px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
       }
-      .footer-link:hover {
-        //color: $hyperlinks-color2 !important;
-      }
+      // .footer-link:hover {
+      //   //color: $hyperlinks-color2 !important;
+      // }
     }
 
     .footer-note {
@@ -377,13 +377,16 @@
   margin: auto;
 }
 
+
+/******Media Queries****/
+
 //displays new hamburger menu 
 @media only screen and (max-width: 580px) {
   .App{
     //background-color: red; 
-    .nav-logo{
-      //background-color: lightcoral;
-    }
+    // .nav-logo{
+    //   //background-color: lightcoral;
+    // }
     .nav-list{
      display: none !important;
     } 
@@ -468,24 +471,71 @@
 @media only screen and (max-width: 390px) {
   .App{
     //background-color: orange;
+     
+     //reduce input field width size
+     input[type="text"] { 
+      width: 150px; 
+    }
+    
+    //reduce search options' font size 
+    #search-section .search-options label {
+      font-size: 14px;
+    }
+
+    //autofill on smaller width viewport 
+    .card-list {
+      grid-template-columns: repeat(auto-fill, 260px);
+      justify-content: center;
+    }
+
+    //reduce image width & height 
+    .card-left{
+      img{
+        width: 100px;
+        height: 150px; 
+      }
+    }
+
+    .card-right{
+      margin: 5px 5px; 
+    }
+  
+    //reduce spacing between card-left & card-right 
+    .card-list .card .card-left {
+      //grid-area: card-left;
+      margin: 5px 5px !important;
+    }
+
+    //slightly reduce title & subtitle & text size 
+    .card-list .card .card-right .card-title {
+      font-size: 15px;
+     }
+     .card-list .card .card-right .card-subtitle {
+      font-size: 11px;
+     }
+     .card-list .card .card-right .card-authors {
+      font-size: 9px;
+     }
+     
+
+     //refine max width & height for each displayed card 
+     .card-list .card {
+      display: grid;
+      max-height: 220px;
+      width: 240px !important;
+      margin-top: 0; //remove unrequired margin
+      p{
+       margin: 2px 0;
+      }
+      button{
+        width: 79px;
+        height: 25px; 
+        font-size: 10px;
+      }
+     }
+
     .nav-list{
       display: none !important;
     } 
   }
 }
-
-
-// /* Extra small (xs) 320px — 480px: Mobile devices*/
-// @media (min-width: 480px) { /* ... */ }
-
-// /* Small (sm) 481px — 768px: iPads, Tablets*/
-// @media (min-width: 640px) { /* ... */ }
-
-// /* Medium (md) 769px — 1024px: Small screens, laptops*/
-//  @media (min-width: 700px) {  //  }
-
-// /* Large (lg) 1025px — 1200px: Desktops, large screens*/
-// @media (min-width: 1024px) { /* ... */ }
-
-/* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-//@media (min-width: 1280px) { // }
