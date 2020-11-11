@@ -56,12 +56,12 @@ http://localhost:3000/
 5. [notistack](https://www.npmjs.com/package/notistack)
 
 ## Contributors
-- snrelghgub
-- willnwhite
-- Guitarhub786
-- ArunJose
-- mokokom
-- jdmedlock
+- [snrelghgub](https://github.com/snrelghgub)
+- [willnwhite](https://github.com/willnwhite)
+- [Guitarhub786](https://github.com/Guitarhub786)
+- [ArunJose](https://github.com/ArunJose)
+- [mokokom](https://github.com/mokokom)
+- [jdmedlock](https://github.com/jdmedlock)
 
 ## License
 
