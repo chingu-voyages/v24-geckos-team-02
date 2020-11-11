@@ -370,6 +370,31 @@
   margin: auto;
 }
 
+//add media query template for two major breaking points (580 & 390) 
+//displays new hamburger menu 
+@media only screen and (max-width: 580px) {
+  .App{
+    background-color: red; 
+    .nav-logo{
+      background-color: lightcoral;
+    }
+    .nav-list{
+     display: none !important;
+    } 
+  }
+}
+
+//updates card layout 
+@media only screen and (max-width: 390px) {
+  .App{
+    background-color: orange;
+    .nav-list{
+      display: none !important;
+    } 
+  }
+}
+
+
 // /* Extra small (xs) 320px — 480px: Mobile devices*/
 // @media (min-width: 480px) { /* ... */ }
 
