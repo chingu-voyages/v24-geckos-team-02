@@ -390,7 +390,9 @@
     } 
     #menu-bar{
       display: block !important;
+      margin: auto; 
       background-color: lightgreen; 
+      margin-right: 30px;
 
       #menu{
         background-color: lightskyblue;
@@ -403,9 +405,13 @@
       .nav {  
         background-color: maroon;
         display: none; //hide menu options by default 
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        z-index:1;
         li{
           background-color: mediumpurple;
-
+          margin: 20px;  
         }
         a {
           font-size: 20px;
