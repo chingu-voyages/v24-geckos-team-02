@@ -1,6 +1,8 @@
 import React from "react";
 import formatLanguage from "../utils/isoLang";
 import formatDate from "../utils/formatDate";
+import formatURL from "../utils/formatURL";
+import formatRatingCount from "../utils/formatRatingCount";
 
 export default function Modal({ book, toggleModal }) {
 	const {
@@ -35,21 +37,13 @@ export default function Modal({ book, toggleModal }) {
 		zIndex: 200 
 	};
 
-	if(ratingsCount === "none") {
-		ratingsCount = "no votes"
-	} else if(ratingsCount > 1) {
-		ratingsCount = `${ratingsCount} votes` 
-	} else {
-		ratingsCount = `${ratingsCount} vote` 
-	}
-
 	return (
 		<div className="modal-container" style={style}>
 			<h3>{title}</h3>
 			{thumbnailImageLink !== undefined ? <img className="cover" src={thumbnailImageLink} alt="cover thumbnail" /> : null}
 			{/* change rating by stars? */}
 			<span>
-				{averageRating} / 5 ({ratingsCount})
+				{averageRating} / 5 ({formatRatingCount(ratingsCount)})
 			</span>
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
 			{categories.length !== 0 ? <p>Category: {categories}</p> : null}
@@ -64,7 +58,7 @@ export default function Modal({ book, toggleModal }) {
 				</a>
 			</p>
 			<p>
-				<a href={infoLink} target="blank">
+				<a href={formatURL(infoLink)} target="blank">
 					info
 				</a>
 			</p>
