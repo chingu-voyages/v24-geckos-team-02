@@ -49,12 +49,13 @@ http://localhost:3000/
 - Stack3
 
 ## Dependencies
-- This is a React App boostrapped with CRA
+This is a React App boostrapped with CRA
 1. [react](https://www.npmjs.com/package/react)
-2. [react-google-login](https://www.npmjs.com/package/react-google-login)
-3. [node-sass](https://www.npmjs.com/package/node-sass)
-4. [axios](https://www.npmjs.com/search?q=axios)
-5. [notistack](https://www.npmjs.com/package/notistack)
+2. [create-react-app](https://www.npmjs.com/package/create-react-app)
+3. [react-google-login](https://www.npmjs.com/package/react-google-login)
+4. [node-sass](https://www.npmjs.com/package/node-sass)
+5. [axios](https://www.npmjs.com/search?q=axios)
+6. [notistack](https://www.npmjs.com/package/notistack)
 
 ## Contributors
 - [snrelghgub](https://github.com/snrelghgub)
