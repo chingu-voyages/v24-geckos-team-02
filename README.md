@@ -49,9 +49,11 @@ http://localhost:3000/
 - Stack3
 
 ## Dependencies
-- Dependencies1
-- Dependencies2
-- Dependencies3
+1. [react](https://www.npmjs.com/package/react)
+2. [react-google-login](https://www.npmjs.com/package/react-google-login)
+3. [node-sass](https://www.npmjs.com/package/node-sass)
+4. [axios](https://www.npmjs.com/search?q=axios)
+5. [notistack](https://www.npmjs.com/package/notistack)
 
 ## Contributors
 - snrelghgub
