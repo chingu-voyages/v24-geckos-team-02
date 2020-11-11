@@ -16,6 +16,8 @@ export default function Navbar(props) {
   function displayOptions () {
     //console.log("working"); 
     document.getElementById("menu").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change");
+
   }
 
   return (
