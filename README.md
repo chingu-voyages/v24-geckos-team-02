@@ -49,6 +49,7 @@ http://localhost:3000/
 - Stack3
 
 ## Dependencies
+- This is a React App boostrapped with CRA
 1. [react](https://www.npmjs.com/package/react)
 2. [react-google-login](https://www.npmjs.com/package/react-google-login)
 3. [node-sass](https://www.npmjs.com/package/node-sass)
