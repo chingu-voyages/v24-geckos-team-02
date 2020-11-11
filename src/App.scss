@@ -381,7 +381,7 @@
 //displays new hamburger menu 
 @media only screen and (max-width: 580px) {
   .App{
-    background-color: red; 
+    //background-color: red; 
     .nav-logo{
       background-color: lightcoral;
     }
@@ -397,6 +397,11 @@
         margin: 30px 0 20px 20px;
         cursor: pointer;
       }
+
+      .nav li a {
+        font-size: 20px;
+      }
+
       .bar{
         height: 5px;
         width: 100%;
@@ -411,45 +416,6 @@
       #bar3{
         transform: translateY(4px);
       }
-      // .nav li a{
-      //   color: #fff;
-      //   text-decoration: none;
-      // }
-      // .nav li a:hover{
-      //   font-weight: bold;
-      // }
-      // .nav li{
-      //   list-style: none;
-      //   padding: 16px 0;
-      // }
-      // .nav{
-      //   padding: 0;
-      //   margin: 0 20px;
-      //   transition: 0.3s ease;
-      //   display: none;
-      // }
-      // .menu-bg, #menu-bar{
-      //   top: 0;
-      //   left: 0;
-      //   position: absolute;
-      // }
-      // .menu-bg{
-      //   z-index: 1;
-      //   width: 0;
-      //   height: 0;
-      //   margin: 30px 0 20px 20px;
-      //   background: radial-gradient(circle,#e94498,#b81568);
-      //   border-radius: 50%;
-      //   transition: 0.3s ease;
-      // }
-      // #menu-bar{
-      //   z-index: 2;	
-      // }
-      // .change-bg{
-      //   width: 550px;
-      //   height: 540px;
-      //   transform: translate(-60%,-30%);
-      // }
       .change .bar{
         background-color: $btn-color-new-lighter1;
       }
@@ -462,9 +428,6 @@
       .change #bar2{
         opacity: 0;
       }
-      // .change{
-      //   display: block;
-      // } 
 
     }
   }

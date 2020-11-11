@@ -13,11 +13,9 @@ export default function Navbar(props) {
 
   };
 
-  function displayMenuOptions () {
-    console.log("working"); 
+  function displayOptions () {
+    //console.log("working"); 
     document.getElementById("menu").classList.toggle("change");
-	  //document.getElementById("nav").classList.toggle("change");
-	  //document.getElementById("menu-bg").classList.toggle("change-bg");
   }
 
   return (
@@ -35,7 +33,7 @@ export default function Navbar(props) {
       {/* </div> */}
 
         <div id="menu-bar">
-          <div id="menu" onClick={displayMenuOptions}>
+          <div id="menu" onClick={displayOptions}>
             <div id="bar1" class="bar"></div>
             <div id="bar2" class="bar"></div>
             <div id="bar3" class="bar"></div>
