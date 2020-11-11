@@ -27,6 +27,19 @@ export default function Navbar(props) {
         </ul>
       {/* </div> */}
 
+        <div id="menu-bar">
+          <div id="menu" onclick="onClickMenu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+          </div>
+          <ul class="nav" id="nav">
+            <li><a target='_blank' href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors">About</a></li>
+            <li><Authentication {...props} /></li>
+          </ul>
+        </div>
+        <div class="menu-bg" id="menu-bg"></div>
+
     </nav>
   );
 }

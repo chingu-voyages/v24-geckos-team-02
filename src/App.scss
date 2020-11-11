@@ -146,6 +146,13 @@
         font-size: 20px; //<<>>
       }
     }
+        
+        //hides menu-bar by default, to be displayed again in 580px or less 
+        #menu-bar{
+          display: none; 
+        }
+
+
   }
 
   #search-section {
@@ -384,7 +391,7 @@
   }
 }
 
-//updates card layout 
+//updates card layout & search component to improve display on devices with high viewport  
 @media only screen and (max-width: 390px) {
   .App{
     background-color: orange;
