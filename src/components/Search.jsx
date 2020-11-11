@@ -10,15 +10,19 @@ let errorMsgStyle = {
   color: "#B30000",
 };
 
-export default function Search({ handleSubmit, error, queryHistory }) {
+export default function Search({ handleSubmit, error, queryHistory, query }) {
   return (
     <div>
-      <SearchBar handleSubmit={handleSubmit} queryHistory={queryHistory} />
-      {error !== "" && 
+      <SearchBar
+        handleSubmit={handleSubmit}
+        queryHistory={queryHistory}
+        query={query}
+      />
+      {error !== "" && (
         <div className="search-error" style={errorMsgStyle}>
           {error && error}
         </div>
-      }
+      )}
     </div>
   );
 }

@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(
-  query,
-  orderBy,
-  pageNumber,
-  setAreResultsLoading
-) {
+export default function useBookSearch(query, orderBy, pageNumber, setAreResultsLoading) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
@@ -28,11 +23,11 @@ export default function useBookSearch(
           q: query,
           orderBy,
           startIndex: (pageNumber - 1) * noOfCardsPerPage,
+          key: process.env.REACT_APP_GOOGLE_BOOKS_API_KEY,
         },
       })
         .then((res) => {
           setAreResultsLoading(false);
-
           if (res.data.items && res.data.items.length < noOfCardsPerPage) {
             setIsLastPage(true);
           } else {

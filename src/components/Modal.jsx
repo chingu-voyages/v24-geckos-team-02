@@ -21,23 +21,23 @@ export default function Modal({ book, toggleModal }) {
 		pageCount,
 		language,
     thumbnailImageLink,
-    saleability
-	} = book;
+    saleability,
+  } = book;
 
 	let { ratingsCount } = book
 
 	let readablePublishedDate = formatDate(publishedDate);
 
-	let formattedLanguage = formatLanguage(language);
+  let formattedLanguage = formatLanguage(language);
 
-	const style = {
-		position: "fixed",
-		top: "50%",
-		left: "50%",
-		transform: "translate(-50%, -50%)",
-		backgroundColor: "white",
-		zIndex: 200 
-	};
+  const style = {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "white",
+    zIndex: 200,
+  };
 
 	return (
 		<div className="modal-container" style={style}>
@@ -81,7 +81,7 @@ export default function Modal({ book, toggleModal }) {
 				</p>
 			) : null}
 
-			<button onClick={() => toggleModal()}>close</button>
-		</div>
-	);
+      <button onClick={() => toggleModal()}>close</button>
+    </div>
+  );
 }
