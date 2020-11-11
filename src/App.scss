@@ -377,13 +377,12 @@
   margin: auto;
 }
 
-//add media query template for two major breaking points (580 & 390) 
 //displays new hamburger menu 
 @media only screen and (max-width: 580px) {
   .App{
     //background-color: red; 
     .nav-logo{
-      background-color: lightcoral;
+      //background-color: lightcoral;
     }
     .nav-list{
      display: none !important;
@@ -391,27 +390,40 @@
     #menu-bar{
       display: block !important;
       margin: auto; 
-      background-color: lightgreen; 
+      //background-color: lightgreen; 
       margin-right: 30px;
 
       #menu{
-        background-color: lightskyblue;
+        //background-color: lightskyblue;
         width: 35px;
         height: 30px;
-        margin: 30px 0 20px 20px;
+        margin-right: 10px; 
         cursor: pointer;
       }
 
       .nav {  
-        background-color: maroon;
+        //background-color: maroon;
         display: none; //hide menu options by default 
         position: absolute;
         top: 80px;
         right: 20px;
         z-index:1;
+        background-color: $light-background-color;
+        
+        border-style: solid;
+        border-color: $success-color;
+        border-width: thin;
+
         li{
-          background-color: mediumpurple;
+          //background-color: mediumpurple;
           margin: 20px;  
+          text-align: right;
+
+          margin-left: 0px;
+          padding-right: 20px; 
+          border-right-style: solid;
+          border-right-color: $success-color;
+          border-right-width: thin;
         }
         a {
           font-size: 20px;
@@ -455,7 +467,7 @@
 //updates card layout & search component to improve display on devices with high viewport  
 @media only screen and (max-width: 390px) {
   .App{
-    background-color: orange;
+    //background-color: orange;
     .nav-list{
       display: none !important;
     } 
