@@ -390,16 +390,26 @@
     } 
     #menu-bar{
       display: block !important;
+      background-color: lightgreen; 
 
       #menu{
+        background-color: lightskyblue;
         width: 35px;
         height: 30px;
         margin: 30px 0 20px 20px;
         cursor: pointer;
       }
 
-      .nav li a {
-        font-size: 20px;
+      .nav {  
+        background-color: maroon;
+        display: none; //hide menu options by default 
+        li{
+          background-color: mediumpurple;
+
+        }
+        a {
+          font-size: 20px;
+        }
       }
 
       .bar{
