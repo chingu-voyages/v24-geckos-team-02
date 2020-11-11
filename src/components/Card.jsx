@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Modal from "./Modal";
+import formatURL from "../utils/formatURL";
 
 // functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({ book, query }) {
@@ -40,7 +41,7 @@ export default function Card({ book, query }) {
           {thumbnailImageLink !== undefined ? (
             <img
               className="card-image"
-              src={thumbnailImageLink}
+              src={formatURL(thumbnailImageLink)}
               alt="cover thumbnail"
             />
           ) : (

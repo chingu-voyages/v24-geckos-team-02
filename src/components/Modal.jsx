@@ -15,6 +15,8 @@ export default function Modal({ book, toggleModal }) {
 		previewLink,
 		infoLink,
 		buyLink,
+		authors,
+		publisher,
 		retailPrice,
 		pageCount,
 		language,
@@ -40,11 +42,19 @@ export default function Modal({ book, toggleModal }) {
 	return (
 		<div className="modal-container" style={style}>
 			<h3>{title}</h3>
-			{thumbnailImageLink !== undefined ? <img className="cover" src={thumbnailImageLink} alt="cover thumbnail" /> : null}
+			{thumbnailImageLink !== undefined ? <img className="cover" src={formatURL(thumbnailImageLink)} alt="cover thumbnail" /> : null}
 			{/* change rating by stars? */}
 			<span>
 				{averageRating} / 5 ({formatRatingCount(ratingsCount)})
 			</span>
+			{authors.length !== 0 ? (
+            <p className="card-authors">By: {authors.join(", ")}</p>
+          ) : null}
+
+          {/* <p className="card-authors">{categories.join(", ")}</p> */}
+          {publisher !== "" ? (
+            <p className="card-publisher">Published by: {publisher}</p>
+          ) : null}
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
 			{categories.length !== 0 ? <p>Category: {categories}</p> : null}
 			{publishedDate !== "" ? <p>Published date: {readablePublishedDate}</p> : null}
@@ -58,7 +68,7 @@ export default function Modal({ book, toggleModal }) {
 				</a>
 			</p>
 			<p>
-				<a href={formatURL(infoLink)} target="blank">
+				<a href={infoLink} target="blank">
 					info
 				</a>
 			</p>
