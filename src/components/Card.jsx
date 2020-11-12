@@ -120,7 +120,7 @@ export default function Card({
           <div
             style={{
               display: "flex",
-              justifyContent: "space-around",
+              //justifyContent: "space-around",
               width: "100%",
             }}
           >
