@@ -157,6 +157,12 @@
         color: $btn-color-new-lighter1 !important;
       } 
 
+      .logout-section {
+        display: flex;
+            align-items: center;
+            justify-content: center;
+
+      }
       .username {
         padding-right: 8px;
         color: $btn-color-new-default

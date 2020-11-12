@@ -46,13 +46,7 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="logout-section">
           <small className="username">({name})</small>
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
@@ -70,27 +64,22 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
           />
         </div>
       ) : (
-        <div>
-          <div>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Login"
-              onSuccess={loginSuccess}
-              onFailure={loginFailure}
-              cookiePolicy={"single_host_origin"}
-              scope="https://www.googleapis.com/auth/books"
-              render={(renderProps) => (
-                <div
-                  className="auth-link"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  Login with Google
-                </div>
-              )}
-            />
-          </div>
-        </div>
+        <GoogleLogin
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          onSuccess={loginSuccess}
+          onFailure={loginFailure}
+          cookiePolicy={"single_host_origin"}
+          scope="https://www.googleapis.com/auth/books"
+          render={(renderProps) => (
+            <div
+              className="auth-link"
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              Login with Google
+            </div>
+          )}
+        />
       )}
     </Fragment>
   );
