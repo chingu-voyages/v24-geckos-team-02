@@ -131,6 +131,7 @@ export default function Card({
               <button
                 title="Add to favorites"
                 className="card-btn"
+                id="favorite-btn"
                 onClick={() => handleAddFavorite(id)}
               >
                 <span role="img" aria-label="favorite">
