@@ -9,20 +9,8 @@ BooksPlus is an App that customizes features using the Google Books Api that sea
 #### LIVE BETA LINK : https://booksplus-beta.netlify.app/
 #### LIVE MAIN LINK : https://booksplus-app.netlify.app/
 
-## Table of Contents
-
-- [Setup](#setup)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Dependencies](#dependencies)
-- [Contributors](#contributors)
-- [License](#license)
-
 ## Setup
 
-```
-git clone https://github.com/chingu-voyages/v24-geckos-team-02.git
-```
 ### Install dependencies
 
 ```bash
@@ -33,10 +21,6 @@ npm install
 
 ```bash
 npm start
-```
-### Visit this link in your browser
-```bash
-http://localhost:3000/
 ```
 
 ## Features
