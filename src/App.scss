@@ -284,6 +284,10 @@
         .card-btn {
           //background: purple;
           padding: 6px;
+          margin-left: -4px; 
+        }
+        #favorite-btn{
+          margin: auto;
         }
       }
     }
@@ -536,7 +540,7 @@
       }
       #favorite-btn{
         width: 27px; 
-        margin-left: 3px; 
+        //margin-left: 3px; 
       }
      }
 
