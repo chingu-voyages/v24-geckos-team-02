@@ -156,6 +156,11 @@
       .auth-link:hover {
         color: $btn-color-new-lighter1 !important;
       } 
+
+      .username {
+        padding-right: 8px;
+        color: $btn-color-new-default
+      }
     }
   }
 

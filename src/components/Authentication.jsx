@@ -46,23 +46,28 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div>
-          <div>
-            <GoogleLogout
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              render={(renderProps) => (
-                <div
-                  className="auth-link"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}
-                >
-                  <small>({name})</small> Logout
-                </div>
-              )}
-              buttonText="Logout"
-              onLogoutSuccess={logoutSuccess}
-            />
-          </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <small className="username">({name})</small>
+          <GoogleLogout
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            render={(renderProps) => (
+              <div
+                className="auth-link"
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                Logout
+              </div>
+            )}
+            buttonText="Logout"
+            onLogoutSuccess={logoutSuccess}
+          />
         </div>
       ) : (
         <div>
