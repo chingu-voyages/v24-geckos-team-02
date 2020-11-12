@@ -20,7 +20,6 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   };
 
   const loginSuccess = (response) => {
-    console.log(response);
     setName(response.profileObj.name);
     setAccessToken({
       value: response.tokenObj.access_token,
