@@ -135,7 +135,7 @@ export default function Card({
                 onClick={() => handleAddFavorite(id)}
               >
                 <span role="img" aria-label="favorite">
-                  ❤️
+                &#10084;
                 </span>
               </button>
             ) : (
