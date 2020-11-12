@@ -2,6 +2,8 @@
 @import "mixins";
 
 * {
+  font-family: $text-font; //apply 'Work Sans' paring font to all items on page 
+
   /*Global Styles for <li> list items*/
   li {
     list-style-type: none;
@@ -82,7 +84,7 @@
 }
 
 .App {
-  font-family: $text-font;
+  //font-family: $text-font;
 
   /*CSS Grid to contain all page items*/
   //margin: 0;
