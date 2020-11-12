@@ -530,6 +530,10 @@
     .card-list .card .card-left {
       //grid-area: card-left;
       margin: 5px 5px !important;
+
+      .empty-image{
+        width: 100px !important; //new width for .empty-image to match width for displayed img elements
+      }
     }
 
     //slightly reduce title & subtitle & text size 
