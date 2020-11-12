@@ -7,7 +7,7 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   const { enqueueSnackbar } = useSnackbar();
   const loginFailure = (response) => {
     if (response.error === "idpiframe_initialization_failed") {
-      enqueueSnackbar("You need to have 3rd party cookies enabled for login!", {
+      enqueueSnackbar("You need to have cookies enabled for login!", {
         variant: "error",
       });
     } else if (response.error === "popup_closed_by_user") {
@@ -20,6 +20,7 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   };
 
   const loginSuccess = (response) => {
+    console.log(response);
     setName(response.profileObj.name);
     setAccessToken({
       value: response.tokenObj.access_token,
@@ -45,29 +46,46 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p style={{ paddingRight: "8px" }}>{name}</p>
-          <GoogleLogout
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Logout"
-            onLogoutSuccess={logoutSuccess}
-          />
+        <div>
+          <div>
+            <GoogleLogout
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              render={(renderProps) => (
+                <div
+                  className="auth-link"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  <small>({name})</small> Logout
+                </div>
+              )}
+              buttonText="Logout"
+              onLogoutSuccess={logoutSuccess}
+            />
+          </div>
         </div>
       ) : (
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          onSuccess={loginSuccess}
-          onFailure={loginFailure}
-          cookiePolicy={"single_host_origin"}
-          scope="https://www.googleapis.com/auth/books"
-        />
+        <div>
+          <div>
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              buttonText="Login"
+              onSuccess={loginSuccess}
+              onFailure={loginFailure}
+              cookiePolicy={"single_host_origin"}
+              scope="https://www.googleapis.com/auth/books"
+              render={(renderProps) => (
+                <div
+                  className="auth-link"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  Login with Google
+                </div>
+              )}
+            />
+          </div>
+        </div>
       )}
     </Fragment>
   );

@@ -145,6 +145,17 @@
         margin-right: 20px; //<<>>/
         font-size: 20px; //<<>>
       }
+
+      .auth-link {
+        margin-right: 20px; 
+        font-size: 20px; 
+        color: $btn-color-new-default;
+        cursor: pointer;
+      }
+
+      .auth-link:hover {
+        color: $btn-color-new-lighter1 !important;
+      } 
     }
   }
 
