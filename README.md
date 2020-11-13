@@ -31,7 +31,7 @@ npm start
 ## Tech Stack
 - [React.js](https://reactjs.org/)
 - [Sass](https://sass-lang.com/)
-- Google Books Api
+- [Google Books Api](https://developers.google.com/books/docs/overview)
 - Netlify
 
 ## Dependencies
