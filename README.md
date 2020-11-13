@@ -29,7 +29,7 @@ npm start
 - Feature3
 
 ## Tech Stack
-- React.js
+- [React.js](https://reactjs.org/)
 - Sass
 - Google Books Api
 - Netlify
