@@ -29,9 +29,10 @@ npm start
 - Feature3
 
 ## Tech Stack
-- Stack1
-- Stack2
-- Stack3
+- React.js
+- Sass
+- Google Books Api
+- Netlify
 
 ## Dependencies
 This is a React App boostrapped with CRA
