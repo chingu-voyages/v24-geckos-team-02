@@ -32,7 +32,7 @@ npm start
 - [React.js](https://reactjs.org/)
 - [Sass](https://sass-lang.com/)
 - [Google Books Api](https://developers.google.com/books/docs/overview)
-- Netlify
+- [Netlify](https://www.netlify.com/)
 
 ## Dependencies
 This is a React App boostrapped with CRA
