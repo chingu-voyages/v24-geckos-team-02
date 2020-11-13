@@ -30,7 +30,7 @@ npm start
 
 ## Tech Stack
 - [React.js](https://reactjs.org/)
-- Sass
+- [Sass](https://sass-lang.com/)
 - Google Books Api
 - Netlify
 
