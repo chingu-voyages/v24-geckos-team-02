@@ -442,13 +442,13 @@
         border-color: $complementary-color2;
         border-width: thin;
 
-        padding: 0 10px;
+        padding: 0 10px; //centers menu options with a padding of 10px left and right 
       
 
         li{
           //background-color: mediumpurple;
           margin: 20px;  
-          text-align: right;
+          text-align: center;
 
           padding: 10px; 
           border-style: solid;
