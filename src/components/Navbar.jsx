@@ -1,4 +1,3 @@
-//import { findByLabelText } from "@testing-library/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -20,7 +19,6 @@ export default function Navbar(props) {
       <div className="nav-logo">
         <img src={logo} style={styles} alt="logo" />
       </div>
-      {/* <div className="nav-list"> */}
       <ul className="nav-list">
         <Link to="/">
           <li className="nav-link">Search</li>
@@ -40,8 +38,6 @@ export default function Navbar(props) {
           <Authentication {...props} />
         </li>
       </ul>
-      {/* </div> */}
-
        <HamburgerMenu />
   
 

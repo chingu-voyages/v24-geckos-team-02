@@ -50,7 +50,7 @@
   input[type="radio"] {
     margin-right: 10px;
   }
-  //overlay the radio button input style using :after
+  //Overlay the radio button input style using :after
   input[type="radio"]:after {
     width: 15px;
     height: 15px;
@@ -86,7 +86,6 @@
   //font-family: $text-font;
 
   /*CSS Grid to contain all page items*/
-  //margin: 0;
   height: 100vh;
   width: 100%;
   display: grid;
@@ -175,17 +174,12 @@
 
       padding-top: 5px; //<<>>
 
-      // .input-field {
-      //   //input
-      // }
       .search-btn {
         //button
         //font-size: larger;
         margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
         padding: 10px; //sets a padding of 10px to match search input field's padding
       }
-      // .search-err-msg{ //div
-      // }
     }
     .search-options {
       //background-color: blue;
@@ -225,7 +219,7 @@
       .card-left {
         //background: palevioletred;
         grid-area: card-left; //identifer for the left side of card & its img item
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
+        margin: 5px 15px; 
 
         .card-image {
         //img
@@ -254,7 +248,7 @@
       .card-right {
         //background: powderblue;
         grid-area: card-right; //identifier for the right side of card & its items
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
+        margin: 5px 15px; 
         color: $text-color2;
 
         display: flex;
@@ -324,7 +318,7 @@
     //footer
     //background: $dark-background-color;
 
-    /*aligns footer items in the middle of footer-section*/
+    /*Aligns footer items in the middle of footer-section*/
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -336,7 +330,7 @@
     .footer-social {
       //background: grey;
 
-      text-align: center; //keeps social media icons/links centered by default
+      text-align: center; //Keeps social media icons/links centered by default
 
       margin-top: 5px; //<<>> matches margin space set on .footer-note
 
@@ -346,9 +340,6 @@
         font-size: 10px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
       }
-      // .footer-link:hover {
-      //   //color: $hyperlinks-color2 !important;
-      // }
     }
 
     .footer-note {
@@ -403,8 +394,7 @@
 
 
 /******Media Queries****/
-
-//displays new hamburger menu 
+//Displays new hamburger menu 
 @media only screen and (max-width: 580px) {
   .App{
     //background-color: red; 
@@ -430,15 +420,13 @@
 
       .nav { //ul
         //background-color: maroon;
-        //display: none; //hide menu options by default 
+
         position: absolute;
         top: 85px;
         right: 20px;
         z-index:1;
         background-color: $light-background-color;
         
-        
-
         padding: 0 10px; //centers menu options with a padding of 10px left and right 
         overflow: hidden;
         transition: all .25s;
@@ -489,22 +477,17 @@
         opacity: 0;
       }
       .change-menu-options-only{
-        //display: block; 
         height:auto;
         max-height: 100%;
         background-color: $menu-background-color;
         border-radius: 8px;
-
-        /*border-style: solid; 
-        border-color: $complementary-color2; 
-        border-width: thin;*/
       }
 
     }
   }
 }
 
-//updates card layout & search component to improve display on devices with high viewport  
+//Updates card layout & search component to improve display on devices with high viewport  
 @media only screen and (max-width: 390px) {
   .App{
     //background-color: orange;
@@ -539,7 +522,6 @@
   
     //reduce spacing between card-left & card-right 
     .card-list .card .card-left {
-      //grid-area: card-left;
       margin: 5px 5px !important;
 
       .empty-image{
@@ -562,7 +544,6 @@
      }
      
 
-     //refine max width & height for each displayed card 
      .card-list .card {
       display: grid;
       max-height: 220px;
@@ -589,7 +570,6 @@
     
     //reduce text-font size for hamburger menu options 
     .nav {  
-
         li { //search & favorites
           font-size: 17px;
         }
@@ -598,7 +578,6 @@
             font-size: 17px !important;
           }
         }
-    
     }
 
   }

@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import formatURL from "../utils/formatURL";
 import { useSnackbar } from "notistack";
 
-// functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
+//Functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({
   book,
   query,
