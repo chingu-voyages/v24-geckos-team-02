@@ -575,5 +575,20 @@
     .nav-list{
       display: none !important;
     } 
+    
+    //reduce text-font size for hamburger menu options 
+    .nav {  
+
+        li { //search & favorites
+          font-size: 17px;
+        }
+        li {
+          a { //about
+            font-size: 17px !important;
+          }
+        }
+    
+    }
+
   }
 }
