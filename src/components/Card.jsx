@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import formatURL from "../utils/formatURL";
 import { useSnackbar } from "notistack";
 
-// functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
+//Functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({
   book,
   query,
@@ -130,7 +130,7 @@ export default function Card({
           <div
             style={{
               display: "flex",
-              justifyContent: "space-around",
+              //justifyContent: "space-around",
               width: "100%",
             }}
           >
@@ -141,10 +141,11 @@ export default function Card({
               <button
                 title="Add to favorites"
                 className="card-btn"
+                id="favorite-btn"
                 onClick={() => handleAddFavorite(id)}
               >
                 <span role="img" aria-label="favorite">
-                  ❤️
+                &#10084;
                 </span>
               </button>
             ) : (
