@@ -6,6 +6,7 @@ import Authentication from "./Authentication";
 import logo from "../assets/img/logo.svg";
 
 import "../css/Navbar.css";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Navbar(props) {
   const styles = {
@@ -13,11 +14,6 @@ export default function Navbar(props) {
     padding: 15,
   };
 
-  function displayOptions () {
-    document.getElementById("menu").classList.toggle("change");
-    document.getElementById("nav").classList.toggle("change-menu-only");
-
-  }
 
   return (
     <nav className="nav-bar">
@@ -46,24 +42,8 @@ export default function Navbar(props) {
       </ul>
       {/* </div> */}
 
-        <div id="menu-bar">
-          <div id="menu" onClick={displayOptions}>
-            <div id="bar1" className="bar"></div>
-            <div id="bar2" className="bar"></div>
-            <div id="bar3" className="bar"></div>
-          </div>
-          <ul className="nav" id="nav">
-            <Link to="/">
-            <li className="nav-link">Search</li>
-            </Link>
-            <Link to="/favorites">
-            <li className="nav-link">Favorites</li>
-           </Link>
-            <li><a target='_blank' href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors">About</a></li>
-            <li><Authentication {...props} /></li>
-          </ul>
-        </div>
-        <div className="menu-bg" id="menu-bg"></div>
+       <HamburgerMenu />
+  
 
     </nav>
   );
