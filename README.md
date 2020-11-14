@@ -24,11 +24,11 @@ npm start
 ```
 
 ## Features
-- [X] Home page
-- [X] Ability to sign in with Google and access to favorites books user
+- [X] Landing page
+- [X] Access Google user favorites feature
 - [X] Add or Remove favorites books 
-- [X] Get more informations about a book by clicking the more detail button
-- [X] Ability to navigate with all types of device thanks to the responsive
+- [X] View more information on each book
+- [X] Responsive design for all devices
 
 ## Tech Stack
 - [React.js](https://reactjs.org/)
