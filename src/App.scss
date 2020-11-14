@@ -429,20 +429,21 @@
         cursor: pointer;
       }
 
-      .nav {  
+      .nav { //ul
         //background-color: maroon;
-        display: none; //hide menu options by default 
+        //display: none; //hide menu options by default 
         position: absolute;
         top: 80px;
         right: 20px;
         z-index:1;
         background-color: $light-background-color;
         
-        border-style: solid;
-        border-color: $complementary-color2;
-        border-width: thin;
+        
 
         padding: 0 10px; //centers menu options with a padding of 10px left and right 
+        overflow: hidden;
+        transition: all .25s;
+        max-height: 0; 
       
 
         li{
@@ -488,8 +489,15 @@
       .change #bar2{
         opacity: 0;
       }
-      .change{
-        display: block; 
+      .change-menu-only{
+        //display: block; 
+        height:auto;
+        max-height: 100%;
+        background-color: $menu-background-color;
+
+        /*border-style: solid; 
+        border-color: $complementary-color2; 
+        border-width: thin;*/
       }
 
     }

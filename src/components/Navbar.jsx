@@ -15,7 +15,7 @@ export default function Navbar(props) {
 
   function displayOptions () {
     document.getElementById("menu").classList.toggle("change");
-    document.getElementById("nav").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change-menu-only");
 
   }
 
