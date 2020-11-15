@@ -42,9 +42,7 @@ export default function Favorites({ accessToken }) {
     <>
       <div className="favorites">
         <h1>Favorites</h1>
-        {isLoading ? (
-          <div className="scroll-end-message">Loading favorites...</div>
-        ) : accessToken.value && books.length === 0 ? (
+        {accessToken.value && books.length === 0 ? (
           <div className="scroll-end-message">Your favorites list is empty</div>
         ) : accessToken.value ? (
           <div className="scroll-end-message">Your favorites list</div>
@@ -65,6 +63,9 @@ export default function Favorites({ accessToken }) {
       ) : (
         <div></div>
       )}
+      {isLoading === true && (
+              <div className="loading-msg">Loading...</div>
+            )}
       <Footer />
     </>
   );
