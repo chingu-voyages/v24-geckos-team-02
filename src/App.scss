@@ -580,6 +580,17 @@
         }
     }
 
+    //reduce favorites' header & messages/text size
+    .favorites{
+      h1{
+       font-size: 28px;
+       margin-bottom: -3px; 
+      }
+      .favorites-message{
+       font-size: 14px; 
+      }
+    }
+
   }
 }
 
