@@ -591,6 +591,7 @@
    h1{
      //background-color: blue;
      text-align: center;
+     color: $text-color2; 
    }
    .request-login-message{
      @extend .scroll-end-message;
