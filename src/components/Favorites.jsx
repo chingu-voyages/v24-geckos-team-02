@@ -42,7 +42,7 @@ export default function Favorites({ accessToken }) {
     <>
       <div className="favorites">
         <h1>Favorites</h1>
-        {accessToken.value && books.length === 0 ? (
+        {accessToken.value && books.length === 0 & !isLoading ? (
           <div className="favorites-message">Your favorites list is empty</div>
         ) : accessToken.value ? (
           <div className="favorites-message">Your favorites list</div>
