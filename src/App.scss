@@ -586,8 +586,13 @@
 
  /*Styles for favorites page*/
  .favorites{
-   background-color: mediumspringgreen;
+   //background-color: mediumspringgreen;
    padding-bottom: 5px !important; 
+
+    /*adds a thin border at the bottom of favorites header*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
    h1{
      //background-color: blue;
      text-align: center;

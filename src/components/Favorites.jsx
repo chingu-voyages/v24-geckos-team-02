@@ -3,6 +3,7 @@ import axios from "axios";
 import CardList from "./CardList";
 import googleBookToAppBook from "../utils/googleBookToAppBook";
 import { useSnackbar } from "notistack";
+import Footer from "./Footer"; 
 
 export default function Favorites({ accessToken }) {
   const [books, setBooks] = useState([]);
@@ -38,13 +39,22 @@ export default function Favorites({ accessToken }) {
   }, [accessToken, enqueueSnackbar]);
 
   return (
-    <div className="favorites">
-      <h1>Favorites</h1>
-      {isLoading ? (
-        <div className="scroll-end-message">Loading favorites...</div>
-      ) : accessToken.value && books.length === 0 ? (
-        <div className="scroll-end-message">Your favorites list is empty</div>
-      ) : accessToken.value ? (
+    <>
+      <div className="favorites">
+        <h1>Favorites</h1>
+        {isLoading ? (
+          <div className="scroll-end-message">Loading favorites...</div>
+        ) : accessToken.value && books.length === 0 ? (
+          <div className="scroll-end-message">Your favorites list is empty</div>
+        ) : accessToken.value ? (
+          <div className="scroll-end-message">Your favorites list</div>
+        ) : (
+          <div className="request-login-message">
+            Please login to see your favorites
+          </div>
+        )}
+      </div>
+      {accessToken.value ? (
         <CardList
           books={books.map(googleBookToAppBook)}
           isLastPage={false}
@@ -53,10 +63,9 @@ export default function Favorites({ accessToken }) {
           accessToken={accessToken}
         />
       ) : (
-        <div className="request-login-message">
-          Please login to see your favorites
-        </div>
+        <div></div>
       )}
-    </div>
+      <Footer />
+    </>
   );
 }
