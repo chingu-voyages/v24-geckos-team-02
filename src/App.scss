@@ -302,9 +302,19 @@
         #favorite-btn{
           margin-left: 5px;
           width: 35px; 
+          .favorite-icon{
+            position: relative;
+            font-size: 1.2em;  
+            margin-bottom: -3px; 
+            margin-left: -2px;
+          }
         }
         #delete-btn{
           @extend #favorite-btn; 
+          .delete-icon{
+            @extend .favorite-icon; 
+            font-size: 1.4em;  
+          }
         }
 
       }
@@ -522,6 +532,25 @@
 
     .card-right{
       margin: 5px 5px; 
+
+      #favorite-btn{
+        margin-left: 5px;
+        width: 35px; 
+        .favorite-icon{
+          position: relative;
+          font-size: 1.2em;  
+          margin-bottom: -5px; 
+          margin-left: 0 !important;
+        }
+      }
+      #delete-btn{ 
+        .delete-icon{
+          @extend .favorite-icon; 
+          font-size: 1.4em;  
+          margin-bottom: 10px !important;
+        }
+      }
+
     }
   
     //reduce spacing between card-left & card-right 
