@@ -3,7 +3,6 @@ import axios from "axios";
 import CardList from "./CardList";
 import googleBookToAppBook from "../utils/googleBookToAppBook";
 import { useSnackbar } from "notistack";
-import Footer from "./Footer"; 
 
 export default function Favorites({ accessToken }) {
   const [books, setBooks] = useState([]);
@@ -64,7 +63,6 @@ export default function Favorites({ accessToken }) {
         <div></div>
       )}
       {isLoading === true && <div className="loading-msg">Loading...</div>}
-      <Footer />
     </>
   );
 }

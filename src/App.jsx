@@ -80,10 +80,11 @@ export default function App() {
             {areResultsLoading === true && (
               <div className="loading-msg">Loading...</div>
             )}
-             <Footer />
+            <Footer />
           </Route>
           <Route path="/favorites">
             <Favorites accessToken={accessToken} buttonType="unfavorite" />
+            <Footer />
           </Route>
         </Switch>
        
