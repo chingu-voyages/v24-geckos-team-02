@@ -53,7 +53,7 @@ export default function Favorites({ accessToken }) {
           accessToken={accessToken}
         />
       ) : (
-        <div className="scroll-end-message">
+        <div className="request-login-message">
           Please login to see your favorites
         </div>
       )}

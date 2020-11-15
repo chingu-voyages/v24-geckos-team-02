@@ -587,8 +587,13 @@
  /*Styles for favorites page*/
  .favorites{
    background-color: mediumspringgreen;
+   padding: 5px 0 10px 0 !important; 
    h1{
-     background-color: blue;
+     //background-color: blue;
      text-align: center;
+   }
+   .request-login-message{
+     @extend .scroll-end-message;
+     margin-top: 6px !important;  
    }
  }
