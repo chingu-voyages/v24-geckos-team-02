@@ -80,12 +80,13 @@ export default function App() {
             {areResultsLoading === true && (
               <div className="loading-msg">Loading...</div>
             )}
+             <Footer />
           </Route>
           <Route path="/favorites">
             <Favorites accessToken={accessToken} buttonType="unfavorite" />
           </Route>
         </Switch>
-        <Footer />
+       
       </div>
     </SnackbarProvider>
   );
