@@ -303,6 +303,10 @@
           margin-left: 5px;
           width: 35px; 
         }
+        #delete-btn{
+          @extend #favorite-btn; 
+        }
+
       }
     }
   }

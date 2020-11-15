@@ -152,6 +152,7 @@ export default function Card({
               <button
                 title="Remove from favorites"
                 className="card-btn"
+                id="delete-btn"
                 onClick={() => handleRemoveFavorite(id)}
               >
                 <span role="img" aria-label="unfavorite">
