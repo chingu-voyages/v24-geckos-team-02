@@ -608,6 +608,7 @@
      //background-color: blue;
      text-align: center;
      color: $text-color2; 
+     margin-bottom: -4px; 
    }
    .favorites-message{
      @extend .scroll-end-message;
