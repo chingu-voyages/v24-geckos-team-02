@@ -3,6 +3,8 @@ import axios from "axios";
 import Modal from "./Modal";
 import formatURL from "../utils/formatURL";
 import { useSnackbar } from "notistack";
+import {MdFavorite, MdDelete} from "react-icons/md"; 
+
 
 //Functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({
@@ -19,7 +21,7 @@ export default function Card({
     title,
     subtitle,
     authors,
-    categories,
+    // categories,
     publisher,
     id,
   } = book;
@@ -145,17 +147,18 @@ export default function Card({
                 onClick={() => handleAddFavorite(id)}
               >
                 <span role="img" aria-label="favorite">
-                &#10084;
-                </span>
+                {/* &#10084; */}
+                </span> <MdFavorite className="favorite-icon"/>
               </button>
             ) : (
               <button
                 title="Remove from favorites"
                 className="card-btn"
+                id="delete-btn"
                 onClick={() => handleRemoveFavorite(id)}
               >
                 <span role="img" aria-label="unfavorite">
-                  🗑️
+                  {/* 🗑️ */} <MdDelete className="delete-icon" />
                 </span>
               </button>
             )}

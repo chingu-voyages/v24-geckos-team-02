@@ -205,7 +205,7 @@
       //div
       //background: lightseagreen;
       display: grid;
-      max-height: 300px;
+      max-height: 240px !important;
       max-width: 380px; //set a width of 430px to each card maintain consistency
       margin: 20px 10px;
       margin-bottom: 10px;
@@ -302,7 +302,21 @@
         #favorite-btn{
           margin-left: 5px;
           width: 35px; 
+          .favorite-icon{
+            position: relative;
+            font-size: 1.2em;  
+            margin-bottom: -3px; 
+            margin-left: -2px;
+          }
         }
+        #delete-btn{
+          @extend #favorite-btn; 
+          .delete-icon{
+            @extend .favorite-icon; 
+            font-size: 1.4em;  
+          }
+        }
+
       }
     }
   }
@@ -518,6 +532,25 @@
 
     .card-right{
       margin: 5px 5px; 
+
+      #favorite-btn{
+        margin-left: 5px;
+        width: 35px; 
+        .favorite-icon{
+          position: relative;
+          font-size: 1.2em;  
+          margin-bottom: -5px; 
+          margin-left: 0 !important;
+        }
+      }
+      #delete-btn{ 
+        .delete-icon{
+          @extend .favorite-icon; 
+          font-size: 1.4em;  
+          margin-bottom: 10px !important;
+        }
+      }
+
     }
   
     //reduce spacing between card-left & card-right 
@@ -546,7 +579,7 @@
 
      .card-list .card {
       display: grid;
-      max-height: 220px;
+      max-height: 180px !important;
       width: 240px !important;
       margin-top: 0; //remove unrequired margin
       p{
@@ -580,5 +613,46 @@
         }
     }
 
+    //reduce favorites' header & messages/text size
+    .favorites{
+      h1{
+       font-size: 28px;
+       margin-bottom: -3px; 
+      }
+      .favorites-message{
+       font-size: 14px; 
+      }
+    }
+
   }
 }
+
+
+ /*Styles for favorites page*/
+ .favorites{
+   //background-color: mediumspringgreen;
+   padding-bottom: 5px !important; 
+
+    /*adds a thin border at the bottom of favorites header*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
+    
+    /*center header elements both horizontally & vertically*/ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+   h1{
+     //background-color: lightblue;
+     color: $text-color2; 
+     margin-bottom: -4px; 
+   }
+   .favorites-message{
+     //background-color: lightgray;
+     color: $complementary-color2;
+     margin-top: 6px !important;  
+   }
+ }
