@@ -637,14 +637,21 @@
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
     border-width: thin;
+    
+    /*center header elements both horizontally & vertically*/ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
    h1{
-     //background-color: blue;
-     text-align: center;
+     //background-color: lightblue;
      color: $text-color2; 
-     margin-bottom: -4px; 
    }
    .favorites-message{
-     @extend .scroll-end-message;
+     //background-color: lightgray;
+     color: $complementary-color2;
      margin-top: 6px !important;  
    }
  }
