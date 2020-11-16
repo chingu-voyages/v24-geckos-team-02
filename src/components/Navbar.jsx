@@ -1,11 +1,10 @@
-//import { findByLabelText } from "@testing-library/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 import Authentication from "./Authentication";
 import logo from "../assets/img/logo.svg";
 
-import "../css/Navbar.css";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Navbar(props) {
   const styles = {
@@ -13,12 +12,12 @@ export default function Navbar(props) {
     padding: 15,
   };
 
+
   return (
     <nav className="nav-bar">
       <div className="nav-logo">
         <img src={logo} style={styles} alt="logo" />
       </div>
-      {/* <div className="nav-list"> */}
       <ul className="nav-list">
         <Link to="/">
           <li className="nav-link">Search</li>
@@ -38,7 +37,9 @@ export default function Navbar(props) {
           <Authentication {...props} />
         </li>
       </ul>
-      {/* </div> */}
+       <HamburgerMenu {...props}/>
+  
+
     </nav>
   );
 }

@@ -1,7 +1,8 @@
 @import "variables";
-@import "mixins";
 
 * {
+  font-family: $text-font; //apply 'Work Sans' paring font to all items on page 
+
   /*Global Styles for <li> list items*/
   li {
     list-style-type: none;
@@ -49,7 +50,7 @@
   input[type="radio"] {
     margin-right: 10px;
   }
-  //overlay the radio button input style using :after
+  //Overlay the radio button input style using :after
   input[type="radio"]:after {
     width: 15px;
     height: 15px;
@@ -82,10 +83,9 @@
 }
 
 .App {
-  font-family: $text-font;
+  //font-family: $text-font;
 
   /*CSS Grid to contain all page items*/
-  //margin: 0;
   height: 100vh;
   width: 100%;
   display: grid;
@@ -146,6 +146,13 @@
         font-size: 20px; //<<>>
       }
     }
+        
+        //hides menu-bar by default, to be displayed again in 580px or less 
+        #menu-bar{
+          display: none; 
+        }
+
+
   }
 
   #search-section {
@@ -167,17 +174,12 @@
 
       padding-top: 5px; //<<>>
 
-      .input-field {
-        //input
-      }
       .search-btn {
         //button
         //font-size: larger;
         margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
         padding: 10px; //sets a padding of 10px to match search input field's padding
       }
-      // .search-err-msg{ //div
-      // }
     }
     .search-options {
       //background-color: blue;
@@ -203,7 +205,7 @@
       //div
       //background: lightseagreen;
       display: grid;
-      max-height: 300px;
+      max-height: 240px !important;
       max-width: 380px; //set a width of 430px to each card maintain consistency
       margin: 20px 10px;
       margin-bottom: 10px;
@@ -217,8 +219,12 @@
       .card-left {
         //background: palevioletred;
         grid-area: card-left; //identifer for the left side of card & its img item
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
+        margin: 5px 15px; 
 
+        .card-image {
+        //img
+        //background: greenyellow;
+        
         // to align "no image available":
         display: flex;
         align-items: center;
@@ -227,10 +233,6 @@
         text-align: center;
         font-family: sans-serif;
         font-weight: 200;
-
-        .card-image {
-          //img
-          //background: greenyellow;
         }
 
         .empty-image {
@@ -240,12 +242,13 @@
           height: 100%;
           opacity: 0.3;
         }
+
       }
 
       .card-right {
         //background: powderblue;
         grid-area: card-right; //identifier for the right side of card & its items
-        margin: 5px 15px; //applies a consistent margin (left/right) to card items inside card-right <480px
+        margin: 5px 15px; 
         color: $text-color2;
 
         display: flex;
@@ -294,7 +297,26 @@
         .card-btn {
           //background: purple;
           padding: 6px;
+          margin-left: -2px; 
         }
+        #favorite-btn{
+          margin-left: 5px;
+          width: 35px; 
+          .favorite-icon{
+            position: relative;
+            font-size: 1.2em;  
+            margin-bottom: -3px; 
+            margin-left: -2px;
+          }
+        }
+        #delete-btn{
+          @extend #favorite-btn; 
+          .delete-icon{
+            @extend .favorite-icon; 
+            font-size: 1.4em;  
+          }
+        }
+
       }
     }
   }
@@ -310,7 +332,7 @@
     //footer
     //background: $dark-background-color;
 
-    /*aligns footer items in the middle of footer-section*/
+    /*Aligns footer items in the middle of footer-section*/
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -322,7 +344,7 @@
     .footer-social {
       //background: grey;
 
-      text-align: center; //keeps social media icons/links centered by default
+      text-align: center; //Keeps social media icons/links centered by default
 
       margin-top: 5px; //<<>> matches margin space set on .footer-note
 
@@ -331,9 +353,6 @@
         //background: green;
         font-size: 10px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
-      }
-      .footer-link:hover {
-        //color: $hyperlinks-color2 !important;
       }
     }
 
@@ -387,17 +406,253 @@
   margin: auto;
 }
 
-// /* Extra small (xs) 320px — 480px: Mobile devices*/
-// @media (min-width: 480px) { /* ... */ }
 
-// /* Small (sm) 481px — 768px: iPads, Tablets*/
-// @media (min-width: 640px) { /* ... */ }
+/******Media Queries****/
+//Displays new hamburger menu 
+@media only screen and (max-width: 580px) {
+  .App{
+    //background-color: red; 
+    // .nav-logo{
+    //   //background-color: lightcoral;
+    // }
+    .nav-list{
+     display: none !important;
+    } 
+    #menu-bar{
+      display: block !important;
+      margin: auto; 
+      //background-color: lightgreen; 
+      margin-right: 30px;
 
-// /* Medium (md) 769px — 1024px: Small screens, laptops*/
-//  @media (min-width: 700px) {  //  }
+      #menu{
+        //background-color: lightskyblue;
+        width: 35px;
+        height: 30px;
+        margin-right: 10px; 
+        cursor: pointer;
+      }
 
-// /* Large (lg) 1025px — 1200px: Desktops, large screens*/
-// @media (min-width: 1024px) { /* ... */ }
+      .nav { //ul
+        //background-color: maroon;
 
-/* Extra Large (xl) 1201px and more —  Extra large screens, TV*/
-//@media (min-width: 1280px) { // }
+        position: absolute;
+        top: 85px;
+        right: 20px;
+        z-index:1;
+        background-color: $light-background-color;
+        
+        padding: 0 10px; //centers menu options with a padding of 10px left and right 
+        overflow: hidden;
+        transition: all .25s;
+        max-height: 0; 
+      
+
+        li{
+          //background-color: mediumpurple;
+          margin: 20px;  
+          text-align: center;
+
+          padding: 10px; 
+          border-style: solid;
+          border-color: $success-color;
+          border-width: thin;
+          border-radius: 5px;
+
+        }
+        a {
+          font-size: 20px;
+        }
+      }
+
+      .bar{
+        height: 5px;
+        width: 100%;
+        background-color: $btn-color-new-default;
+        display: block;
+        border-radius: 5px;
+        transition: 0.3s ease;
+      }
+      #bar1{
+        transform: translateY(-4px);
+      }
+      #bar3{
+        transform: translateY(4px);
+      }
+      .change .bar{
+        background-color: $btn-color-new-lighter1;
+      }
+      .change #bar1{
+        transform: translateY(4px) rotateZ(-45deg);
+      }
+      .change #bar3{
+        transform: translateY(-6px) rotate(45deg);
+      }
+      .change #bar2{
+        opacity: 0;
+      }
+      .change-menu-options-only{
+        height:auto;
+        max-height: 100%;
+        background-color: $menu-background-color;
+        border-radius: 8px;
+      }
+
+    }
+  }
+}
+
+//Updates card layout & search component to improve display on devices with high viewport  
+@media only screen and (max-width: 390px) {
+  .App{
+    //background-color: orange;
+     
+     //reduce input field width size
+     input[type="text"] { 
+      width: 150px; 
+    }
+    
+    //reduce search options' font size 
+    #search-section .search-options label {
+      font-size: 14px;
+    }
+
+    //autofill on smaller width viewport 
+    .card-list {
+      grid-template-columns: repeat(auto-fill, 260px);
+      justify-content: center;
+    }
+
+    //reduce image width & height 
+    .card-left{
+      img{
+        width: 100px;
+        height: 150px; 
+      }
+    }
+
+    .card-right{
+      margin: 5px 5px; 
+
+      #favorite-btn{
+        margin-left: 5px;
+        width: 35px; 
+        .favorite-icon{
+          position: relative;
+          font-size: 1.2em;  
+          margin-bottom: -5px; 
+          margin-left: 0 !important;
+        }
+      }
+      #delete-btn{ 
+        .delete-icon{
+          @extend .favorite-icon; 
+          font-size: 1.4em;  
+          margin-bottom: 10px !important;
+        }
+      }
+
+    }
+  
+    //reduce spacing between card-left & card-right 
+    .card-list .card .card-left {
+      margin: 5px 5px !important;
+
+      .empty-image{
+        width: 100px !important; //new width for .empty-image to match width for displayed img elements
+      }
+    }
+
+    //slightly reduce title & subtitle & text size 
+    .card-list .card .card-right .card-title {
+      font-size: 15px;
+     }
+     .card-list .card .card-right .card-subtitle {
+      font-size: 11px;
+     }
+     .card-list .card .card-right .card-authors {
+      font-size: 9px;
+     }
+     .card-list .card .card-right .card-publisher {
+      font-size: 9px;
+     }
+     
+
+     .card-list .card {
+      display: grid;
+      max-height: 180px !important;
+      width: 240px !important;
+      margin-top: 0; //remove unrequired margin
+      p{
+       margin: 2px 0;
+      }
+      button{
+        width: 77px;
+        height: 25px; 
+        font-size: 10px;
+        margin-left: -3px; 
+      }
+      #favorite-btn{
+        width: 26px !important; 
+        margin-left: 2.5px !important; 
+      }
+     }
+
+    .nav-list{
+      display: none !important;
+    } 
+    
+    //reduce text-font size for hamburger menu options 
+    .nav {  
+        li { //search & favorites
+          font-size: 17px;
+        }
+        li {
+          a { //about
+            font-size: 17px !important;
+          }
+        }
+    }
+
+    //reduce favorites' header & messages/text size
+    .favorites{
+      h1{
+       font-size: 28px;
+       margin-bottom: -3px; 
+      }
+      .favorites-message{
+       font-size: 14px; 
+      }
+    }
+
+  }
+}
+
+
+ /*Styles for favorites page*/
+ .favorites{
+   //background-color: mediumspringgreen;
+   padding-bottom: 5px !important; 
+
+    /*adds a thin border at the bottom of favorites header*/
+    border-bottom-style: solid;
+    border-bottom-color: $complementary-color2;
+    border-width: thin;
+    
+    /*center header elements both horizontally & vertically*/ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+   h1{
+     //background-color: lightblue;
+     color: $text-color2; 
+     margin-bottom: -4px; 
+   }
+   .favorites-message{
+     //background-color: lightgray;
+     color: $complementary-color2;
+     margin-top: 6px !important;  
+   }
+ }

@@ -38,13 +38,20 @@ export default function Favorites({ accessToken }) {
   }, [accessToken, enqueueSnackbar]);
 
   return (
-    <div className="favorites">
-      <h1>Favorites</h1>
-      {isLoading ? (
-        <div className="scroll-end-message">Loading favorites...</div>
-      ) : accessToken.value && books.length === 0 ? (
-        <div className="scroll-end-message">Your favorites list is empty</div>
-      ) : accessToken.value ? (
+    <>
+      <div className="favorites">
+        <h1>Favorites</h1>
+        {accessToken.value && books.length === 0 && !isLoading ? (
+          <div className="favorites-message">Your favorites list is empty</div>
+        ) : accessToken.value && !isLoading ? (
+          <div className="favorites-message">Your favorites list</div>
+        ) : !accessToken.value && !isLoading ? (
+          <div className="favorites-message">
+            Please login to see your favorites
+          </div>
+        ): <div></div>}
+      </div>
+      {accessToken.value ? (
         <CardList
           books={books.map(googleBookToAppBook)}
           isLastPage={false}
@@ -53,10 +60,9 @@ export default function Favorites({ accessToken }) {
           accessToken={accessToken}
         />
       ) : (
-        <div className="scroll-end-message">
-          Please login to see your favorites
-        </div>
+        <div></div>
       )}
-    </div>
+      {isLoading === true && <div className="loading-msg">Loading...</div>}
+    </>
   );
 }
