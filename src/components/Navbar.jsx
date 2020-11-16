@@ -9,8 +9,8 @@ import HamburgerMenu from "./HamburgerMenu";
 
 export default function Navbar(props) {
   const styles = {
-    height: 95,
-    padding: 15,
+    height: 75,
+    padding: 10,
   };
 
 
@@ -38,8 +38,8 @@ export default function Navbar(props) {
           <Authentication {...props} />
         </li>
       </ul>
-       <HamburgerMenu />
-  
+      <HamburgerMenu />
+
 
     </nav>
   );

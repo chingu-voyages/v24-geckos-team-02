@@ -167,6 +167,7 @@
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
     border-width: thin;
+    padding: 5px;
 
     .search-bar {
       //div
@@ -321,7 +322,7 @@
     /*Aligns footer items in the middle of footer-section*/
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
 
     border-top-style: solid;
     border-top-color: $complementary-color2;
