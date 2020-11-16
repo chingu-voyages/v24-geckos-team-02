@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-## [Google Books Api](https://developers.google.com/books/docs/overview)
+### [Google Books Api](https://developers.google.com/books/docs/overview)
 
 ## Features
 - [X] Landing page
