@@ -12,7 +12,6 @@ export default function Navbar(props) {
     padding: 15,
   };
 
-
   return (
     <nav className="nav-bar">
       <div className="nav-logo">
@@ -38,8 +37,6 @@ export default function Navbar(props) {
         </li>
       </ul>
       <HamburgerMenu {...props} />
-
-
     </nav>
   );
 }
