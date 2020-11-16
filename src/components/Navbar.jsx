@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Authentication from "./Authentication";
 import logo from "../assets/img/logo.svg";
 
-import "../css/Navbar.css";
 import HamburgerMenu from "./HamburgerMenu";
 
 export default function Navbar(props) {
