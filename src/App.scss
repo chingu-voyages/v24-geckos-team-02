@@ -145,6 +145,8 @@
         margin-right: 20px; //<<>>/
         font-size: 20px; //<<>>
       }
+
+      
     }
         
         //hides menu-bar by default, to be displayed again in 580px or less 
@@ -496,8 +498,18 @@
         background-color: $menu-background-color;
         border-radius: 8px;
       }
-
     }
+
+
+      .auth-link {
+        font-size: 20px !important; 
+        color: $btn-color-new-default;
+        cursor: pointer;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
   }
 }
 
@@ -604,7 +616,7 @@
     //reduce text-font size for hamburger menu options 
     .nav {  
         li { //search & favorites
-          font-size: 17px;
+          font-size: 17px !important;
         }
         li {
           a { //about
@@ -622,6 +634,11 @@
       .favorites-message{
        font-size: 14px; 
       }
+    }
+
+    
+    .auth-link {
+     font-size: 17px !important;
     }
 
   }
@@ -656,3 +673,37 @@
      margin-top: 6px !important;  
    }
  }
+
+
+/* Styles for auth links */
+li{
+  .auth-link {
+    font-size: 20px; 
+    color: $btn-color-new-default;
+    cursor: pointer;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+}
+
+
+.auth-link:hover {
+  color: $btn-color-new-lighter1 !important;
+} 
+
+.logout-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.username {
+  display: none; 
+  padding-right: 8px;
+  color: $btn-color-new-default
+}
+
+.google-logo {
+  padding-right: 5px;
+}
