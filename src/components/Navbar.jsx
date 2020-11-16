@@ -38,7 +38,7 @@ export default function Navbar(props) {
           <Authentication {...props} />
         </li>
       </ul>
-       <HamburgerMenu />
+       <HamburgerMenu {...props}/>
   
 
     </nav>
