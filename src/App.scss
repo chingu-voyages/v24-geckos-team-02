@@ -498,8 +498,18 @@
         background-color: $menu-background-color;
         border-radius: 8px;
       }
-
     }
+
+
+      .auth-link {
+        font-size: 20px !important; 
+        color: $btn-color-new-default;
+        cursor: pointer;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
   }
 }
 
@@ -626,6 +636,11 @@
       }
     }
 
+    
+    .auth-link {
+     font-size: 17px !important;
+    }
+
   }
 }
 
@@ -661,15 +676,17 @@
 
 
 /* Styles for auth links */
- .auth-link {
-  margin-right: 20px; 
-  font-size: 20px; 
-  color: $btn-color-new-default;
-  cursor: pointer;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  align-items: center;
+li{
+  .auth-link {
+    font-size: 20px; 
+    color: $btn-color-new-default;
+    cursor: pointer;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 }
+
 
 .auth-link:hover {
   color: $btn-color-new-lighter1 !important;
