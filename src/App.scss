@@ -151,6 +151,9 @@
         font-size: 20px; 
         color: $btn-color-new-default;
         cursor: pointer;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
       }
 
       .auth-link:hover {
@@ -166,6 +169,10 @@
       .username {
         padding-right: 8px;
         color: $btn-color-new-default
+      }
+
+      .google-logo {
+        padding-right: 5px;
       }
     }
         

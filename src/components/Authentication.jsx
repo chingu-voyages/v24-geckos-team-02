@@ -75,7 +75,14 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
               onClick={renderProps.onClick}
               disabled={renderProps.disabled}
             >
-              Login with Google
+              {" "}
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="google-logo"
+                height="15px"
+                className="google-logo"
+              />
+              Login
             </div>
           )}
         />
