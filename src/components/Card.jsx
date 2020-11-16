@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "./Modal";
+import formatURL from "../utils/formatURL";
 import { useSnackbar } from "notistack";
 
-// functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
+//Functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({
   book,
   query,
@@ -105,22 +106,31 @@ export default function Card({
       <div className="modal-overlay" style={style} onClick={toggleModal}></div>
       <div className="card">
         <div className="card-left">
-          <img
-            className="card-image"
-            src={thumbnailImageLink}
-            alt="cover thumbnail"
-          />
+          {thumbnailImageLink !== undefined ? (
+            <img
+              className="card-image"
+              src={formatURL(thumbnailImageLink)}
+              alt="cover thumbnail"
+            />
+          ) : (  
+            <div className="empty-image"></div>
+          )}
         </div>
         <div className="card-right">
           <h2 className="card-title">{title}</h2>
           <h3 className="card-subtitle">{subtitle}</h3>
-          <p className="card-authors">By: {authors.join(", ")}</p>
+          {authors.length !== 0 ? (
+            <p className="card-authors">By: {authors.join(", ")}</p>
+          ) : null}
+
           {/* <p className="card-authors">{categories.join(", ")}</p> */}
-          <p className="card-publisher">Published by: {publisher}</p>
+          {publisher !== "" ? (
+            <p className="card-publisher">Published by: {publisher}</p>
+          ) : null}
           <div
             style={{
               display: "flex",
-              justifyContent: "space-around",
+              //justifyContent: "space-around",
               width: "100%",
             }}
           >
@@ -131,10 +141,11 @@ export default function Card({
               <button
                 title="Add to favorites"
                 className="card-btn"
+                id="favorite-btn"
                 onClick={() => handleAddFavorite(id)}
               >
                 <span role="img" aria-label="favorite">
-                  ❤️
+                &#10084;
                 </span>
               </button>
             ) : (

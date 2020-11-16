@@ -1,10 +1,9 @@
 const formatDate = (publishedDate) => {
   if(publishedDate !== "") {
     const date = new Date(publishedDate)
-    const month = date.getUTCMonth() + 1;
-    const day = date.getUTCDate();
-    const year = date.getUTCFullYear();
-    return `${year}/${month}/${day}`;
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    date.toLocaleDateString('en', options)
+    return date.toLocaleDateString('en', options);
   }
   return ""
 }
