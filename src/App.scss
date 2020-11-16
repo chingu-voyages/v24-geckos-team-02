@@ -321,23 +321,25 @@
     /*Aligns footer items in the middle of footer-section*/
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
 
     border-top-style: solid;
     border-top-color: $complementary-color2;
     border-width: thin;
+    padding: 5px;
 
     .footer-social {
       //background: grey;
 
       text-align: center; //Keeps social media icons/links centered by default
 
-      margin-top: 5px; //<<>> matches margin space set on .footer-note
+      // margin-top: 5px; //<<>> matches margin space set on .footer-note
+      margin: 5px 5px;
 
       .footer-link {
         //a
         //background: green;
-        font-size: 10px; //<<>>
+        font-size: 14px; //<<>>
         margin: 0 5px; //<<>> adds 5px margin between icons
       }
     }
@@ -348,8 +350,10 @@
       color: $text-color2;
       text-align: center;
 
-      font-size: 10px; //<<>>
-      margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
+      font-size: 16px; //<<>>
+      // margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
+      margin: 5px 0 0 10px;
+      padding-top: 5px;
     }
   }
 }
