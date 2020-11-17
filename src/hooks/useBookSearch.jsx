@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(query, orderBy, pageNumber, setAreResultsLoading) {
+export default function useBookSearch(
+  query,
+  orderBy,
+  pageNumber,
+  setAreResultsLoading
+) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
@@ -10,7 +15,7 @@ export default function useBookSearch(query, orderBy, pageNumber, setAreResultsL
 
   useEffect(() => {
     if (query === undefined) {
-      setError(""); //Display no error on first page load
+      setError("");
     } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
@@ -37,7 +42,6 @@ export default function useBookSearch(query, orderBy, pageNumber, setAreResultsL
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
               setQueryHistory((q) => {
-                //Prevent duplicate queries being added to query history
                 return [...new Set([query, ...q])];
               });
               return res.data.totalItems === 0 ? [] : res.data.items;
@@ -45,7 +49,6 @@ export default function useBookSearch(query, orderBy, pageNumber, setAreResultsL
               if (res.data.items) {
                 return [...prevBooks, ...res.data.items];
               } else {
-                //If API isn't sending any books data
                 setIsLastPage(true);
                 return prevBooks;
               }
