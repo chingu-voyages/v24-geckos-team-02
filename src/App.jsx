@@ -22,14 +22,13 @@ export default function App() {
     orderBy,
     pageNumber,
     setAreResultsLoading
-  ); // 'books' has search results
+  );
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
     setQuery(searchTerm);
     setOrderBy(orderBy);
     setPageNumber(1);
-    // setModal(false)
   };
 
   useEffect(() => {
@@ -42,7 +41,6 @@ export default function App() {
 
   function handleScroll() {
     const cardListElement = document.getElementById("cardList");
-    // if at the bottom of the page && the current page isn't the last page && results aren't loading
     if (
       typeof cardListElement != "undefined" &&
       cardListElement != null &&
@@ -87,7 +85,6 @@ export default function App() {
             <Footer />
           </Route>
         </Switch>
-       
       </div>
     </SnackbarProvider>
   );
