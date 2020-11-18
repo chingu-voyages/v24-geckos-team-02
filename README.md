@@ -30,8 +30,8 @@ REACT_APP_GOOGLE_CLIENT_ID="<<MY_CLIENT_ID>>"
 ```
 
 ## Documentation to obtain API keys
-### [Google Books API](https://developers.google.com/books/docs/overview)
-### [Google Client ID](https://medium.com/better-programming/log-in-with-the-google-oauth-demo-app-9e7d0e801c29)
+#### [Google Books API](https://developers.google.com/books/docs/overview)
+#### [Google Client ID](https://medium.com/better-programming/log-in-with-the-google-oauth-demo-app-9e7d0e801c29)
 
 ### Install dependencies
 
