@@ -28,7 +28,7 @@ export default function Navbar(props) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors"
+            href="https://github.com/chingu-voyages/v24-geckos-team-02"
           >
             About
           </a>
