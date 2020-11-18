@@ -44,7 +44,8 @@ export default function App() {
     if (
       typeof cardListElement != "undefined" &&
       cardListElement != null &&
-      cardListElement.clientHeight + cardListElement.scrollTop ===
+      // if at the bottom of the page
+      cardListElement.clientHeight + cardListElement.scrollTop === 
         cardListElement.scrollHeight &&
       !isLastPage &&
       !areResultsLoading
