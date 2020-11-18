@@ -27,7 +27,7 @@ export default function Navbar(props) {
         <li className="nav-link">
           <a
             target="_blank"
-            href="https://github.com/chingu-voyages/v24-geckos-team-02/graphs/contributors"
+            href="https://github.com/chingu-voyages/v24-geckos-team-02"
           >
             About
           </a>
