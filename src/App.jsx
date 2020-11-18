@@ -44,7 +44,7 @@ export default function App() {
     if (
       typeof cardListElement != "undefined" &&
       cardListElement != null &&
-      // if at the bottom of the page
+      // if at the bottom of the page && the current page isn't the last page && results aren't loading
       cardListElement.clientHeight + cardListElement.scrollTop === 
         cardListElement.scrollHeight &&
       !isLastPage &&
