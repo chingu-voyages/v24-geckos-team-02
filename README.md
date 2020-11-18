@@ -11,6 +11,28 @@ BooksPlus is an App that customizes features using the Google Books Api that sea
 
 ## Setup
 
+### Files and folders needed to run on local machine
+```
+    .
+    ├── ...
+    ├── src                   # Source folder [src]
+    │   ├── .env              # Environment variables file
+    └── ...
+```
+
+### Add the following code to your `.env` file:
+
+```js
+// Add your own API keys here
+
+REACT_APP_GOOGLE_BOOKS_API_KEY="<<MY_BOOKS_API_KEY>>"
+REACT_APP_GOOGLE_CLIENT_ID="<<MY_CLIENT_ID>>"
+```
+
+## Documentation to obtain API keys
+### [Google Books API](https://developers.google.com/books/docs/overview)
+### [Google Client ID](https://medium.com/better-programming/log-in-with-the-google-oauth-demo-app-9e7d0e801c29)
+
 ### Install dependencies
 
 ```bash
@@ -23,10 +45,11 @@ npm install
 npm start
 ```
 
-### [Google Books Api](https://developers.google.com/books/docs/overview)
-
 ## Features
 - [X] Landing page
+- [X] UI/UX feedback & standards
+- [X] Controlled Output
+- [X] Google Authentication
 - [X] Access Google user favorites feature
 - [X] Add or Remove favorites books 
 - [X] View more information on each book
@@ -35,7 +58,7 @@ npm start
 ## Tech Stack
 - [React.js](https://reactjs.org/)
 - [Sass](https://sass-lang.com/)
-- [Google Books Api](https://developers.google.com/books/docs/overview)
+- [Google Books API](https://developers.google.com/books/docs/overview)
 - [Netlify](https://www.netlify.com/)
 
 ## Dependencies
@@ -48,12 +71,15 @@ This is a React App boostrapped with CRA
 6. [notistack](https://www.npmjs.com/package/notistack)
 
 ## Contributors
-- [snrelghgub](https://github.com/snrelghgub)
-- [willnwhite](https://github.com/willnwhite)
-- [Guitarhub786](https://github.com/Guitarhub786)
-- [ArunJose](https://github.com/ArunJose)
-- [mokokom](https://github.com/mokokom)
+### Product Owner
 - [jdmedlock](https://github.com/jdmedlock)
+### Team Members 
+##### (In no particular order)
+- [willnwhite](https://github.com/willnwhite)
+- [ArunJose](https://github.com/ArunJose)
+- [Guitarhub786](https://github.com/Guitarhub786)
+- [snrelghgub](https://github.com/snrelghgub)
+- [mokokom](https://github.com/mokokom)
 
 ## License
 
