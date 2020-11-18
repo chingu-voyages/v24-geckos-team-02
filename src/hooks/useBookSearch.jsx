@@ -15,7 +15,7 @@ export default function useBookSearch(
 
   useEffect(() => {
     if (query === undefined) {
-      setError("");
+      setError(""); //Display no error on first page load
     } else if (query.trim().length === 0) {
       setError("Please enter a search term");
     } else {
@@ -42,6 +42,7 @@ export default function useBookSearch(
           setBooks((prevBooks) => {
             if (pageNumber === 1) {
               setQueryHistory((q) => {
+                //Prevent duplicate queries being added to query history
                 return [...new Set([query, ...q])];
               });
               return res.data.totalItems === 0 ? [] : res.data.items;

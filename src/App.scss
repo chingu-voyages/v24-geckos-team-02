@@ -3,12 +3,12 @@
 * {
   font-family: $text-font; 
 
-
+  /*Global Styles for <li> list items*/
   li {
     list-style-type: none;
   }
 
- 
+  /*Global Styles for <a> hyperlinks*/
   a {
     text-decoration: none;
   }
@@ -23,6 +23,7 @@
     color: $btn-color-new-default;
   }
 
+  /*Global Styles for <button> buttons*/
   outline: none; 
   button {
     background-color: $btn-color-new-default;
@@ -35,7 +36,8 @@
     background-color: $btn-color-new-lighter1;
     color: $btn-text-color;
   }
-
+  
+  /*Global Styles for <input> field type=text*/
   input[type="text"] {
     padding: 10px;
     border-color: $complementary-color3;
@@ -43,7 +45,8 @@
     border-radius: 8px;
     color: $text-color2;
   }
-
+  
+  /*Global Styles for <input> elements type=radio*/
   input[type="radio"] {
     margin-right: 10px;
   }
@@ -78,8 +81,10 @@
   box-sizing: border-box;
 }
 
+/*Primary styles for App*/ 
 .App {
 
+  /*CSS Grid for all page components in App*/
   height: 100vh;
   width: 100%;
   display: grid;
@@ -96,33 +101,26 @@
     "footer-section";
 
   .nav-bar {
-
     display: grid;
     grid-template-columns: 2fr 3fr;
-
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
     border-width: thin;
 
     .nav-logo {
-    
       display: flex;
       justify-content: flex-start;
       margin-left: 30px;
     }
     .nav-list {
-
       text-align: right;
-
       display: flex;
       align-items: center;
       justify-content: flex-end;
       margin-right: 30px; 
 
       .nav-link {
-
         display: inline; 
-
         margin-right: 20px; 
         font-size: 20px; 
       }
@@ -149,21 +147,16 @@
     border-width: thin;
 
     .search-bar {
-
-
       padding-top: 5px; 
 
       .search-btn {
- 
         margin-left: 10px; 
         padding: 10px; 
       }
     }
     .search-options {
- 
       margin: 5px;
       label {
-
         margin: 0 5px; 
         color: $text-color2;
       }
@@ -171,7 +164,6 @@
   }
 
   .card-list {
-
     overflow-y: auto; 
     display: grid;
     grid-template-columns: repeat(auto-fill, 380px);
@@ -195,8 +187,6 @@
         margin: 5px 15px; 
 
         .card-image {
-
-        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -221,7 +211,6 @@
         grid-area: card-right; 
         margin: 5px 15px; 
         color: $text-color2;
-
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -239,7 +228,6 @@
         .card-subtitle {
 
           font-size: 15px; 
-
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
@@ -248,14 +236,12 @@
         .card-authors {
    
           font-size: 10px; 
-
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
         }
         .card-publisher {
-
           font-size: 10px; 
         }
         .card-btn {
@@ -291,7 +277,6 @@
   }
 
   .footer-section {
-  
 
     display: flex;
     justify-content: center;
@@ -325,6 +310,7 @@
   }
 }
 
+/*Styles for modal-container displaying more book details*/
 .modal-container {
   display: flex;
   flex-direction: column;
@@ -362,7 +348,8 @@
 }
 
 
-
+/******Media Queries****/	
+//Displays new hamburger menu at first major breakpoint; 580px */
 @media only screen and (max-width: 580px) {
   .App{
 
@@ -411,6 +398,7 @@
         }
       }
 
+      /*Styles for hamburger menu displayed in < 580px*/
       .bar{
         height: 5px;
         width: 100%;
@@ -445,7 +433,7 @@
       }
     }
 
-
+      /*Styles for authentication links in < 580px*/
       .auth-link {
         font-size: 20px !important; 
         color: $btn-color-new-default;
@@ -458,6 +446,7 @@
   }
 }
 
+/*Updates components' size to improve display on smaller & longer screen devices*/
 @media only screen and (max-width: 390px) {
   .App{
   
@@ -579,7 +568,7 @@
   }
 }
 
-
+/*Styles for favorites page*/
  .favorites{
    padding-bottom: 5px !important; 
 
@@ -603,7 +592,7 @@
    }
  }
 
-
+/*Global styles for Authentication links */
 li{
   .auth-link {
     font-size: 20px; 
