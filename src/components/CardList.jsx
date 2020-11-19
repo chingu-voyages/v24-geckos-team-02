@@ -1,16 +1,31 @@
 import React, { Fragment } from "react";
 import Card from "./Card";
 
-export default function CardList(props) {
-  const volumes = props.books;
-  const card = (volume, index) => <Card {...volume} key={index} />;
+export default function CardList({
+  books,
+  query,
+  isLastPage,
+  accessToken,
+  buttonType,
+  removeFavorite,
+}) {
+  const card = (book, index) => (
+    <Card
+      book={book}
+      key={index}
+      query={query}
+      accessToken={accessToken}
+      buttonType={buttonType}
+      removeFavorite={removeFavorite}
+    />
+  );
   return (
     <Fragment>
-      <div>{volumes.map(card)}</div>
-      {props.isLastPage && props.books.length > 3 && (
-        <div className="scroll-end-message">
-          <em>No more results!</em>
-        </div>
+      <div className="card-list" id="cardList">
+        {books.map(card)}
+      </div>
+      {isLastPage && books.length > 3 && (
+        <div className="scroll-end-message">No more results!</div>
       )}
     </Fragment>
   );

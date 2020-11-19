@@ -1,45 +1,44 @@
-@font-face {
-    font-family: 'Metropolis-Black';
-    src: local('Metropolis'), url(./fonts/Metropolis/Metropolis-Black.otf) format('opentype');
-    font-family: 'Metropolis-Light';
-    src: local('Metropolis'), url(./fonts/Metropolis/Metropolis-Light.otf) format('opentype');
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans:wght@700&display=swap");
 
-}
+$header-logo-font: "Concert One", cursive;
+$text-font: "Work Sans", sans-serif;
 
-$header-logo-font: Metropolis-Black, sans-serif; 
-$text-font: Metropolis-Light, sans-serif; 
-//$logo-color: red;  //test//
-
-/*Brand Colors*/
 $brand-color1: #206db1;
 $brand-color2: #34aae6;
 $brand-color3: #ffffff;
 
-/*Complimentary & Analogous Colors*/
 $complementary-color1: #b15520;
 $complementary-color2: #e67034;
 $complementary-color3: #2a8bcc;
 $complementary-color4: #cc622a;
 $analogous-color1: #9ebf25;
 
-/*Background Colors & Text Colors*/
-$dark-background-color: #1C5C87;
-$text-color1: #FFFFFF; //to be used on dark-background-color only 
+$dark-background-color: #1c5c87;
+$text-color1: #ffffff;
 
-$light-background-color: #FFFFFF;
-$text-color2: #1C5C87; //to be used on light-background-color only 
+$light-background-color: #ffffff;
+$text-color2: #1c5c87;
 
-/*Error & Success Colors*/
-$error-color: #B30000; //to be used on light-background-color only 
-$success-color: #206db1; //to be used on light-background-color only
+$error-color: #b30000;
+$success-color: #206db1;
 
-/*Disabled/Grey Colors*/
-$disabled-color: #595959; //to be used on light-background-color only to represent disabled state 
+$disabled-color: #595959;
 
-/*Interaction (Button) Colors */
-$btn-color-default: #7c9303; 
-$btn-color-lighter1: #8dae14; //only use for btn effects, e.g. hover effect
-$btn-color-lighter2: #7c9303; //only use for btn effects, e.g. hover effect 
-$btn-color-lighter3: #afd036; //only use for btn effects, e.g. hover effect 
-$btn-color-lighter4: #c0e147; //only use for btn effects, e.g. hover effect 
-$btn-text-color: #FFFFFF;
+$interactive-color1: #7c9303;
+$interactive-color2: #c0e147;
+
+$hyperlinks-color1: #7c9303;
+$hyperlinks-color2: #c0e147;
+
+$btn-color-default: #7c9303;
+$btn-color-lighter1: #8dae14;
+$btn-color-lighter2: #9ebf26;
+$btn-color-lighter3: #afd036;
+$btn-color-lighter4: #c0e147;
+
+$btn-color-new-default: #206db1;
+$btn-color-new-lighter1: #1b9dde;
+
+$btn-text-color: #ffffff;
+$menu-background-color: #e0eefb;

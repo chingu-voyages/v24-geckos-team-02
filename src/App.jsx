@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
-import "./App.scss";
-
+import useBookSearch from "./hooks/useBookSearch";
+import { SnackbarProvider } from "notistack";
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Search from "./components/Search";
 import CardList from "./components/CardList";
-import Footer from "./components/Footer";
-import useBookSearch from "./hooks/useBookSearch";
+import googleBookToAppBook from "./utils/googleBookToAppBook";
+import { Route, Switch } from "react-router-dom";
+import Favorites from "./components/Favorites";
+import "./App.scss";
 
 export default function App() {
+  const [accessToken, setAccessToken] = useState({ value: "", expiresAt: "" });
   const [query, setQuery] = useState(undefined);
   const [orderBy, setOrderBy] = useState("relevance");
   const [pageNumber, setPageNumber] = useState(1);
+  const [areResultsLoading, setAreResultsLoading] = useState(false);
 
   const { books, error, isLastPage, queryHistory } = useBookSearch(
     query,
     orderBy,
-    pageNumber
-  ); // 'books' has search results
+    pageNumber,
+    setAreResultsLoading
+  );
 
   const handleSubmit = (e, searchTerm, orderBy) => {
     e.preventDefault();
@@ -27,35 +32,61 @@ export default function App() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const cardListElement = document.getElementById("cardList");
+    if (typeof cardListElement != "undefined" && cardListElement != null) {
+      cardListElement.addEventListener("scroll", handleScroll);
+      return () => cardListElement.removeEventListener("scroll", handleScroll);
+    }
   });
 
   function handleScroll() {
-    // if at the bottom of the page and the current page isn't the last page
-    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && !isLastPage) {
+    const cardListElement = document.getElementById("cardList");
+    if (
+      typeof cardListElement != "undefined" &&
+      cardListElement != null &&
+      // if at the bottom of the page && the current page isn't the last page && results aren't loading
+      cardListElement.clientHeight + cardListElement.scrollTop === 
+        cardListElement.scrollHeight &&
+      !isLastPage &&
+      !areResultsLoading
+    ) {
       setPageNumber((prevPageNo) => prevPageNo + 1);
     }
   }
 
   return (
-    <div className="App">
-      <Navbar />
-      <Header />
-      <Search handleSubmit={handleSubmit} error={error} queryHistory={queryHistory} />
-      <CardList books={books.map(googleBookToAppBook)} isLastPage={isLastPage} />
-      <Footer />
-    </div>
+    <SnackbarProvider maxSnack={2}>
+      <div className="App">
+        <Navbar
+          setAccessToken={setAccessToken}
+          accessTokenExpiresAt={accessToken.expiresAt}
+        />
+        <Switch>
+          <Route exact path="/">
+            <Search
+              handleSubmit={handleSubmit}
+              error={error}
+              queryHistory={queryHistory}
+              query={query}
+            />
+            <CardList
+              books={books.map(googleBookToAppBook)}
+              isLastPage={isLastPage}
+              query={query}
+              accessToken={accessToken}
+              buttonType="favorite"
+            />
+            {areResultsLoading === true && (
+              <div className="loading-msg">Loading...</div>
+            )}
+            <Footer />
+          </Route>
+          <Route path="/favorites">
+            <Favorites accessToken={accessToken} buttonType="unfavorite" />
+            <Footer />
+          </Route>
+        </Switch>
+      </div>
+    </SnackbarProvider>
   );
-}
-
-function googleBookToAppBook({ volumeInfo }) {
-  const { title, subtitle, authors, publisher, imageLinks } = volumeInfo;
-  return {
-    title: title === undefined ? "" : title,
-    subtitle: subtitle === undefined ? "" : subtitle,
-    authors: authors === undefined ? [] : authors,
-    publisher: publisher === undefined ? "" : publisher,
-    thumbnailImageLink: imageLinks === undefined ? "" : imageLinks.smallThumbnail,
-  };
 }
