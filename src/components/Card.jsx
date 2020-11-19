@@ -3,10 +3,8 @@ import axios from "axios";
 import Modal from "./Modal";
 import formatURL from "../utils/formatURL";
 import { useSnackbar } from "notistack";
-import {MdFavorite, MdDelete} from "react-icons/md"; 
+import { MdFavorite, MdDelete } from "react-icons/md";
 
-
-//Functional component responsible to render one individual Card aka Volume (Book, Magazine or Newspaper)
 export default function Card({
   book,
   query,
@@ -16,15 +14,7 @@ export default function Card({
 }) {
   const [showModal, setshowModal] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
-  const {
-    thumbnailImageLink,
-    title,
-    subtitle,
-    authors,
-    // categories,
-    publisher,
-    id,
-  } = book;
+  const { thumbnailImageLink, title, subtitle, authors, publisher, id } = book;
 
   useEffect(() => {
     setshowModal(false);
@@ -114,7 +104,7 @@ export default function Card({
               src={formatURL(thumbnailImageLink)}
               alt="cover thumbnail"
             />
-          ) : (  
+          ) : (
             <div className="empty-image"></div>
           )}
         </div>
@@ -125,14 +115,12 @@ export default function Card({
             <p className="card-authors">By: {authors.join(", ")}</p>
           ) : null}
 
-          {/* <p className="card-authors">{categories.join(", ")}</p> */}
           {publisher !== "" ? (
             <p className="card-publisher">Published by: {publisher}</p>
           ) : null}
           <div
             style={{
               display: "flex",
-              //justifyContent: "space-around",
               width: "100%",
             }}
           >
@@ -146,9 +134,8 @@ export default function Card({
                 id="favorite-btn"
                 onClick={() => handleAddFavorite(id)}
               >
-                <span role="img" aria-label="favorite">
-                {/* &#10084; */}
-                </span> <MdFavorite className="favorite-icon"/>
+                <span role="img" aria-label="favorite"></span>{" "}
+                <MdFavorite className="favorite-icon" />
               </button>
             ) : (
               <button
@@ -158,7 +145,7 @@ export default function Card({
                 onClick={() => handleRemoveFavorite(id)}
               >
                 <span role="img" aria-label="unfavorite">
-                  {/* 🗑️ */} <MdDelete className="delete-icon" />
+                  <MdDelete className="delete-icon" />
                 </span>
               </button>
             )}

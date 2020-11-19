@@ -1,7 +1,7 @@
 @import "variables";
 
 * {
-  font-family: $text-font; //apply 'Work Sans' paring font to all items on page 
+  font-family: $text-font; 
 
   /*Global Styles for <li> list items*/
   li {
@@ -24,7 +24,7 @@
   }
 
   /*Global Styles for <button> buttons*/
-  outline: none; //this removes unnecessary border around buttons after it's clicked
+  outline: none; 
   button {
     background-color: $btn-color-new-default;
     color: $btn-text-color;
@@ -36,7 +36,7 @@
     background-color: $btn-color-new-lighter1;
     color: $btn-text-color;
   }
-
+  
   /*Global Styles for <input> field type=text*/
   input[type="text"] {
     padding: 10px;
@@ -45,12 +45,11 @@
     border-radius: 8px;
     color: $text-color2;
   }
-
+  
   /*Global Styles for <input> elements type=radio*/
   input[type="radio"] {
     margin-right: 10px;
   }
-  //Overlay the radio button input style using :after
   input[type="radio"]:after {
     width: 15px;
     height: 15px;
@@ -82,10 +81,10 @@
   box-sizing: border-box;
 }
 
+/*Primary styles for App*/ 
 .App {
-  //font-family: $text-font;
 
-  /*CSS Grid to contain all page items*/
+  /*CSS Grid for all page components in App*/
   height: 100vh;
   width: 100%;
   display: grid;
@@ -102,54 +101,33 @@
     "footer-section";
 
   .nav-bar {
-    //nav
-    //background: $complementary-color1;
-
-    /*divides navbar into two columns with a 1 to 3 ratio where nav-list is allowed 3/4 of horizontal space*/
     display: grid;
     grid-template-columns: 2fr 3fr;
-
-    /*adds a thin border separation between navbar & search box*/
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
     border-width: thin;
 
     .nav-logo {
-      //header
-      //background:orange;
-
-      /*keeps logo in the middle of its container nav-logo*/
       display: flex;
       justify-content: flex-start;
       margin-left: 30px;
     }
     .nav-list {
-      //ul
-      //background: grey;
       text-align: right;
-
-      /*keeps nav links item/s aligned to the right inside nav-list*/
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 30px; //<<>>adds a 30px margin to .nav-list container & fill middle gap/visual issue
+      margin-right: 30px; 
 
       .nav-link {
-        //use this class within .nav-list to automatically insert new link next to existing link
-        //a
-        //background: brown;
-        //color: $hyperlinks-color1;
-        display: inline; //keep nav links next to each other horizontally
-
-        //padding: 10px;
-        margin-right: 20px; //<<>>/
-        font-size: 20px; //<<>>
+        display: inline; 
+        margin-right: 20px; 
+        font-size: 20px; 
       }
 
       
     }
         
-        //hides menu-bar by default, to be displayed again in 580px or less 
         #menu-bar{
           display: none; 
         }
@@ -158,8 +136,6 @@
   }
 
   #search-section {
-    //div
-    //background: lightblue;
 
     display: flex;
     flex-direction: column;
@@ -171,47 +147,35 @@
     border-width: thin;
 
     .search-bar {
-      //div
-      //background-color: indigo;
-
-      padding-top: 5px; //<<>>
+      padding-top: 5px; 
 
       .search-btn {
-        //button
-        //font-size: larger;
-        margin-left: 10px; //specify margin of 10px to keep a reasonable UI/UX standard
-        padding: 10px; //sets a padding of 10px to match search input field's padding
+        margin-left: 10px; 
+        padding: 10px; 
       }
     }
     .search-options {
-      //background-color: blue;
-      //min-height: 21px !important;
       margin: 5px;
       label {
-        //background: indianred;
-        margin: 0 5px; //adds space between options
+        margin: 0 5px; 
         color: $text-color2;
       }
     }
   }
 
   .card-list {
-    //div
-    //background: $complementary-color4;
-    overflow-y: auto; //enables vertical scrolling on card-list item & allows footer to remain sticky
+    overflow-y: auto; 
     display: grid;
     grid-template-columns: repeat(auto-fill, 380px);
     justify-content: center;
 
     .card {
-      //div
-      //background: lightseagreen;
+    
       display: grid;
       max-height: 240px !important;
-      max-width: 380px; //set a width of 430px to each card maintain consistency
+      max-width: 380px; 
       margin: 20px 10px;
       margin-bottom: 10px;
-      /*divides card into two sections with the image on the left & card details on the right*/
       grid-template-areas: "card-left card-right";
       padding: 10px;
       border-bottom-style: solid;
@@ -219,15 +183,10 @@
       border-width: thin;
 
       .card-left {
-        //background: palevioletred;
-        grid-area: card-left; //identifer for the left side of card & its img item
+        grid-area: card-left; 
         margin: 5px 15px; 
 
         .card-image {
-        //img
-        //background: greenyellow;
-        
-        // to align "no image available":
         display: flex;
         align-items: center;
         justify-content: center;
@@ -248,56 +207,44 @@
       }
 
       .card-right {
-        //background: powderblue;
-        grid-area: card-right; //identifier for the right side of card & its items
+ 
+        grid-area: card-right; 
         margin: 5px 15px; 
         color: $text-color2;
-
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: start;
 
         .card-title {
-          //h1
-          //background: cyan;
-          font-size: 20px; //<<>>
 
-          /*handles text overflow for long titles & limit title information to 3 lines to prevent display issues within card*/
+          font-size: 20px; 
+
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
         }
         .card-subtitle {
-          //h2
-          //background: grey;
-          font-size: 15px; //<<>>
 
-          /*handles text overflow for long subtitles & limit subtitle information to 2 lines to prevent display issues within card*/
+          font-size: 15px; 
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
         }
         .card-authors {
-          //p
-          // background: orange;
-          font-size: 10px; //<<>>
-
-          /*handles text overflow for long list of author names too long & limit author information to 2 lines to prevent display issues within card*/
+   
+          font-size: 10px; 
           overflow: hidden;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
         }
         .card-publisher {
-          //p
-          //background: lightcoral;
-          font-size: 10px; //<<>>
+          font-size: 10px; 
         }
         .card-btn {
-          //background: purple;
           padding: 6px;
           margin-left: -2px; 
         }
@@ -323,7 +270,6 @@
     }
   }
 
-  /*Styles for No more results! message*/
   .scroll-end-message {
     text-align: center;
     color: $complementary-color2;
@@ -331,10 +277,7 @@
   }
 
   .footer-section {
-    //footer
-    //background: $dark-background-color;
 
-    /*Aligns footer items in the middle of footer-section*/
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -344,33 +287,30 @@
     border-width: thin;
 
     .footer-social {
-      //background: grey;
 
-      text-align: center; //Keeps social media icons/links centered by default
+      text-align: center; 
 
-      margin-top: 5px; //<<>> matches margin space set on .footer-note
+      margin-top: 5px; 
 
       .footer-link {
-        //a
-        //background: green;
-        font-size: 10px; //<<>>
-        margin: 0 5px; //<<>> adds 5px margin between icons
+
+        font-size: 10px; 
+        margin: 0 5px; 
       }
     }
 
     .footer-note {
-      //p
-      //background: greenyellow;
+ 
       color: $text-color2;
       text-align: center;
 
-      font-size: 10px; //<<>>
-      margin: 5px 0; //<<>> matches 5px margin set on .footer-social's margin-top
+      font-size: 10px; 
+      margin: 5px 0; 
     }
   }
 }
 
-/*Additional Styles for modal container*/
+/*Styles for modal-container displaying more book details*/
 .modal-container {
   display: flex;
   flex-direction: column;
@@ -401,7 +341,6 @@
   }
 }
 
-/*Styles for loading message*/
 .loading-msg {
   text-align: center;
   color: $complementary-color2;
@@ -409,33 +348,27 @@
 }
 
 
-/******Media Queries****/
-//Displays new hamburger menu 
+/******Media Queries****/	
+//Displays new hamburger menu at first major breakpoint; 580px */
 @media only screen and (max-width: 580px) {
   .App{
-    //background-color: red; 
-    // .nav-logo{
-    //   //background-color: lightcoral;
-    // }
+
     .nav-list{
      display: none !important;
     } 
     #menu-bar{
       display: block !important;
       margin: auto; 
-      //background-color: lightgreen; 
       margin-right: 30px;
 
       #menu{
-        //background-color: lightskyblue;
         width: 35px;
         height: 30px;
         margin-right: 10px; 
         cursor: pointer;
       }
 
-      .nav { //ul
-        //background-color: maroon;
+      .nav { 
 
         position: absolute;
         top: 85px;
@@ -443,14 +376,13 @@
         z-index:1;
         background-color: $light-background-color;
         
-        padding: 0 10px; //centers menu options with a padding of 10px left and right 
+        padding: 0 10px; 
         overflow: hidden;
         transition: all .25s;
         max-height: 0; 
       
 
         li{
-          //background-color: mediumpurple;
           margin: 20px;  
           text-align: center;
 
@@ -466,6 +398,7 @@
         }
       }
 
+      /*Styles for hamburger menu displayed in < 580px*/
       .bar{
         height: 5px;
         width: 100%;
@@ -500,7 +433,7 @@
       }
     }
 
-
+      /*Styles for authentication links in < 580px*/
       .auth-link {
         font-size: 20px !important; 
         color: $btn-color-new-default;
@@ -513,28 +446,23 @@
   }
 }
 
-//Updates card layout & search component to improve display on devices with high viewport  
+/*Updates components' size to improve display on smaller & longer screen devices*/
 @media only screen and (max-width: 390px) {
   .App{
-    //background-color: orange;
-     
-     //reduce input field width size
+  
      input[type="text"] { 
       width: 150px; 
     }
     
-    //reduce search options' font size 
     #search-section .search-options label {
       font-size: 14px;
     }
 
-    //autofill on smaller width viewport 
     .card-list {
       grid-template-columns: repeat(auto-fill, 260px);
       justify-content: center;
     }
 
-    //reduce image width & height 
     .card-left{
       img{
         width: 100px;
@@ -565,16 +493,14 @@
 
     }
   
-    //reduce spacing between card-left & card-right 
     .card-list .card .card-left {
       margin: 5px 5px !important;
 
       .empty-image{
-        width: 100px !important; //new width for .empty-image to match width for displayed img elements
+        width: 100px !important; 
       }
     }
 
-    //slightly reduce title & subtitle & text size 
     .card-list .card .card-right .card-title {
       font-size: 15px;
      }
@@ -593,7 +519,7 @@
       display: grid;
       max-height: 180px !important;
       width: 240px !important;
-      margin-top: 0; //remove unrequired margin
+      margin-top: 0; 
       p{
        margin: 2px 0;
       }
@@ -613,19 +539,17 @@
       display: none !important;
     } 
     
-    //reduce text-font size for hamburger menu options 
     .nav {  
-        li { //search & favorites
+        li { 
           font-size: 17px !important;
         }
         li {
-          a { //about
+          a { 
             font-size: 17px !important;
           }
         }
     }
 
-    //reduce favorites' header & messages/text size
     .favorites{
       h1{
        font-size: 28px;
@@ -644,18 +568,14 @@
   }
 }
 
-
- /*Styles for favorites page*/
+/*Styles for favorites page*/
  .favorites{
-   //background-color: mediumspringgreen;
    padding-bottom: 5px !important; 
 
-    /*adds a thin border at the bottom of favorites header*/
     border-bottom-style: solid;
     border-bottom-color: $complementary-color2;
     border-width: thin;
     
-    /*center header elements both horizontally & vertically*/ 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -663,19 +583,16 @@
     height: 100%;
 
    h1{
-     //background-color: lightblue;
      color: $text-color2; 
      margin-bottom: -4px; 
    }
    .favorites-message{
-     //background-color: lightgray;
      color: $complementary-color2;
      margin-top: 6px !important;  
    }
  }
 
-
-/* Styles for auth links */
+/*Global styles for Authentication links */
 li{
   .auth-link {
     font-size: 20px; 

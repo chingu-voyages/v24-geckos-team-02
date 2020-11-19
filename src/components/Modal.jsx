@@ -5,28 +5,27 @@ import formatURL from "../utils/formatURL";
 import formatRatingCount from "../utils/formatRatingCount";
 
 export default function Modal({ book, toggleModal }) {
-	const {
-		title,
-		averageRating,
-		// ratingsCount,
-		categories,
-		publishedDate,
-		description,
-		previewLink,
-		infoLink,
-		buyLink,
-		authors,
-		publisher,
-		retailPrice,
-		pageCount,
-		language,
+  const {
+    title,
+    averageRating,
+    categories,
+    publishedDate,
+    description,
+    previewLink,
+    infoLink,
+    buyLink,
+    authors,
+    publisher,
+    retailPrice,
+    pageCount,
+    language,
     thumbnailImageLink,
     saleability,
   } = book;
 
-	let { ratingsCount } = book
+  let { ratingsCount } = book;
 
-	let readablePublishedDate = formatDate(publishedDate);
+  let readablePublishedDate = formatDate(publishedDate);
 
   let formattedLanguage = formatLanguage(language);
 
@@ -39,47 +38,53 @@ export default function Modal({ book, toggleModal }) {
     zIndex: 200,
   };
 
-	return (
-		<div className="modal-container" style={style}>
-			<h3>{title}</h3>
-			{thumbnailImageLink !== undefined ? <img className="cover" src={formatURL(thumbnailImageLink)} alt="cover thumbnail" /> : null}
-			{/* change rating by stars? */}
-			<span>
-				{averageRating} / 5 ({formatRatingCount(ratingsCount)})
-			</span>
-			{authors.length !== 0 ? (
-            <p className="card-authors">By: {authors.join(", ")}</p>
-          ) : null}
+  return (
+    <div className="modal-container" style={style}>
+      <h3>{title}</h3>
+      {thumbnailImageLink !== undefined ? (
+        <img
+          className="cover"
+          src={formatURL(thumbnailImageLink)}
+          alt="cover thumbnail"
+        />
+      ) : null}
+      <span>
+        {averageRating} / 5 ({formatRatingCount(ratingsCount)})
+      </span>
+      {authors.length !== 0 ? (
+        <p className="card-authors">By: {authors.join(", ")}</p>
+      ) : null}
 
-          {/* <p className="card-authors">{categories.join(", ")}</p> */}
-          {publisher !== "" ? (
-            <p className="card-publisher">Published by: {publisher}</p>
-          ) : null}
+      {publisher !== "" ? (
+        <p className="card-publisher">Published by: {publisher}</p>
+      ) : null}
       {saleability === "FREE" ? <p>FREE BOOK</p> : null}
-			{categories.length !== 0 ? <p>Category: {categories}</p> : null}
-			{publishedDate !== "" ? <p>Published date: {readablePublishedDate}</p> : null}
-			<p id="modal-description">{description}</p>
-			<p>
-				{pageCount} pages, Language: {formattedLanguage}
-			</p>
-			<p>
-				<a href={previewLink} target="blank">
-					preview
-				</a>
-			</p>
-			<p>
-				<a href={infoLink} target="blank">
-					info
-				</a>
-			</p>
-			{retailPrice.amount ? (
-				<p>
-					<a href={buyLink} target="blank">
-						buy for {retailPrice.amount}
-						{retailPrice.currencyCode}
-					</a>
-				</p>
-			) : null}
+      {categories.length !== 0 ? <p>Category: {categories}</p> : null}
+      {publishedDate !== "" ? (
+        <p>Published date: {readablePublishedDate}</p>
+      ) : null}
+      <p id="modal-description">{description}</p>
+      <p>
+        {pageCount} pages, Language: {formattedLanguage}
+      </p>
+      <p>
+        <a href={previewLink} target="blank">
+          preview
+        </a>
+      </p>
+      <p>
+        <a href={infoLink} target="blank">
+          info
+        </a>
+      </p>
+      {retailPrice.amount ? (
+        <p>
+          <a href={buyLink} target="blank">
+            buy for {retailPrice.amount}
+            {retailPrice.currencyCode}
+          </a>
+        </p>
+      ) : null}
 
       <button onClick={() => toggleModal()}>close</button>
     </div>

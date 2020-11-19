@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useBookSearch(query, orderBy, pageNumber, setAreResultsLoading) {
+export default function useBookSearch(
+  query,
+  orderBy,
+  pageNumber,
+  setAreResultsLoading
+) {
   const noOfCardsPerPage = 40;
   const [error, setError] = useState("");
   const [books, setBooks] = useState([]);
@@ -45,7 +50,6 @@ export default function useBookSearch(query, orderBy, pageNumber, setAreResultsL
               if (res.data.items) {
                 return [...prevBooks, ...res.data.items];
               } else {
-                //If API isn't sending any books data
                 setIsLastPage(true);
                 return prevBooks;
               }
