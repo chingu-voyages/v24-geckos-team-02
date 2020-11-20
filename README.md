@@ -33,14 +33,16 @@ npm install
 npm start
 ```
 
-This should start the project in a new browser window. If you want to use the Google login, you'll need to [get a client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred) and an [API key](https://developers.google.com/books/docs/v1/using#APIKey). When making the client ID, set the origin and redirect URIs to match the app's URI (http://localhost:3000 by default). You'll need a `.env` file in the project's root directory, containing the following:
+This should start the project in a new browser window.
+
+If you want to call the Google Books API, or use the Google login, you'll need a `.env` file in the project's root directory, containing the following:
 
 ```
-REACT_APP_GOOGLE_CLIENT_ID=MY_CLIENT_ID
 REACT_APP_GOOGLE_BOOKS_API_KEY=MY_BOOKS_API_KEY
+REACT_APP_GOOGLE_CLIENT_ID=MY_CLIENT_ID
 ```
 
-Replace `MY_CLIENT_ID` with your client ID, and `MY_BOOKS_API_KEY` with your API key.
+Replace `MY_BOOKS_API_KEY` with your [API key](https://developers.google.com/books/docs/v1/using#APIKey), and `MY_CLIENT_ID` with your [client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred). When making the client ID, set the origin and redirect URIs to match the app's URI (http://localhost:3000 by default).
 
 ## Team
 
