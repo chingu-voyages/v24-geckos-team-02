@@ -6,19 +6,44 @@ BooksPlus is an App that customizes features using the Google Books Api that sea
 
 "Books Plus is a better Google Books."
 
-#### LIVE BETA LINK : https://booksplus-beta.netlify.app/
 #### LIVE MAIN LINK : https://booksplus-app.netlify.app/
 
-## Setup
+## Features
+- [X] Search books by name or author
+- [X] Infinite scroll
+- [X] Google Authentication
+- [X] Access Google user favorites feature
+- [X] Add or Remove favorites books 
+- [X] View more information on each book
+- [X] Responsive design for all devices
+- [X] UI/UX feedback & standards
+
+
+## Tech Stack
+- [React.js](https://reactjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Google Books API](https://developers.google.com/books/docs/overview)
+- [Netlify](https://www.netlify.com/)
+
+## Development
+
+#### Live preview of development branch : https://booksplus-beta.netlify.app/
+
+## Setup for local development
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm start
+```
 
 ### Files and folders needed to run on local machine
-```
-    .
-    ├── ...
-    ├── src                   # Source folder [src]
-    │   ├── .env              # Environment variables file
-    └── ...
-```
+
+The `.env` file needs to placed in the root directory
 
 ### Add the following code to your `.env` file:
 
@@ -35,32 +60,6 @@ REACT_APP_GOOGLE_CLIENT_ID="<<MY_CLIENT_ID>>"
 
 ### Install dependencies
 
-```bash
-npm install
-```
-
-### Start Development Server
-
-```bash
-npm start
-```
-
-## Features
-- [X] Landing page
-- [X] UI/UX feedback & standards
-- [X] Controlled Output
-- [X] Google Authentication
-- [X] Access Google user favorites feature
-- [X] Add or Remove favorites books 
-- [X] View more information on each book
-- [X] Responsive design for all devices
-
-## Tech Stack
-- [React.js](https://reactjs.org/)
-- [Sass](https://sass-lang.com/)
-- [Google Books API](https://developers.google.com/books/docs/overview)
-- [Netlify](https://www.netlify.com/)
-
 ## Dependencies
 This is a React App boostrapped with CRA
 1. [react](https://www.npmjs.com/package/react)
@@ -73,13 +72,13 @@ This is a React App boostrapped with CRA
 ## Contributors
 ### Product Owner
 - [jdmedlock](https://github.com/jdmedlock)
-### Team Members 
-##### (In no particular order)
-- [willnwhite](https://github.com/willnwhite)
+### Developers 
 - [ArunJose](https://github.com/ArunJose)
 - [Guitarhub786](https://github.com/Guitarhub786)
-- [snrelghgub](https://github.com/snrelghgub)
 - [mokokom](https://github.com/mokokom)
+- [snrelghgub](https://github.com/snrelghgub)
+- [willnwhite](https://github.com/willnwhite)
+
 
 ## License
 
