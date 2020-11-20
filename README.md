@@ -2,83 +2,55 @@
 
 ## Overview
 
-BooksPlus is an App that customizes features using the Google Books Api that searches the full text of books and magazines that Google has scanned. 
+Books Plus is a [Chingu](https://chingu.io) team project. Our vision statement of "Books Plus is a better Google Books" gave us scope to replicate features of the [Google Books](https://books.google.com) web app, and to add some of our own. The project is live at https://booksplus-app.netlify.app/.
 
-"Books Plus is a better Google Books."
+## App features
 
-#### LIVE MAIN LINK : https://booksplus-app.netlify.app/
+- Full-text search of books
+- Search autocomplete based on your search history
+- Infinite scroll of the search results
+- Sort the results by relevancy or recency
+- Get detailed information about each book
+- Save your favorite books with Google
+- Responsive design, so the app can be used with any screen size
 
-## Features
-- [X] Search books by name or author
-- [X] Infinite scroll
-- [X] Google Authentication
-- [X] Access Google user favorites feature
-- [X] Add or Remove favorites books 
-- [X] View more information on each book
-- [X] Responsive design for all devices
-- [X] UI/UX feedback & standards
+In addition, the app has a logo, a style, and the UI reaches WCAG standard.
 
+## Tech stack
 
-## Tech Stack
-- [React.js](https://reactjs.org/)
+- [Create React App](https://create-react-app.dev)
 - [Sass](https://sass-lang.com/)
-- [Google Books API](https://developers.google.com/books/docs/overview)
 - [Netlify](https://www.netlify.com/)
 
-## Development
+Books Plus uses the [Google Books API](https://developers.google.com/books).
 
-#### Live preview of development branch : https://booksplus-beta.netlify.app/
+## Running the app on your computer
 
-## Setup for local development
+You'll need [npm](https://www.npmjs.com/get-npm) to install the project's dependencies. Then run:
 
 ```bash
 npm install
-```
-
-### Start Development Server
-
-```bash
 npm start
 ```
 
-### Files and folders needed to run on local machine
+This should start the project in a new browser window. If you want to use the Google login, you'll need to [get a client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred) and an [API key](https://developers.google.com/books/docs/v1/using#APIKey). When making the client ID, set the origin and redirect URIs to match the app's URI (http://localhost:3000 by default). You'll need a `.env` file in the project's root directory, containing the following:
 
-The `.env` file needs to placed in the root directory
-
-### Add the following code to your `.env` file:
-
-```js
-// Add your own API keys here
-
-REACT_APP_GOOGLE_BOOKS_API_KEY="<<MY_BOOKS_API_KEY>>"
-REACT_APP_GOOGLE_CLIENT_ID="<<MY_CLIENT_ID>>"
+```
+REACT_APP_GOOGLE_CLIENT_ID=MY_CLIENT_ID
+REACT_APP_GOOGLE_BOOKS_API_KEY=MY_BOOKS_API_KEY
 ```
 
-## Documentation to obtain API keys
-#### [Google Books API](https://developers.google.com/books/docs/overview)
-#### [Google Client ID](https://medium.com/better-programming/log-in-with-the-google-oauth-demo-app-9e7d0e801c29)
+Replace `MY_CLIENT_ID` with your client ID, and `MY_BOOKS_API_KEY` with your API key.
 
-### Install dependencies
+## Team
 
-## Dependencies
-This is a React App boostrapped with CRA
-1. [react](https://www.npmjs.com/package/react)
-2. [create-react-app](https://www.npmjs.com/package/create-react-app)
-3. [react-google-login](https://www.npmjs.com/package/react-google-login)
-4. [node-sass](https://www.npmjs.com/package/node-sass)
-5. [axios](https://www.npmjs.com/search?q=axios)
-6. [notistack](https://www.npmjs.com/package/notistack)
+The product owner is [jdmedlock](https://github.com/jdmedlock). The developers are:
 
-## Contributors
-### Product Owner
-- [jdmedlock](https://github.com/jdmedlock)
-### Developers 
 - [ArunJose](https://github.com/ArunJose)
 - [Guitarhub786](https://github.com/Guitarhub786)
 - [mokokom](https://github.com/mokokom)
 - [snrelghgub](https://github.com/snrelghgub)
 - [willnwhite](https://github.com/willnwhite)
-
 
 ## License
 
