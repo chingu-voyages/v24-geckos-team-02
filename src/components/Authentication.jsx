@@ -7,7 +7,7 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   const { enqueueSnackbar } = useSnackbar();
   const loginFailure = (response) => {
     if (response.error === "idpiframe_initialization_failed") {
-      enqueueSnackbar("You need to have 3rd party cookies enabled for login!", {
+      enqueueSnackbar("You need to have cookies enabled for login!", {
         variant: "error",
       });
     } else if (response.error === "popup_closed_by_user") {
@@ -45,16 +45,19 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
   return (
     <Fragment>
       {name ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p style={{ paddingRight: "8px" }}>{name}</p>
+        <div className="logout-section">
+          <small className="username">({name})</small>
           <GoogleLogout
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            render={(renderProps) => (
+              <div
+                className="auth-link"
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                Logout
+              </div>
+            )}
             buttonText="Logout"
             onLogoutSuccess={logoutSuccess}
           />
@@ -62,11 +65,26 @@ const Authentication = ({ accessTokenExpiresAt, setAccessToken }) => {
       ) : (
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Login"
           onSuccess={loginSuccess}
           onFailure={loginFailure}
           cookiePolicy={"single_host_origin"}
           scope="https://www.googleapis.com/auth/books"
+          render={(renderProps) => (
+            <div
+              className="auth-link"
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              {" "}
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="google-logo"
+                height="15px"
+                className="google-logo"
+              />
+              Login
+            </div>
+          )}
         />
       )}
     </Fragment>

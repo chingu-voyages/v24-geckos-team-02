@@ -49,7 +49,9 @@ export default function Favorites({ accessToken }) {
           <div className="favorites-message">
             Please login to see your favorites
           </div>
-        ): <div></div>}
+        ) : (
+          <div></div>
+        )}
       </div>
       {accessToken.value ? (
         <CardList
