@@ -49,7 +49,7 @@ This should start the project in a new browser window.
 
 ## Team
 
-The product owner is [jdmedlock](https://github.com/jdmedlock). The developers are:
+The product owner is [jdmedlock](https://github.com/jdmedlock). The developers are, in alphabetical order:
 
 - [ArunJose](https://github.com/ArunJose)
 - [Guitarhub786](https://github.com/Guitarhub786)
