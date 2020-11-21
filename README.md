@@ -2,7 +2,9 @@
 
 ## Overview
 
-Books Plus is a [Chingu](https://chingu.io) team project. Our vision statement of "Books Plus is a better Google Books" gave us scope to replicate features of the [Google Books](https://books.google.com) web app, and to add some of our own. The project is live at https://booksplus-app.netlify.app/.
+Books Plus is a [Chingu](https://chingu.io) team project. Our vision statement of "Books Plus is a better Google Books" gave us scope to replicate features of the [Google Books](https://books.google.com) web app, and to add some of our own. 
+
+**Open [Books Plus](https://booksplus-app.netlify.app/)** 
 
 ## App features
 
