@@ -1,5 +1,7 @@
 # Books Plus
 
+![](https://github.com/chingu-voyages/v24-geckos-team-02/raw/feature/readme/BooksPlus.gif)
+
 ## Overview
 
 Books Plus is a [Chingu](https://chingu.io) team project. Our vision statement of "Books Plus is a better Google Books" gave us scope to replicate features of the [Google Books](https://books.google.com) web app, and to add some of our own. 
