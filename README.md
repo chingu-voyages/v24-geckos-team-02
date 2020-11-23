@@ -30,25 +30,25 @@ Books Plus uses the [Google Books API](https://developers.google.com/books).
 
 ## Setting up for development
 
-1. Depending on what you're developing, you may or may not want the app to call the Google Books API, which requires an [API key](https://developers.google.com/books/docs/v1/using#APIKey), or to use the Google login, which requires a [client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred). When making the client ID, set the origin URI to match the app's URI (http://localhost:3000 by default).
-1. You'll need [npm](https://www.npmjs.com/get-npm) to install the project's dependencies. 
-1. Clone this repository. 
-1. If you have an API key and/or a client ID, they belong in a `.env` file in the project's root directory, which has this format:
+You'll need [npm](https://www.npmjs.com/get-npm) to install the project's dependencies.
 
+1. Create an [API key](https://developers.google.com/books/docs/v1/using#APIKey) for accessing Google Books API and [OAuth Client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow#creatingcred) for using Google login. When making the client ID, set the origin URI to match the app's URI (http://localhost:3000 by default).
+2. Clone this repository. 
+3. Now run: 
+```bash
+npm install
+```
+4. Create a .env file in the project's root directory, which has this format.
 ```
 REACT_APP_GOOGLE_BOOKS_API_KEY=MY_BOOKS_API_KEY
 REACT_APP_GOOGLE_CLIENT_ID=MY_CLIENT_ID
 ```
+Replace `MY_BOOKS_API_KEY` with your API key, and `MY_CLIENT_ID` with your OAuth Client ID.
 
-Replace `MY_BOOKS_API_KEY` with your API key, and `MY_CLIENT_ID` with your client ID.
-
-5. Now run:
-
+5.  Now run: 
 ```bash
-npm install
 npm start
 ```
-
 This should start the project in a new browser window.
 
 ## Team
