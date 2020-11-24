@@ -13,6 +13,7 @@ export default function useBookSearch(
   const [isLastPage, setIsLastPage] = useState(false);
   const [queryHistory, setQueryHistory] = useState([]);
 
+
   useEffect(() => {
     if (query === undefined) {
       setError(""); //Display no error on first page load

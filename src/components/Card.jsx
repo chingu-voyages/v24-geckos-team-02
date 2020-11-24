@@ -105,8 +105,8 @@ export default function Card({
               alt="cover thumbnail"
             />
           ) : (
-            <div className="empty-image"></div>
-          )}
+              <div className="empty-image"></div>
+            )}
         </div>
         <div className="card-right">
           <h2 className="card-title">{title}</h2>
@@ -138,17 +138,17 @@ export default function Card({
                 <MdFavorite className="favorite-icon" />
               </button>
             ) : (
-              <button
-                title="Remove from favorites"
-                className="card-btn"
-                id="delete-btn"
-                onClick={() => handleRemoveFavorite(id)}
-              >
-                <span role="img" aria-label="unfavorite">
-                  <MdDelete className="delete-icon" />
-                </span>
-              </button>
-            )}
+                <button
+                  title="Remove from favorites"
+                  className="card-btn"
+                  id="delete-btn"
+                  onClick={() => handleRemoveFavorite(id)}
+                >
+                  <span role="img" aria-label="unfavorite">
+                    <MdDelete className="delete-icon" />
+                  </span>
+                </button>
+              )}
           </div>
         </div>
       </div>
