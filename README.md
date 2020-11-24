@@ -1,6 +1,6 @@
 # Books Plus
 
-![](https://github.com/chingu-voyages/v24-geckos-team-02/raw/feature/readme/BooksPlus.gif)
+[![App demo](https://github.com/chingu-voyages/v24-geckos-team-02/raw/feature/readme/BooksPlus.gif)](https://booksplus-app.netlify.app "Click to open Books Plus")
 
 ## Overview
 
